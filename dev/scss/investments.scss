@@ -1,0 +1,482 @@
+@import "_all-page.scss";
+
+#header {
+    width : 100%;
+}
+
+#main {
+    width : 100%;
+    .business_investment {
+        height : calc(100vh - 118px);
+        background: url(../img/investments/main/banner.png) no-repeat;
+        background-size: cover;
+        position : relative;
+        .container {
+            position: relative;
+            z-index : 0;
+            padding-top : $a60;
+            padding-bottom : $a90;
+            h1 {
+                position: relative;
+                z-index : 0;
+                white-space: pre-line;
+                font-size : $a48;
+                font-family: 'CirceExtraBold';
+                text-transform : uppercase;
+                line-height : $a70;
+            }
+            p {
+                padding-top : $a30;
+                line-height : $a36;
+                font-family: 'CirceRegular';
+            }
+            .button {
+                margin-top : $a40;
+            }
+            .abs_img {
+                z-index : 1;
+                top : $a90;
+                left : $a610;
+                position: absolute;
+                img {
+                    width : $a550;
+                }
+            }
+        }
+        .abs {
+            background-color: rgba(250, 164, 17, .2);
+            width: $a97;
+            height: $a97;
+            top: $a370;
+        }
+        .abs1 {
+            top: $a125;
+            left: $a165;
+            background-color: rgba(255, 255, 255, .2);
+            width: $a43;
+            height: $a43;
+        }
+        .abs2 {
+            top: $a145;
+            left: $a185;
+            background-color: rgba(255, 255, 255, .2);
+            width: $a97;
+            height: $a97;
+        }
+        .abs3 {
+            z-index : 0;
+            top: 0;
+            left: $a540;
+            background-color: rgba(255, 255, 255, .2);
+            width: $a133;
+            height: $a100;
+        }
+        .abs4 {
+            z-index : 0;
+            top: $a100;
+            right: $a333;
+            background-color: rgba(241, 163, 28, .11);
+            width: $a141;
+            height: $a141;
+        }
+        .abs5 {
+            right : $a280;
+            bottom: $a100;
+            background-color: rgba(255, 255, 255, .2);
+            width: $a211;
+            height: $a45;
+        }
+    }
+    .price_block {
+        position: relative;
+        width : 100%;
+        .abs {
+            left : 0;
+            top : 0;
+            background-color: rgba(0, 0, 0, .102);
+            width: $a66;
+            height: $a105;
+        }
+        .abs1 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a179;
+            height: $a179;
+            top: $a95;
+            left: $a165;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            padding-top: $a62;
+            align-items: center;
+            padding-bottom : $a120;
+            h2 {
+                text-transform: uppercase;
+                text-align: center;
+                font-family: 'CirceBold';
+                line-height: $a36;
+                font-size: $a46;
+                white-space: pre-line;
+            }
+            p {
+                text-align: center;
+                font-family: 'CirceBold';
+                font-size: $a28;
+                margin-top : $a5;
+            }
+            .content {
+                margin-top : $a70;
+                width : 100%;
+                display: flex;
+                justify-content : space-around;
+                .descr_block {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width : (100%/3);
+                    img {
+                        width : $a125;
+                    }
+                    p {
+                        padding-top : $a25;
+                        font-size : $a29;
+                        font-family: 'CirceExtraBold';
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+    .condition {
+        position: relative;
+        background: url(../img/investments/main/condition.png) no-repeat;
+        background-color: rgb(241, 163, 28);
+        background-size: 100%;
+        .abs {
+            background-color: rgba(255, 255, 255, .149);
+            width: $a179;
+            height: $a130;
+            right : $a120;
+            z-index : 1;
+        }
+        .abs1 {
+            background-color: rgba(255, 255, 255, .149);
+            width: $a78;
+            height: $a78;
+            right : $a80;
+            z-index : 0;
+            top : $a95;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding-top : $a70;
+            padding-bottom : $a85;
+            .vh {
+                margin-top : $a30;
+                p {
+                    padding-bottom : $a50;
+                    font-family: 'CirceExtraBold';
+                    line-height : $a36;
+                    color: #fff;
+                }
+                .exclamation_mark {
+                    display: flex;
+                    margin-right : -$a70;
+                    span {
+                        display: flex;
+                        justify-content : center;
+                        align-items: center;
+                        width: $a63;
+                        height: $a63;
+                        background-color: rgb(255, 255, 255);
+                        font-family: 'CirceExtraBold';
+                        font-size : $a48;
+                        color: $osn-col;
+                        margin-right : $a20;
+                    }
+                    p {
+                        padding-bottom : 0;
+                    }
+                }
+            }
+        }
+    }
+    .investment_application {
+        position : relative;
+        .abs {
+            background-color: rgba(0, 0, 0, .102);
+            width : $a75;
+            height : $a32;
+            left : $a198;
+            top : 0;
+        }
+        .abs1 {
+            background-color: rgba(0, 0, 0, 0.059);
+            width : $a37;
+            height : $a37;
+            left : $a250;
+            top : $a10;
+        }
+        .container {
+            position: relative;
+            z-index : 0;
+            padding-bottom : $a95;
+            display: flex;
+            justify-content : space-between;
+            padding-top : $a75;
+            .description {
+                p {
+                    font-family: 'CirceRegular';
+                    line-height : $a36;
+                }
+            }
+            .submit_application {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content : center;
+                img {
+                    width : $a506;
+                    position: absolute;
+                    z-index : 0;
+                }
+                .arrow {
+                    width : $a85;
+                    position: absolute;
+                    bottom : -$a10;
+                    left : -$a120;
+                }
+                .button {
+                    z-index : 1;
+                    &:hover {
+                        background: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.popup_form {
+    padding-top : $a130;
+    width : 100%;
+    height : 100%;
+    position: fixed;
+    top : 0;
+    left : 0;
+    background: rgba(0, 0, 0, .5);
+    .wrapper {
+        position : relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: $a33 $a30;
+        width : $a670;
+        z-index : 13;
+        margin : 0 auto;
+        border-radius: $a10;
+        background-color: rgb(234, 234, 234);
+        .close {
+            content: '';
+            position: absolute;
+            top: .83333vw;
+            right: 1.25vw;
+            width: 1.30208vw;
+            height: 1.30208vw;
+            transform: rotate(45deg);
+            background: linear-gradient(0deg, #b7bbb9, #b7bbb9) no-repeat center center/100% 4px,linear-gradient(0deg, #b7bbb9, #b7bbb9) no-repeat center center/4px 100%;
+            cursor: pointer;
+        }
+        .logo {
+            margin-bottom : $a36;
+            img {
+                width : $a224;
+            }
+        }
+        .form {
+            align-items : flex-end;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content : space-between;
+            width : 100%;
+            label {
+                display: flex;
+                flex-direction: column;
+                input {
+                    padding : $a25;
+                    border-style: solid;
+                    border-width: 2px;
+                    border-color: rgb(230, 230, 230);
+                    border-radius: $a6;
+                    background-color: rgb(255, 255, 255);
+                    width: $a300;
+                    margin-bottom : $a10;
+                    font-size : $a12;
+                }
+                input::-webkit-input-placeholder {
+                    color: transparent;
+                }
+                span {
+                    padding-left : $a3;
+                    white-space: pre-line;
+                    margin-bottom : $a5;
+                    font-family: 'CirceBold';
+                    font-size : $a18;
+                }
+            }
+            .button {
+                width: $a300 !important;
+                margin-bottom : $a10;
+            }
+        }
+        .text {
+            width : 100%;
+            display: flex;
+            justify-content : space-between;
+            p {
+                font-size : $a14;
+                font-family: 'CirceRegular';
+                line-height : $a18;
+                color: #a5a5a5;
+                text-align: center;
+                width : 50%;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1023px) {
+    #main {
+        .business_investment {
+            height: auto;
+            .container {
+                h1 {
+                    font-size : $m25 !important;
+                }
+                .button {
+                    font-size : $m10;
+                }
+                .abs_img {
+                    right : 0;
+                    display: flex;
+                    align-items : flex-end;
+                    bottom : 0;
+                    justify-content: flex-end;
+                }
+            }
+        }
+        .price_block {
+            .container {
+                padding-bottom : 0;
+                p {
+                    margin-bottom : $m20;
+                    text-align: left !important;
+                    padding-left : $m8;
+                }
+                .content {
+                    margin : 0;
+                    flex-direction: column;
+                    .descr_block {
+                        margin-bottom : $m10;
+                        width : 100%;
+                        flex-direction: row;
+                        p {
+                            font-size : $m11 !important;
+                            padding : 0 !important;
+                            margin: 0 !important;
+                            white-space: normal !important;
+                        }
+                        img {
+                            width : 12%;
+                            margin-right : $m10;
+                        }
+                    }
+                }
+            }
+        }
+        .condition {
+            background: #f1a31c;
+            .container {
+                .vh {
+                    .exclamation_mark {
+                        span {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        .investment_application {
+            .container {
+                padding-bottom : $m40;
+                flex-direction: column;
+                .submit_application {
+                    margin-top : $m20;
+                    .arrow {
+                        display: none;
+                    }
+                    img {
+                        width : 60%;
+                    }
+                }
+            }
+        }
+    }
+    .popup_form {
+        z-index : 105;
+        .wrapper {
+            padding-top : $m10;
+            width : 95%;
+            .close {
+                width : $m14;
+                height : $m14;
+            }
+            .logo {
+                img {
+                    width : 90%;
+                }
+            }
+            .form {
+                flex-direction: column;
+                align-items: center;
+                label {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width : 100%;
+                    &:nth-child(odd) {
+                        order: -1;
+                    }
+                    input {
+                        margin: $m5 0;
+                        padding : $m15;
+                        width : 90%;
+                        font-size: $m12;
+                    }
+                    input::-webkit-input-placeholder {
+                        color: gray;
+                    }
+                    span {
+                        display: none;
+                    }
+                }
+                .button {
+                    margin-bottom : $m10;
+                    width : 90% !important;
+                }
+            }
+            .text {
+                flex-direction: column;
+                p {
+                    width : 100%;
+                    font-size : $m12;
+                    padding-left : $m15;
+                }
+            }
+        }
+    }
+}

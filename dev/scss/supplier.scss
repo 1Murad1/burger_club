@@ -1,0 +1,284 @@
+@import "_all-page.scss";
+
+.header_nav {
+    position: relative;
+    z-index : 2;
+}
+
+#main {
+    .reliable_supplier {
+        height : calc(100vh - #{$a153});
+        background: linear-gradient( 55deg, rgb(204,133,9) 0%, rgb(242,175,58) 100%);
+        width : 100%;
+        position: relative;
+        overflow: hidden;
+        .abs1 {
+            width : $a97;
+            height : $a97;
+            background-color: rgba(250, 164, 17, .2);
+            bottom : $a143;
+            left : 0;
+        }
+        .abs2 {
+            height : $a31;
+            width : $a31;
+            background-color: rgba(255, 255, 255, .102);
+            top : $a127;
+            left : $a267;
+        }
+        .abs3 {
+            height : $a38;
+            width : $a38;
+            background-color: rgba(255, 255, 255, .102);
+            top : $a147;
+            left : $a286;
+        }
+        .abs4 {
+            height : $a97;
+            width : $a97;
+            background-color: rgba(255, 255, 255, .2);
+            bottom : $a96;
+            right  :$a23;
+        }
+        .abs5 {
+            height : $a43;
+            width : $a43;
+            background-color: rgba(255, 255, 255, .2);
+            bottom : $a171;
+            right  :$a98;
+        }
+        .abs6 {
+            background-color: rgb(241, 163, 28);
+            right : $a333;
+            top : $a220;
+            width: $a141;
+            height: $a141;
+        }
+        .abs7 {
+            height : $a211;
+            width : $a211;
+            background-color: rgba(255, 255, 255, .2);
+            top  : $a295;
+            right  :$a475;
+        }
+        .img_box1 {
+            left : 0;
+            z-index : 1;
+            top : -$a30;
+            img {
+                width : $a160;
+            }
+        }
+        .img_box2 {
+            left : $a770;
+            top : $a170;
+            img {
+                width : $a220;
+            }
+        }
+        .img_box3 {
+            right : 0;
+            top : $a70;
+            img {
+                width : $a250;
+            }
+        }
+        .img_box4 {
+            right : $a230;
+            bottom : -$a5;
+            img {
+                width : $a480;
+            }
+        }
+        .img_box5 {
+            bottom : 0;
+            left : 0;
+            img {
+                width : $a320;
+            }
+        }
+        .container {
+            padding-bottom : $a78;
+            padding-top : $a72;
+            position: relative;
+            z-index : 1;
+            h1 {
+                font-family: 'CirceExtraBold';
+                font-size : $a60;
+                line-height : $a65;
+                color: #fff;
+            }
+            p {
+                font-family: 'CirceRegular';
+                line-height : $a36;
+                color: #fff;
+                padding-top : $a38;
+            }
+            .button {
+                margin-top : $a50;
+                padding: 0 $a53;
+            }
+        }
+    }
+    .block_products {
+        position: relative;
+        .arrow {
+            position: absolute;
+            top : $a52;
+            left : $a970;
+            transform: rotate(180deg);
+            img {
+                width : $a86;
+            }
+        }
+        .abs1 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a135;
+            height: $a179;
+            top : $a75;
+            left : 0;
+        }
+        .abs2 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a75;
+            height: $a75;
+            top : $a34;
+            left : $a87;
+        }
+        .abs3 {
+            background-color: rgba(0, 0, 0, .102);
+            width: $a234;
+            height: $a89;
+            top : 0;
+            right : $a99;
+        }
+        .abs4 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a125;
+            height: $a179;
+            right : 0;
+            bottom : $a50;
+        }
+        .abs5 {
+            background-color: rgba(0, 0, 0, .102);
+            width: $a75;
+            height: $a75;
+            left : $a237;
+            bottom : -$a10;
+        }
+        .abs6 {
+            background-color: rgba(0, 0, 0, .059);
+            width : $a37;
+            height : $a37;
+            left : $a287;
+            bottom : -$a24;
+        }
+
+        .container {
+            padding-bottom : $a107;
+            display: flex;
+            justify-content : space-between;
+            padding-top : $a109;
+            .products {
+                .item {
+                    margin-bottom : $a10;
+                    display: flex;
+                    align-items: center;
+                    &:nth-child(2n) .box {
+                        background: $osn-col;
+                    }
+                    .box {
+                        width: $a70;
+                        height: $a70;
+                        border-radius: $a8;
+                        box-shadow: 0 $a6 $a54 0 rgba(0, 0, 0, 0.12);
+                        img {
+                            width : $a48;
+                        }
+                    }
+                    p {
+                        font-family: 'CirceExtraBold';
+                        font-size : $a24;
+                    }
+                }
+            }
+            .interests {
+                h2 {
+                    white-space: pre-line;
+                    font-family: 'CirceExtraBold';
+                    font-size : $a24;
+                    text-transform : uppercase;
+                }
+                p {
+                    font-size : $a18;
+                    line-height : $a30;
+                    font-family: 'CirceRegular';
+                    margin: $a20 0 $a30 0;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1023px) {
+    #main {
+        .reliable_supplier {
+            height: 100%;
+            .img_box4 {
+                img {
+                    width : $m50;
+                }
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                h1 {
+                    font-size : $m24!important;
+                    line-height: $m25 !important;
+                }
+                p {
+                    padding : 0 !important;
+                    
+                }
+                .button {
+                        margin-top: $m20;
+                }
+            }
+        }
+        .block_products {
+            .arrow {
+                display: none;
+            }
+            .container {
+                flex-direction: column;
+                .products {
+                    .item {
+                            margin-bottom: $m10;
+                        .box {
+                            margin-right : $m15;
+                            width : $m30;
+                            height : $m30;
+                            img {
+                                width : 80%;
+                            }
+                        }
+                    }
+                }
+                .interests {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    p {
+                        padding : 0 !important;
+                        margin: 0 !important;
+                    }
+                    .button {
+                        margin-top : $m10;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery area</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/delivery_area.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/fonts.css" />
+</head>
+<body>
+    <div id="holder">
+        //= include/header.html
+        <main id="main">
+            <div class="new_block">
+                <div class="container">
+                    <div class="item">
+                        <img class="w1" src="img/delivery_area/car.png" alt="car" />
+                        <h3>Бесплатная доставка</h3>
+                        <p>Минимальный заказ от 200 грн</p>
+                    </div>
+                    <div class="item">
+                        <img class="w2" src="img/delivery_area/timer.png" alt="car" />
+                        <h3>Привезем до 60 минут</h3>
+                        <p>Или бургер для вас в подарок</p>
+                    </div>
+                    <div class="item">
+                        <img class="w3" src="img/delivery_area/burgers.png" alt="car" />
+                        <h3>Пн-вс: с 11:00 до 22:30</h3>
+                        <p>Каждый день без выходных</p>
+                    </div>
+                </div>
+                <div class="background">
+                    <div class="container">
+                        <div class="wrapper">
+                            <div class="border">
+                                <img src="img/delivery_area/money.png" alt="money" />
+                            </div>
+                            <p class="br">Оплата наличными курьеру</p>
+                        </div>
+                        <p id="br"><em>или</em></p>
+                        <div class="wrapper">
+                            <div class="border">
+                                <img src="img/delivery_area/payment.png" alt="money" />
+                            </div>
+                            <p class="br">Банковской картой курьеру</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="delivery_area">
+                <div class="abs1" data-parallax='{"y": -40}'></div>
+                <div class="abs2" data-parallax='{"x": -40}'></div>
+                <div class="abs3" data-parallax='{"x": 40}'></div>
+                <div class="abs4" data-parallax='{"y": 40}'></div>
+                <div class="abs5" data-parallax='{"y": -40}'></div>
+                <div class="abs6" data-parallax='{"y": 40}'></div>
+                <div class="abs7" data-parallax='{"x": -40}'></div>
+                <div class="abs8" data-parallax='{"y": -40}'></div>
+                <div class="container">
+                    <div class="burger">
+                        <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                    </div>
+                    <h1>Зона доставки</h1>
+                    <div class="wrapper">
+                        <div class="left wow fadeInLeft">
+                            <div class="box">
+                                <img src="img/svg/delivery_area/house.svg" alt="house" />
+                            </div>
+                            <p>Введите ваш адрес, чтобы точно
+                                проверить, входит ли он в зону доставки</p>
+                        </div>
+                        <form class="form wow fadeInRight">
+                            <input type="text" placeholder="Проверка адреса" name="search" />
+                            <button type="submit"><img src="img/svg/delivery_area/magnifying.svg" alt="search" /></button>
+                        </form>
+                    </div>
+                    <div class="map">
+                        <div id="map">
+                            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=16ZobHuv5XIAMtOQtL5o78Rvdk-PJrW14" width="100%" height="100%"></iframe>
+                        </div>
+                        <div class="right_block wow bounceIn">
+                            <p>Небольшая зона доставки обусловлена тем, чтобы вы
+                                получали свежие теплые блюда и как можно быстрее.
+                                Зеленым цветом - актуальная зона доставки на сегодня.</p>
+                            <p>Каждый день мы работаем над тем, чтобы открывать
+                                новые рестораны в других районах и расширять нашу зону
+                                доставки. Если ваш адрес на данный момент не входит в
+                                эту зону, не расстраивайтесь и приезжайте в гости в один
+                                из наших ресторанов Юджин Бургер :)</p>
+                            <a class="button" href="#">Заказать доставку</a>
+                            <img class="motorcykle" src="img/delivery_area/motorcycle.png" alt="moped" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        //= include/footer.html
+    </div>
+</body>
+</html>

@@ -1,0 +1,215 @@
+@import "_all-page.scss";
+
+$onePercentScreenSize: 19.2;
+$onePercentScreenSizeMobile: 3.2;
+
+@function vw ($px) {
+  @return $px / $onePercentScreenSize + vw
+}
+
+@function vw_m ($px) {
+  @return $px / $onePercentScreenSizeMobile + vw
+}
+.color {
+  color: #FFA400;
+}
+.container {
+  h2 {
+    font-family: 'CirceBold';
+    font-size : vw(48);
+    line-height : vw(54);
+    white-space: pre-line;
+    color: black;
+    text-transform : uppercase;
+    text-align: center;
+    margin-bottom : vw(48);
+  }
+  h3 {
+    font-family: 'CirceExtraBold';
+    font-size : vw(30);
+    line-height : vw(36);
+
+    white-space: pre-line;
+    color: #000;
+    text-transform : initial;
+  }
+  h4 {
+    font-family: 'CirceExtraBold';
+    white-space: pre-line;
+    text-transform : uppercase;
+    font-size: vw(28);
+    line-height: vw(36);
+    color: #FFA400;
+  }
+}
+
+#main {
+  .block_congratulations {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: url("../img/congratulations/banner_bg.png");
+    .container {
+      padding-top: vw(60);
+      display: flex;
+      justify-content: space-between;
+      .left_block {
+        position: relative;
+        img {
+          width: vw(562);
+        }
+        .description_banner {
+          z-index: 10;
+          position: absolute;
+          bottom: vw(-37);
+          left: vw(113);
+          background: #FFFFFF;
+          width: vw(370);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: vw(80);
+          box-shadow: 7px 10px 30px rgba(0, 0, 0, 0.1);
+          border-radius: vw(6);
+          p {
+            font-size: vw(18);
+            line-height: vw(20);
+          }
+        }
+      }
+      .right_block {
+        h4 {
+          margin-bottom: vw(16);
+        }
+        p {
+          font-size: vw(18);
+          margin-bottom: vw(25);
+          line-height: vw(30);
+          color: #FFFFFF;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        .button {
+          font-family: 'CirceRegular';
+          color: #000 !important;
+          &:hover {
+            color: #fff !important;
+          }
+        }
+      }
+    }
+  }
+  .yut_c {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    .wrapper_page {
+      background: #F2F2F2;
+      height: vw(480);
+      display: flex;
+      align-items: center;
+      width: vw(1330);
+      .container {
+        display: flex;
+        align-items: center;
+        left: vw(372);
+        justify-content: space-between;
+        position: absolute;
+        p {
+          font-size: vw(24);
+          line-height: vw(36);
+        }
+        .video {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          filter: drop-shadow(15px 20px 70px rgba(0, 0, 0, 0.2));
+          .video_banner {
+
+            width: vw(570) ;
+
+          }
+          .play {
+            width: vw(40);
+            height: vw(40);
+            background: #FFFFFF;
+            box-shadow: 10px 12px 4px rgba(255, 164, 0, 0.3);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            img {
+              width: vw(14);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  #main {
+    .block_congratulations {
+      .container {
+        flex-direction: column;
+        .left_block {
+          img {
+            width: 100%;
+          }
+          .description_banner {
+            width: 100%;
+            height: auto;
+            padding: vw_m(10) 0;
+            left: auto;
+            bottom: 0;
+            position: relative;
+            h3 {
+              padding-bottom: vw_m(5) !important;
+              line-height: vw_m(25);
+            }
+            p {
+              padding-right: 0 !important;
+            }
+          }
+        }
+        .right_block {
+          .button {
+            font-size: vw_m(14);
+            margin: vw_m(15) auto;
+
+          }
+        }
+      }
+    }
+    .yut_c {
+      .wrapper_page {
+        width: 100% ;
+        height: auto;
+        .container {
+          position: relative;
+          padding-top: vw_m(15);
+          padding-bottom: vw_m(15);
+          left: auto;
+          flex-direction: column-reverse;
+          .video {
+            margin-bottom: vw_m(15);
+            .video_banner {
+              width: 100%;
+            }
+            .play {
+              width: vw_m(40);
+              height: vw_m(40);
+              .arrow_play {
+                width: vw_m(12);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

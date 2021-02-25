@@ -1,0 +1,887 @@
+@import "_all-page.scss";
+
+.container {
+    h2 {
+        font-family: 'CirceBold';
+        font-size : $a48;
+        line-height : $a54;
+        white-space: pre-line;
+        color: black;
+        text-transform : uppercase;
+        text-align: center;
+        margin-bottom : $a48;
+    }
+}
+
+
+#main {
+    .about_us {
+        position: relative;
+        background: linear-gradient( 55deg, rgb(204,133,9) 0%, rgb(242,175,58) 100%);
+        .abs1 {
+            background-color: rgba(250, 164, 17, .2);
+            width: $a97;
+            left : 0;
+            height: $a97;
+            bottom : $a44;
+        }
+        .abs2 {
+            background-color: rgba(255, 255, 255, .102);
+            width: $a31;
+            height: $a31;
+            left : $a267;
+            top : $a127;
+        }
+        .abs3 {
+            background-color: rgba(255, 255, 255, .102);
+            width: $a38;
+            height: $a38;
+            left : $a286;
+            top : $a146;
+        }
+        .abs4 {
+            background-color: rgba(255, 255, 255, .2);
+            width: $a97;
+            height: $a97;
+            bottom : 0;
+            right : $a23;
+        }
+        .abs5 {
+            background-color: rgba(255, 255, 255, .2);
+            width: $a43;
+            height: $a43;
+            right : $a98;
+            bottom : $a73;
+        }
+        .abs6 {
+            background-color: rgba(255, 255, 255, .2);
+            width: $a211;
+            height: $a211;
+            right : $a474;
+            bottom : $a142;
+        }
+        .img_abs1 {
+            display: flex;
+            align-items: flex-end;
+            position: absolute;
+            left : 0;
+            bottom : 0;
+            height : $a500;
+            img {
+                height : 100%;
+                width : $a320;
+            }
+        }
+        .img_abs2 {
+            display: flex;
+            align-items : flex-end;
+            position: absolute;
+            right : $a290;
+            bottom : 0;
+            img {
+                width : $a546;
+            }
+        }
+        .container {
+            padding-top : $a127;
+            padding-bottom : $a125;
+            h1 {
+                font-size : $a120;
+                color: #fff;
+                text-transform : uppercase;
+                font-family: 'CirceExtraBold';
+                //line-height : $a65;
+            }
+            p {
+                line-height : $a36;
+                color: #fff;
+                font-family: 'CirceRegular';
+            }
+        }
+    }
+    .founder {
+        background: black;
+        position : relative;
+        .abs1 {
+            background-color: rgba(255, 255, 255, .102);
+            width: $a248;
+            height: $a248;
+            left : $a75;
+            bottom : $a456;
+            z-index : 1;
+        }
+        .abs2 {
+            background-color: rgba(255, 255, 255, .102);
+            width: $a91;
+            height: $a91;
+            left : $a696;
+            top : $a165;
+        }
+        .abs3 {
+            background-color: rgba(255, 255, 255, .102);
+            width: $a123;
+            height: $a123;
+            left : $a713;
+            top : $a195;
+        }
+        .abs4 {
+            background-color: rgba(241, 163, 28, .2);
+            width: $a98;
+            height: $a141;
+            right : 0;
+            top : $a127;
+        }
+        .abs5 {
+            background-color: rgba(241, 163, 28, .102);
+            width: $a248;
+            height: $a248;
+            right : $a18;
+            top : $a176;
+        }
+        .abs6 {
+            background-color: rgba(255, 255, 255, .102);
+            width: $a25;
+            height: $a248;
+            right : 0;
+            bottom : $a388;
+        }
+        .abs7 {
+            background-color: rgba(255, 255, 255, .102);
+            width: $a123;
+            height: $a123;
+            right : $a120;
+            bottom : $a134;
+        }
+        .img_abs1 {
+            display: flex;
+            align-items : flex-end;
+            position: absolute;
+            left : 0;
+            top : 0;
+            bottom : 0;
+            img {
+                height : 100%;
+                width : $a985;
+            }
+        }
+        .container {
+            display: flex;
+            justify-content : flex-end;
+            padding-bottom : $a52;
+            padding-top : $a90;
+            .description {
+                p {
+                    //text-align : left;
+                    margin-bottom : $a40;
+                    color: #fdfdfd;
+                    font-family: 'CirceRegular';
+                    font-size : $a22;
+                    line-height : $a32;
+                }
+            }
+        }
+    }
+    .first_meeting {
+        position: relative;
+        .abs1 {
+            background-color: rgb(227, 158, 51);
+            width: $a17;
+            height: $a165;
+            top : 0;
+            left : $a70;
+        }
+        .abs2 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a135;
+            height: $a179;
+            top : $a264;
+            left : 0;
+        }
+        .abs3 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a75;
+            height: $a75;
+            top : $a223;
+            left : $a87;
+        }
+        .abs4 {
+            background-color: rgba(0, 0, 0, .102);
+            width: $a75;
+            height: $a75;
+            left : $a236;
+            bottom : $a180;
+        }
+        .abs5 {
+            background-color: rgba(0, 0, 0, .059);
+            width: $a37;
+            height: $a37;
+            bottom : $a166;
+            left : $a287;
+        }
+        .abs6 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a120;
+            height: $a179;
+            bottom : $a243;
+            right : 0;
+        }
+        .abs7 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a75;
+            height: $a75;
+            right : $a83;
+            bottom : $a235;
+        }
+        .abs8 {
+            background-color: rgba(0, 0, 0, .102);
+            width: $a234;
+            height: $a234;
+            right : $a284;
+            top : $a147;
+        }
+        .container {
+            padding-top : $a63;
+            padding-bottom : $a75;
+            .wrapper {
+                display: flex;
+                justify-content: space-between;
+                .text {
+                    p {
+                        margin-bottom : $a30;
+                        font-size : $a18;
+                        line-height : $a30;
+                        font-family: 'CirceRegular';
+                        font-weight : 700;
+                    }
+                }
+                .banner {
+                    img {
+                        width : $a570;
+                    }
+                }
+            }
+        }
+    }
+    .institutions {
+        position: relative;
+        background: #f0f0f0;
+        .abs1 {
+            left : $a21;
+            bottom : $a141;
+            background: #e4e4e4;
+            width: $a121;
+            height: $a119;
+            z-index : 1;
+        }
+        .abs2 {
+            background: #eaeaea;
+            width: $a230;
+            height: $a226;
+            left : $a71;
+            bottom : $a184;
+        }
+        .abs3 {
+            background-color: rgba(227, 158, 51, .2);
+            width: $a273;
+            height: $a190;
+            top : $a135;
+            left : $a325;
+            z-index : 1;
+        }
+        .abs4 {
+            top : $a95;
+            left : $a435;
+            z-index : 0;
+            background: #fff;
+            width: $a444;
+            height: $a683;
+        }
+        .abs5 {
+            background-color: rgb(227, 158, 51);
+            width: $a204;
+            height: $a17;
+            left : $a349;
+            bottom : $a162;
+        }
+        .abs6 {
+            background-color: rgb(227, 158, 51);
+            width: $a17;
+            height: $a204;
+            right : $a108;
+            bottom : $a167;
+        }
+        .container {
+            padding-top : $a74;
+            padding-bottom : $a70;
+            display: flex;
+            align-items: center;
+            justify-content : space-between;
+            .banner {
+                position: relative;
+                z-index : 2;
+                margin-right : $a68;
+                img {
+                    width : $a530;
+                }
+            }
+            .wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                .burger {
+                    span:before {
+                        content: normal;
+                    }
+                }
+                h2 {
+                    margin-left : -$a25;
+                    margin-bottom : $a15;
+                }
+                p {
+                    margin-bottom : $a30;
+                    font-size : $a18;
+                    font-family: 'CirceRegular';
+                    line-height : $a30;
+                }
+            }
+        }
+
+    }
+    .our_values {
+        position: relative;
+        .abs1 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a167;
+            height: $a179;
+            top : $a210;
+            left : 0;
+        }
+        .abs2 {
+            background-color: rgba(241, 163, 28, .149);
+            width: 31px;
+            height: $a75;
+            left : 0;
+            top : $a322;
+        }
+        .abs3 {
+            background-color: rgba(0, 0, 0, .102);
+            width: $a75;
+            height: $a75;
+            top : $a41;
+            left : $a721;
+        }
+        .abs4 {
+            background-color: rgba(0, 0, 0, .059);
+            width: $a37;
+            height: $a37;
+            top : $a93;
+            left : $a772;
+        }
+        .abs5 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a179;
+            height: $a179;
+            top : $a82;
+            right : $a99;
+        }
+        .abs6 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a75;
+            height: $a75;
+            right : $a72;
+            top : $a41;
+        }
+        .abs7 {
+            background-color: rgba(0, 0, 0, .059);
+            width: $a117;
+            height: $a117;
+            left : $a419;
+            top : $a575;
+        }
+        .abs8 {
+            background-color: rgb(227, 158, 51);
+            width: $a17;
+            height: $a204;
+            top : $a241;
+            right : $a883;
+        }
+        .container {
+            padding-top : $a74;
+            padding-bottom : $a100;
+            .content {
+                display: flex;
+                justify-content : space-between;
+                .text {
+                    p {
+                        font-size : $a18;
+                        margin-bottom : $a30;
+                        line-height : $a35;
+                        font-family: 'CirceRegular';
+                        font-weight : 700;
+                    }
+                }
+                .wrapper {
+                    //background: #d3c4b2;
+                    position: relative;
+                    z-index : 1;
+                    img {
+                        width : $a570;
+                    }
+                    //padding: $a25 $a14 $a5 $a30;
+                    //h3 {
+                    //    letter-spacing: -0.5px;
+                    //    text-align: center;
+                    //    margin-bottom : $a15;
+                    //    color: #5d463d;
+                    //    font-size : $a22;
+                    //    text-transform : uppercase;
+                    //    font-family: 'CirceExtraBold';
+                    //}
+                    //p {
+                    //    font-family: 'CirceRegular';
+                    //    margin-bottom : $a22;
+                    //    line-height : $a20;
+                    //    font-size : $a15;
+                    //    span {
+                    //        font-family: 'CirceExtraBold';
+                    //        color: #e0920f;
+                    //        text-transform : uppercase;
+                    //        font-size : $a15;
+                    //    }
+                    //}
+                }
+            }
+        }
+    }
+    .transparent_company {
+        background: url("../img/about_us/background.png") no-repeat;
+        background-size: cover;
+        .container {
+            padding-top : $a61;
+            padding-bottom : $a131;
+            h2 {
+                color: #fff;
+            }
+            .wrapper {
+                display: flex;
+                justify-content : space-between;
+                .left_block {
+                    position: relative;
+                    p {
+                        font-family: 'CirceRegular';
+                        font-size : $a18;
+                        line-height : $a30;
+                        color: #fff;
+                    }
+                    .bg {
+                        margin-top : $a35;
+                        margin-bottom : $a20;
+                        position: relative;
+                        width : $a547;
+                        img {
+                            width : 100%;
+                        }
+                        p {
+                            position: absolute;
+                            bottom: $a37;
+                            line-height : $a45;
+                            left : $a35;
+                            span {
+                                font-size : $a60;
+                                font-family: 'CirceExtraBold';
+                            }
+                        }
+                    }
+                    .button {
+                        margin-top : $a63;
+                        a {
+                            text-transform : uppercase;
+                            color: #fff;
+                        }
+                    }
+                    .abs_img {
+                        position: absolute;
+                        bottom : -$a20;
+                        right : $a30;
+                        img {
+                            width : $a160;
+                        }
+                    }
+                }
+                .right_block {
+                    img {
+                        width : $a570;
+                    }
+                }
+            }
+        }
+    }
+    .team {
+        position: relative;
+        background: #f0f0f0;
+        .abs1 {
+            left : $a21;
+            bottom : $a141;
+            background: #e4e4e4;
+            width: $a121;
+            height: $a119;
+            z-index : 1;
+        }
+        .abs2 {
+            background: #eaeaea;
+            width: $a230;
+            height: $a226;
+            left : $a71;
+            bottom : $a184;
+        }
+        .abs3 {
+            background-color: rgba(227, 158, 51, .2);
+            width: $a273;
+            height: $a190;
+            top : $a135;
+            left : $a325;
+            z-index : 1;
+        }
+        .abs4 {
+            top : $a95;
+            left : $a435;
+            z-index : 0;
+            background: #fff;
+            width: $a444;
+            height: $a683;
+        }
+        .abs5 {
+            background-color: rgb(227, 158, 51);
+            width: $a204;
+            height: $a17;
+            left : $a349;
+            bottom : $a155;
+        }
+        .abs6 {
+            background-color: rgb(227, 158, 51);
+            width: $a17;
+            height: $a204;
+            right : $a108;
+            bottom : $a167;
+        }
+        .container {
+            padding-top : $a74;
+            padding-bottom : $a70;
+            display: flex;
+            align-items: center;
+            justify-content : space-between;
+            .banner {
+                box-shadow: 0 1.04167vw 3.125vw 0.3125vw rgba(0,4,3,0.3);
+                position: relative;
+                z-index : 2;
+                margin-right : $a68;
+                display: flex;
+                img {
+                    width : $a530;
+                }
+            }
+            .wrapper {
+                margin-right : $a45;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                .burger {
+                    span:before {
+                        content: normal;
+                    }
+                }
+                h2 {
+                    text-align : left;
+                    margin-bottom : $a15;
+                }
+                p {
+                    margin-bottom : $a30;
+                    font-size : $a18;
+                    font-family: 'CirceRegular';
+                    line-height : $a30;
+                }
+            }
+        }
+
+    }
+    .why_yudgin {
+        position: relative;
+        .abs1 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a31;
+            height: $a75;
+            left : 0;
+            top : $a466;
+        }
+        .abs2 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a167;
+            height: $a179;
+            left : 0;
+            top : $a354;
+        }
+        .abs3 {
+            background-color: rgba(0, 0, 0, .102);
+            width: $a75;
+            height: $a75;
+            top : $a85;
+            left : $a279;
+        }
+        .abs4 {
+            background-color: rgba(0, 0, 0, .059);
+            width: $a37;
+            height: $a37;
+            top : $a137;
+            left : $a330;
+        }
+        .abs5 {
+            background-color: rgb(227, 158, 51);
+            width: $a17;
+            height: $a204;
+            top : $a655;
+            left : $a386;
+        }
+        .abs6 {
+            background-color: rgba(0, 0, 0, .059);
+            width: $a117;
+            height: $a117;
+            top : $a682;
+            left : $a419;
+        }
+        .abs7 {
+            background-color: rgba(0, 0, 0, .102);
+            width: $a234;
+            height: $a234;
+            right : $a283;
+            top : $a180;
+        }
+        .abs8 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a179;
+            height: $a179;
+            right : $a99;
+            bottom : $a325;
+        }
+        .abs9 {
+            background-color: rgba(241, 163, 28, .149);
+            width: $a75;
+            height: $a75;
+            right : $a72;
+            bottom : $a470;
+        }
+        .container {
+            padding-top : $a49;
+            .wrapper {
+                .item {
+                    margin-bottom : $a68;
+                    display: flex;
+                    justify-content : space-between;
+                    &:nth-child(2n) {
+                        flex-direction: row-reverse;
+                    }
+                    .text {
+                        p {
+                            font-family: 'CirceRegular';
+                            font-size : $a18;
+                            line-height : $a30;
+                            font-weight : 700;
+                            margin-bottom : $a38;
+                        }
+                    }
+                    .banner {
+                        position: relative;
+                        z-index : 1;
+                        img {
+                            width : $a570;
+                        }
+                        p {
+                            font-family: 'CirceExtraBold';
+                            font-size : $a18;
+                            line-height : $a30;
+                            text-align: center;
+                            margin-top : $a30;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1023px)  {
+    #main {
+        .about_us {
+            .img_abs1 {
+                height : 80%;
+                img {
+                    height : 100%;
+                    width : $m120;
+                }
+            }
+            .img_abs2 {
+                display: none;
+            }
+            .container {
+                h1 {
+                    text-align: center;
+                }
+            }
+        }
+        .founder {
+            .img_abs1 {
+                position: relative;
+                img {
+                    width : 100%;
+                }
+            }
+        }
+        .first_meeting {
+            .container {
+                .wrapper {
+                    flex-direction: column-reverse;
+                    .banner {
+                        margin-bottom : $m10;
+                        img {
+                            width : 100%;
+                        }
+                    }
+                }
+            }
+        }
+        .institutions {
+            .container {
+                flex-direction: column;
+                .banner {
+                    margin-right : 0;
+                    margin-bottom : $m10;
+                    img {
+                        width : 100%;
+                    }
+                }
+                .wrapper {
+                    align-items: center;
+                    .burger {
+                        span:before {
+                            content: "";
+                        }
+                    }
+                }
+            }
+        }
+        .our_values {
+            .container {
+                .content {
+                    flex-direction: column;
+                    .text {
+                        p {
+                            font-weight : 400;
+                        }
+                    }
+                    .wrapper {
+                        img {
+                            width : 100%;
+                        }
+                            //h3 {
+                            //    padding : 0 !important;
+                            //}
+                            //p {
+                            //    span {
+                            //        font-size : $m12;
+                            //    }
+                            //}
+                    }
+                }
+            }
+        }
+        .transparent_company {
+            .container {
+                .wrapper {
+                    flex-direction: column-reverse;
+                    .right_block {
+                        margin-bottom : $m10;
+                        img {
+                            width : 100%;
+                        }
+                    }
+                    .left_block {
+                        .bg {
+                            margin: $m10 0;
+                            width : 100%;
+                            p {
+                                left : $m20;
+                                bottom : $m15;
+                                span {
+                                    line-height : 1;
+                                    font-size : $m40;
+                                }
+                            }
+                        }
+                        .button {
+                            a {
+                                font-size : $m12;
+                            }
+                        }
+                        .abs_img {
+                            display: flex;
+                            justify-content : flex-end;
+                            right : $m10;
+                            bottom : $m2;
+                            img {
+                                width : 40%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .team {
+            .container {
+                flex-direction: column;
+                .banner {
+                    margin-right : 0;
+                    margin-bottom : $m10;
+                    img {
+                        width : 100%;
+                    }
+                }
+                .wrapper {
+                    align-items: center;
+                    .burger {
+                        span:before {
+                            content: "";
+                        }
+                    }
+                }
+            }
+        }
+        .why_yudgin {
+            .container {
+                .wrapper {
+                    .item {
+                        flex-direction: column-reverse;
+                        &:nth-child(2n) {
+                            flex-direction: column-reverse;
+                        }
+                        .text {
+                            p {
+                                font-weight : 400;
+                            }
+                        }
+                        .banner {
+                            img {
+                                width : 100%;
+                                margin-bottom : $m10;
+                            }
+                            p {
+                                padding : 0 !important;
+                                font-size : $m15 !important;
+                                margin-bottom : $m10;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

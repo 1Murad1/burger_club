@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basket</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/basket.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/fonts.css" />
+</head>
+<body>
+    <div id="holder">
+        //= include/header.html
+        <main id="main">
+            <div class="basket">
+                <div class="abs1"></div>
+                <div class="abs2"></div>
+                <div class="abs3"></div>
+                <div class="abs4"></div>
+                <div class="abs5"></div>
+                <div class="abs6"></div>
+                <div class="abs7"></div>
+                <div class="abs8"></div>
+                <div class="container">
+                    <div class="burger">
+                        <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                    </div>
+                    <h2>Корзина</h2>
+                    <div class="wrapper" id="step">
+                        <div :class="step === 1 ? 'active' : ''" class="position">
+                            <div class="box">
+
+                            </div>
+                            <p>Корзина</p>
+                        </div>
+                        <div :class="step === 2 ? 'active' : ''" class="position">
+                            <div class="box">
+
+                            </div>
+                            <p>Оформление заказа</p>
+                        </div>
+                        <div :class="step === 3 ? 'active' : ''" class="position">
+                            <div class="box">
+
+                            </div>
+                            <p>Авторизация</p>
+                        </div>
+                        <div class="dotted">
+                            ---------------------------------------------------------------
+                        </div>
+                    </div>
+                    <div class="page-wrapper" :class="'step' + step">
+                        <transition name="fade">
+                            <div v-if="step === 1" class="stepOne">
+                                <div class="content">
+                                    <div class="item" v-for="(item, index) in basket">
+                                        <div class="left_block">
+                                            <img :src="item.url" alt="" />
+                                            <div class="description">
+                                                <h4>{{ item.name }}</h4>
+                                                <p>{{ item.description }}
+                                                    <span v-for="more in item.more">+ {{more.name}} </span></p>
+                                            </div>
+                                        </div>
+                                        <div class="right_block">
+                                            <button class="minus" @click="item.quantity === 1 ? basket.splice(index, 1) : item.quantity -= 1"></button>
+                                            <p class="count">{{ item.quantity }}</p>
+                                            <button class="plus" @click="item.quantity += 1"></button>
+                                            <p class="price">{{item.price * item.quantity}} грн</p>
+                                            <button @click="basket.splice(index, 1)" class="delete">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#000" d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z" class=""></path></svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recomendations">
+                                    <h4>Что-нибудь еще? Рекомендуем добавить к заказу</h4>
+                                    <div class="slider">
+                                        <div class="item" v-for="(item, index) in menu.salad" @click="((name === 'burger' || name === 'snack') && item.name !== 'ГАМБУРГЕР' && item.name !== 'Чизбургер') ? bigCard(item, name, index) : false">
+                                            <div class="img">
+                                                <img :class="item.name === 'ВЕГАН БУРГЕР' || item.name === 'ТЕРМИНАТОР' ? 'small' : ''" :src="'img/menu/salad/' + item.name.toLowerCase() + '.png'" alt=""/>
+                                            </div>
+                                            <div class="information">
+                                                <p class="name">{{item.name}}</p>
+                                                <p class="description">{{item.description}}</p>
+                                                <div class="footer">
+                                                    <p class="price">{{item.price}}
+                                                        <span>грн</span>
+                                                    </p>
+                                                    <div class="info" @click="openInfoMobile($event.currentTarget)" @mouseover.self="openInfo($event.currentTarget)" @mouseleave.self="closeInfo($event.currentTarget)" v-if="item.info">
+                                                        i
+                                                        <div class="open">
+                                                            <div class="text">
+                                                                <p>Вес</p>
+                                                                <p>{{item.info.weight}} г</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="button small addToCard" @click="(name !== 'snack' && name !== 'burger' || item.name === 'ГАМБУРГЕР' || item.name === 'Чизбургер') ? addToCard(item, 'salad', index) : false">
+                                                        <img src="img/svg/shopping-basket.svg" alt="" />
+                                                        В корзину
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="total_sum">
+                                    <form class="promotionl_cod">
+                                        <input placeholder="Введите промокод" type="text" />
+                                        <button class="activate">Активировать</button>
+                                    </form>
+                                    <p>Общая сума заказа: {{ allPriceBasket }} грн</p>
+                                </div>
+                                <div class="buttons">
+                                    <a href="/menu.html" class="button dark"><img src="img/basket/left_arrow.png" alt="arrow" />Вернуться в меню</a>
+                                    <a href="#step" class="button buy" @click="scrollTo($event, 'holder'); step = 2">Заказать</a>
+                                </div>
+                            </div>
+                        </transition>
+                        <transition name="fade">
+                            <form @submit.prevent="scrollTo($event, 'holder'); step = 3" v-if="step === 2" class="date">
+                                <h3>Куда нам доставить заказ?
+                                    Заполните ваши данные :)</h3>
+                                <div class="content">
+                                    <input name="streetName" type="text" placeholder="Улица" class="street" required />
+                                    <input name="houseNumber" type="text" placeholder="Номер дома" class="number_house" required />
+                                    <input name="porch" type="text" placeholder="Подъезд" class="porch" />
+                                    <input name="floor" type="text" placeholder="Этаж" class="floor" />
+                                    <input name="apartment" type="text" placeholder="Квартира" class="apartment" />
+                                    <input name="doorCode" type="text" placeholder="Код двери" class="door_code" />
+                                    <label class="doorbell">
+                                        <input name="doorbell" type="checkbox" />
+                                        <span class="custom-checkbox"></span>
+                                        <span class="text">Не звонить в дверь</span>
+                                    </label>
+                                    <input name="numbers_of_person" placeholder="Количество персон" class="numbers_of_person" type="text" required/>
+                                    <textarea placeholder="Примечание к заказу" class="order_note"></textarea>
+                                    <div class="wrap">
+                                        <label class="payment">
+                                            <input type="radio" name="pay"/>
+                                            <span class="custom_checkbox"></span>
+                                            <span class="text">Оплата наличными курьеру</span>
+                                        </label>
+                                        <label class="payment">
+                                            <input type="radio" name="pay" checked/>
+                                            <span class="custom_checkbox"></span>
+                                            <span class="text">Оплата картой курьеру</span>
+                                        </label>
+                                    </div>
+                                    <div class="wrap">
+                                        <label class="cat">
+                                            <input type="checkbox" />
+                                            <span class="custom_checkbox"></span>
+                                            <span class="text">У меня есть кошка </span>
+                                        </label>
+                                        <label class="dog">
+                                            <input type="checkbox" />
+                                            <span class="custom_checkbox"></span>
+                                            <span class="text">У меня есть собака </span>
+                                        </label>
+                                    </div>
+                                    <input placeholder="Подготовить сдачу с" class="surrender" type="text" :disabled="surrender"/>
+                                    <button class="button">Подтвердить адрес</button>
+                                    <label class="no_surrender">
+                                        <input name="no_surrender" type="checkbox" checked v-model="surrender"/>
+                                        <span class="custom-radio"></span>
+                                        <span class="text">Без сдачи</span>
+                                    </label>
+                                </div>
+                            </form>
+                        </transition>
+                        <transition name="fade">
+                            <form v-if="step === 3" class="autorized">
+                                <div class="wrapper">
+                                    <p class="name">Введите ваше имя</p>
+                                    <input name="name" type="text" required/>
+                                    <p class="phone">Введите ваш телефон</p>
+                                    <input name="tel" type="tel" required/>
+                                    <button class="button">Выслать код</button>
+                                    <p>Сохраним ваш адрес и все данные, чтобы
+                                        не указывать заново каждый раз</p>
+                                </div>
+                        </form>
+                        </transition>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    //= include/footer.html
+</body>
+</html>

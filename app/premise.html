@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Premise</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/premise.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/fonts.css" />
+</head>
+<body>
+    <div id="holder">
+        <script src="js/vue.min.js"></script>
+        <header id="header">
+            <div class="header_head" :class="fixed ? 'fixed' : ''">
+                <div class="container">
+                    <a href="/" class="logo">
+                        <div class="box">
+                            <img src="img/investments/header/burger.png" alt="burger" />
+                        </div>
+                        <div class="logo_p">
+                            <picture>
+                                <source srcset="img/mobi/investments/header/logo.png" media="(max-width: 575px)">
+                                <img src="img/investments/header/logo.png" alt="default_logo" />
+                            </picture>
+                            <p>Сеть бургерных ресторанов</p>
+                        </div>
+                    </a>
+                    <a href="tel: 0 800 330 500" class="phone">
+                        <div class="box">
+                            <img src="img/investments/header/phone_call.png" alt="phone" />
+                        </div>
+                        <div class="number">
+                            <div class="tel">0 800 330 500</div>
+                            <span>Звонок бесплатный</span>
+                        </div>
+                    </a>
+                    <div class="time">
+                        <div class="box">
+                            <img src="img/investments/header/time_left.png" alt="time" />
+                        </div>
+                        <div class="text">
+                            <p>ДО 60 МИНУТ</p>
+                            <span>С 11 до 22:30</span>
+                        </div>
+                    </div>
+                    <div class="registration">
+                        <a href="#" class="button logIn">Вход на сайт</a>
+                        <div class="UA">
+                            <span>ua</span>
+                        </div>
+                    </div>
+                    <div class="burger_menu">
+                    </div>
+                </div>
+            </div>
+            <div class="header_nav">
+                <div class="container">
+                    <nav class="nav">
+                        <ul class="menu">
+                            <li>
+                                <a href="/about_us.html">О нас</a>
+                            </li>
+                            <li>
+                                <a href="/menu.html">Меню</a>
+                            </li>
+                            <li>
+                                <a href="/delivery_area.html">Зона доставки</a>
+                            </li>
+                            <li>
+                                <a href="/restaurant.html">Рестораны</a>
+                            </li>
+                            <li>
+                                <a href="/career.html">Карьера</a>
+                            </li>
+                            <li>
+                                <a href="/cooperation.html">Сотрудничество</a>
+                            </li>
+                            <li>
+                                <a href="loyalty_program.html">Юджин баллы</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="basket" @mouseenter="open = true" @mouseleave="open = false">
+                        <a href="basket.html" class="button small main">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.1 487.1" fill="#fff"><path d="M342.3 137.978H385l-63.3-108.6c-5.1-8.8-16.4-11.8-25.2-6.6-8.8 5.1-11.8 16.4-6.6 25.2l52.4 90zM197.4 47.978c5.1-8.8 2.2-20.1-6.6-25.2s-20.1-2.2-25.2 6.6l-63.3 108.7H145l52.4-90.1zM455.7 171.278H31.3c-17.3 0-31.3 14-31.3 31.3v34.7c0 17.3 14 31.3 31.3 31.3h9.8l30.2 163.7c3.8 19.3 21.4 34.6 39.7 34.6h258.8c18.3 0 35.9-15.3 39.7-34.6l30.4-163.8h15.9c17.3 0 31.3-14 31.3-31.3v-34.7c-.1-17.2-14.1-31.2-31.4-31.2zm-282.9 163.6v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7 10.1 0 17.7 8.2 17.7 17.7v28.4zm56.8 0v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7s17.7 8.2 17.7 17.7v28.4zm57.1 41v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 8.2-17.7 17.7-17.7s17.7 7.6 17.7 17.7v69.4zm56.8 0v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 7.6-17.7 17.7-17.7 9.5 0 17.7 7.6 17.7 17.7v69.4z"/></svg>
+                            Корзина <span class="line"></span><span> {{ quantityAll }} </span>
+                        </a>
+                        <transition name="fade">
+                            <div class="item-holder" v-if="open">
+                                <div class="item empty">Корзина пуста</div>
+                                <div class="holderItem">
+                                    <div class="item" v-for="(item, index) in basket" v-if="item.quantity">
+                                        <div class="img">
+                                            <img :class="item.name === 'ВЕГАН БУРГЕР' || item.name === 'ТЕРМИНАТОР' ? 'small' : item.type === 'snack' ? 'middle' : ''" :src="item.url" alt="" />
+                                        </div>
+                                        <div class="text">
+                                            <div class="name">
+                                                <p>{{ item.name }}</p>
+                                                <button @click="basket.splice(index, 1)">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#000" d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z" class=""></path></svg>
+                                                </button>
+                                            </div>
+                                            <p class="description">{{ item.description }}
+                                                <span v-for="more in item.more">+ {{more.name}} </span></p>
+                                            <div class="footer">
+                                                <div class="quantity">
+                                                    <button class="minus" @click="item.quantity === 1 ? basket.splice(index, 1) : item.quantity -= 1"></button>
+                                                    <p>{{ item.quantity }}</p>
+                                                    <button class="plus" @click="item.quantity += 1"></button>
+                                                </div>
+                                                <p class="price">{{item.price * item.quantity}} грн</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div v-if="allPriceBasket" class="fullPrice"><span>Сумма заказа:</span> {{ allPriceBasket }} грн</div>
+                                <a href="basket.html" class="button link" v-if="allPriceBasket">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.1 487.1" fill="#fff"><path d="M342.3 137.978H385l-63.3-108.6c-5.1-8.8-16.4-11.8-25.2-6.6-8.8 5.1-11.8 16.4-6.6 25.2l52.4 90zM197.4 47.978c5.1-8.8 2.2-20.1-6.6-25.2s-20.1-2.2-25.2 6.6l-63.3 108.7H145l52.4-90.1zM455.7 171.278H31.3c-17.3 0-31.3 14-31.3 31.3v34.7c0 17.3 14 31.3 31.3 31.3h9.8l30.2 163.7c3.8 19.3 21.4 34.6 39.7 34.6h258.8c18.3 0 35.9-15.3 39.7-34.6l30.4-163.8h15.9c17.3 0 31.3-14 31.3-31.3v-34.7c-.1-17.2-14.1-31.2-31.4-31.2zm-282.9 163.6v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7 10.1 0 17.7 8.2 17.7 17.7v28.4zm56.8 0v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7s17.7 8.2 17.7 17.7v28.4zm57.1 41v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 8.2-17.7 17.7-17.7s17.7 7.6 17.7 17.7v69.4zm56.8 0v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 7.6-17.7 17.7-17.7 9.5 0 17.7 7.6 17.7 17.7v69.4z"/></svg>
+                                    В корзину
+                                </a>
+                            </div>
+                        </transition>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="mobile-menu">
+            <div class="container">
+                <div class="registration">
+                    <div class="UA language">
+                        <span>ua</span>
+                    </div>
+                    <a href="#" class="button logIn small">Вход | Регистрация</a>
+                    <div class="close"></div>
+                </div>
+                <nav class="nav">
+                    <ul class="menu">
+                        <li>
+                            <a href="/about_us.html">О нас</a>
+                        </li>
+                        <li>
+                            <a href="/menu.html">Меню</a>
+                        </li>
+                        <li>
+                            <a href="/delivery_area.html">Зона доставки</a>
+                        </li>
+                        <li>
+                            <a href="/restaurant.html">Рестораны</a>
+                        </li>
+                        <li>
+                            <a href="/career.html">Карьера</a>
+                        </li>
+                        <li>
+                            <a href="/cooperation.html">Сотрудничество</a>
+                        </li>
+                        <li>
+                            <a href="loyalty_program.html">Юджин баллы</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="footer_menu">
+                    <a href="tel: 0 800 330 500" class="phone">
+                        <div class="box">
+                            <img src="img/investments/header/phone_call.png" alt="phone" />
+                        </div>
+                        <div class="number">
+                            <div class="tel">0 800 330 500</div>
+                            <span>Звонок бесплатный</span>
+                        </div>
+                    </a>
+                    <div class="time">
+                        <div class="box">
+                            <img src="img/investments/header/time_left.png" alt="time" />
+                        </div>
+                        <div class="text">
+                            <p>ДО 60 МИНУТ</p>
+                            <span>С 11 до 22:30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main id="main">
+        <div class="premise">
+            <div class="abs1" data-parallax='{"y": -40}'></div>
+            <div class="abs2" data-parallax='{"x": 40}'></div>
+            <div class="abs3" data-parallax='{"y": -40}'></div>
+            <div class="abs4" data-parallax='{"x": -40}'></div>
+            <div class="abs5" data-parallax='{"y": -40}'></div>
+            <div class="abs6" data-parallax='{"x": -40}'></div>
+            <div class="abs7" data-parallax='{"y": 40}'></div>
+            <div class="img_abs1" data-parallax='{"x": -40}'>
+                <img src="img/premise/big_burger.png" alt="burger" />
+            </div>
+            <div class="img_abs2 wow lightSpeedIn">
+                <img src="img/premise/iPad.png" alt="iPad" />
+            </div>
+            <div class="container">
+                <h2>Рассматриваем помещения для
+                    новых ресторанов на фудкортах
+                    ТРЦ и на фасаде проходных улиц</h2>
+                <p>Каждый день мы растем и масштабируемся,
+                    поэтому готовы рассматривать новые варианты
+                    помещений для своих ресторанов в Киеве, а так же
+                    для ресторанов наших будущих франчайзи
+                    во всех регионах Украины и не только</p>
+                <a class="button white" href="#">Предложить помещение</a>
+            </div>
+        </div>
+        <div class="yudgin_burger">
+            <div class="abs1" data-parallax='{"y": -40}'></div>
+            <div class="abs2" data-parallax='{"x": 40}'></div>
+            <div class="abs3" data-parallax='{"y": -40}'></div>
+            <div class="abs4" data-parallax='{"x": -40}'></div>
+            <div class="abs5" data-parallax='{"y": 40}'></div>
+            <div class="container">
+                <div class="wrapper wow fadeInLeftBig">
+                    <h1>Юджин
+                        Бургер</h1>
+                    <p>- ресторанный бренд, открытия
+                        которого уже ждут во всех
+                        районах Киева и Украины</p>
+                </div>
+                <div class="instruction">
+                    <div class="item wow fadeInRightBig" data-wow-delay="100ms">
+                        <div class="number">01</div>
+                        <p>Заключаем долгосрочный договор</p>
+                    </div>
+                    <div class="item wow fadeInRightBig" data-wow-delay="200ms">
+                        <div class="number">02</div>
+                        <p>Стабильно платим арендную плату</p>
+                    </div>
+                    <div class="item wow fadeInRightBig" data-wow-delay="300ms">
+                        <div class="number">03</div>
+                        <p>Содержим помещение в чистоте</p>
+                    </div>
+                    <div class="item wow fadeInRightBig" data-wow-delay="400ms">
+                        <div class="number">04</div>
+                        <p>Повышаем количество трафика</p>
+                    </div>
+                    <div class="item wow fadeInRightBig" data-wow-delay="500ms">
+                        <div class="number">05</div>
+                        <p>Делаем качественный ремонт</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="considered_premises">
+            <div class="abs1" data-parallax='{"y": -40}'></div>
+            <div class="abs2" data-parallax='{"x": -40}'></div>
+            <div class="abs3" data-parallax='{"y": -40}'></div>
+            <div class="abs4" data-parallax='{"x": 40}'></div>
+            <div class="abs5" data-parallax='{"y": -40}'></div>
+            <div class="container">
+                <div class="burger">
+                    <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                </div>
+                <h2>Какие помещения мы
+                    готовы рассмотреть?</h2>
+                <div class="wrapper">
+                    <div class="example wow fadeInLeftBig" data-wow-delay="">
+                        <div class="item">
+                            <div class="chair">
+                                <img src="img/premise/chair.png" alt="chair" />
+                            </div>
+                            <h3>На фудкорте в популярном ТРЦ</h3>
+                        </div>
+                        <p>Площадь 40-60 кв. метров в зоне фудкорта без
+                            своей посадки, только кухня. Условия аренды
+                            обсуждаем. Преимущества для ТРЦ так же в
+                            том, что у нас своя доставка и это
+                            дополнительный поток оборота в месяц.</p>
+                    </div>
+                    <div class="example wow fadeInRightBig" data-wow-delay="">
+                        <div class="item">
+                            <div class="chair">
+                                <img src="img/premise/burger-bar.png" alt="chair" />
+                            </div>
+                            <h3>На фасаде в проходном месте</h3>
+                        </div>
+                        <p>Площадь 120-200 кв. К фасаду мы относимся
+                            очень осторожно, поэтому рассматриваем
+                            только места рядом с метро с большим
+                            проходимым трафиком или на центральных
+                            улицах, спальные районы не в приоритете.</p>
+                    </div>
+                </div>
+                <a class="button" href="#">Предложить помещение</a>
+                <p class="wow fadeInUp">Даже если ваше помещение не подходит по данным критериям, но
+                    вы считаете, что оно может нас заинтересовать, отправляйте заявку</p>
+            </div>
+        </div>
+        <div class="rental_offer">
+            <div class="abs1" data-parallax='{"x": -40}'></div>
+            <div class="abs2" data-parallax='{"y": 40}'></div>
+            <div class="abs3" data-parallax='{"x": 40}'></div>
+            <div class="abs4" data-parallax='{"y": -40}'></div>
+            <div class="container">
+                <div class="burger">
+                    <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                </div>
+                <h2>КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ ПО АРЕНДЕ
+                    ПОМЕЩЕНИЯ НА ФУДКОРТЕ ВАШЕГО ТРЦ</h2>
+                <div class="products">
+                    <div class="item wow bounceIn" data-wow-delay="0ms">
+                        <div class="bg">
+                            <span class="a1"><img src="img/premise/cup.png" alt="cup_gold" /></span>
+                        </div>
+                        <h3>Узнаваемый бренд</h3>
+                        <p>Всего за 5 месяцев мы открыли
+                            уже 2 ресторана, став культовым
+                            бургерным местом, куда толпами
+                            приезжают гости со всего города</p>
+                    </div>
+                    <div class="item wow bounceIn" data-wow-delay="100ms">
+                        <div class="bg">
+                            <span class="a2"><img src="img/premise/meat.png" alt="meat" /></span>
+                        </div>
+                        <h3>Натуральный фастфуд</h3>
+                        <p>Во всех наших бургерах только
+                            100% мраморная говядина. А так
+                            же мы сами делаем булочки,
+                            соусы, лимонады и многое другое</p>
+                    </div>
+                    <div class="item wow bounceIn" data-wow-delay="200ms">
+                        <div class="bg">
+                            <span class="a3"><img src="img/premise/burgers.png" alt="burgers" /></span>
+                        </div>
+                        <h3 class="centr">Большой доступный
+                            выбор</h3>
+                        <p>20 видов сочных бургеров, а так же салаты,
+                            закуски, десерты и большой выбор
+                            различных напитков на любой бюджет</p>
+                    </div>
+                    <div class="item wow bounceIn" data-wow-delay="300ms">
+                        <div class="bg">
+                            <span class="a4"><img src="img/premise/tv.png" alt="tv" /></span>
+                        </div>
+                        <h3>Самообслуживание</h3>
+                        <p>Удобная система самообслуживания,
+                            готовность заказа показывается на
+                            телевизоре, нет официантов, нет
+                            криков и голосовых сообщений,
+                            которые так часто раздражают</p>
+                    </div>
+                    <div class="item wow bounceIn" data-wow-delay="400ms">
+                        <div class="bg">
+                            <span class="a5"><img src="img/premise/phone.png" alt="phone" /></span>
+                        </div>
+                        <h3>Вирусность продукта</h3>
+                        <p>Большинство наших гостей постоянно
+                            делятся и выкладывают в свои соц.
+                            сети фотографии наших бургеров, так
+                            как это уже стало мейнстримом</p>
+                    </div>
+                    <div class="item wow bounceIn" data-wow-delay="500ms">
+                        <div class="bg">
+                            <span class="a6"><img src="img/premise/clock.png" alt="clock" /></span>
+                        </div>
+                        <h3>Быстрая выдача</h3>
+                        <p>Средняя скорость выдачи заказов у
+                            нас составляет 3-5 минут, причем все
+                            делается прямо из под ножа, никаких
+                            приготовленных заранее продуктов. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block_slider">
+            <div class="container">
+                <div class="burger">
+                    <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                </div>
+                <h2>Интерьер сети Yudgin Burger</h2>
+                <div class="slider">
+                    <img class="item" src="img/premise/1.png" alt="" />
+                    <img class="item" src="img/premise/1.png" alt="" />
+                    <img class="item" src="img/premise/1.png" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="visitors">
+            <div class="abs1" data-parallax='{"x": -40}'></div>
+            <div class="abs2" data-parallax='{"y": -40}'></div>
+            <div class="abs3" data-parallax='{"x": 40}'></div>
+            <div class="abs4" data-parallax='{"y": -40}'></div>
+            <div class="abs5" data-parallax='{"x": 40}'></div>
+            <div class="container">
+                <div class="wrapper">
+                    <div class="content wow fadeInLeftBig">
+                        <div class="burger">
+                            <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                        </div>
+                        <h2>РЕСТОРАН, КОТОРЫЙ
+                            ПРИТЯГИВАЕТ
+                            ПОСЕТИТЕЛЕЙ</h2>
+                        <p>Мы понимаем, что при выборе очередного партнера, для вас,
+                            помимо репутации и надежности, в первую очередь так же
+                            важно, чтобы бренд привлекал и служил якорем для прихода
+                            гостей в ваш ТРЦ. Поэтому мы с первого дня работы нашей
+                            сети максимально активно работали над маркетингом и
+                            узнаваемостью, что позволило создать вирусный эффект.</p>
+                        <p>Каждый день гости нашего ресторана сами выкладывают
+                            фотки наших блюд в своих соц. сетях, каждая такая фотка или
+                            пост в итоге привлекают в наши локации друзей того, кто ее
+                            выложил. И это продолжается бесконечно уже 5 месяцев. И
+                            будет продолжаться и дальше :)</p>
+                    </div>
+                    <div class="img wow bounceIn">
+                        <img src="img/premise/visitors.png" alt="visitors" />
+                    </div>
+                </div>
+                <a class="button" href="#">Предложить помещение</a>
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <div class="footer_head">
+            <div class="container">
+                <div class="logo">
+                    <div class="box">
+                        <img src="img/investments/header/burger.png" alt="burger" />
+                    </div>
+                    <div class="logo_p">
+                        <picture>
+                            <source srcset="img/mobi/investments/header/logo.png" media="(max-width: 575px)">
+                            <img src="img/investments/header/logo.png" alt="default_logo" />
+                        </picture>
+                        <p>Сеть бургерных ресторанов</p>
+                    </div>
+                </div>
+                <div class="registration">
+                    <a href="#" class="button logIn">Вход на сайт</a>
+                    <div class="UA">
+                        <span>ua</span>
+                    </div>
+                </div>
+                <div class="time">
+                    <div class="size">
+                        <img src="img/investments/header/time_left.png" alt="time" />
+                    </div>
+                    <div class="text">
+                        <p>ДО 60 МИНУТ</p>
+                        <span>С 11 до 22:30</span>
+                    </div>
+                </div>
+                <div class="phone">
+                    <div class="size">
+                        <img src="img/investments/header/phone_call.png" alt="phone" />
+                    </div>
+                    <div class="number">
+                        <a href="tel: 0 800 330 500" class="tel">0 800 330 500</a>
+                        <span>Звонок бесплатный</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_nav">
+            <div class="container">
+                <nav class="nav">
+                    <ul class="menu">
+                        <li>
+                            <a href="/about_us.html">О нас</a>
+                        </li>
+                        <li>
+                            <a href="/menu.html">Меню</a>
+                        </li>
+                        <li>
+                            <a href="/delivery_area.html">Зона доставки</a>
+                        </li>
+                        <li>
+                            <a href="/restaurant.html">Рестораны</a>
+                        </li>
+                        <li>
+                            <a href="/career.html">Карьера</a>
+                        </li>
+                        <li>
+                            <a href="/cooperation.html">Сотрудничество</a>
+                        </li>
+                        <li>
+                            <a href="loyalty_program.html">Юджин баллы</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="yudgin_burger">
+                    <div class="vl"></div>
+                    <p>YUDGIN BURGER
+                        в социальных сетях</p>
+                    <div class="inst">
+                        <a target="_blank" href="https://www.instagram.com/yudginburger"><img src="img/svg/instagram.svg" alt="instagram" /></a>
+                    </div>
+                    <div class="fb">
+                        <a target="_blank" href="https://m.facebook.com/yudginburger/"><img src="img/svg/facebook.svg" alt="facebook" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>© Yudgin Burger. All right reserved  I Пользовательское соглашение</p>
+        </div>
+    </footer>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/jquery.parallax-scroll.js"></script>
+    <script src="js/main.js"></script>
+
+    <script src="js/slick.min.js"></script>
+    <script type="text/javascript">
+        $('.slider').slick({
+            infinite: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 1,
+            centerMode: true,
+            dots: false,
+            arrows: true,
+            autoplay: false,
+        })
+    </script>
+</body>
+</html>

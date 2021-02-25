@@ -1,0 +1,2 @@
+git status
+read -p “Press any key”

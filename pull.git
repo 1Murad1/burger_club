@@ -1,0 +1,5 @@
+git add .
+git commit -m 'auto'
+git pull
+git merge origin/murad
+read -p “Press any key”

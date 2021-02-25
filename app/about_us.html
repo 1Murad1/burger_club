@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About us</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/about_us.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/fonts.css" />
+</head>
+<body>
+    <div id="holder">
+        <script src="js/vue.min.js"></script>
+        <header id="header">
+            <div class="header_head" :class="fixed ? 'fixed' : ''">
+                <div class="container">
+                    <a href="/" class="logo">
+                        <div class="box">
+                            <img src="img/investments/header/burger.png" alt="burger" />
+                        </div>
+                        <div class="logo_p">
+                            <picture>
+                                <source srcset="img/mobi/investments/header/logo.png" media="(max-width: 575px)">
+                                <img src="img/investments/header/logo.png" alt="default_logo" />
+                            </picture>
+                            <p>Сеть бургерных ресторанов</p>
+                        </div>
+                    </a>
+                    <a href="tel: 0 800 330 500" class="phone">
+                        <div class="box">
+                            <img src="img/investments/header/phone_call.png" alt="phone" />
+                        </div>
+                        <div class="number">
+                            <div class="tel">0 800 330 500</div>
+                            <span>Звонок бесплатный</span>
+                        </div>
+                    </a>
+                    <div class="time">
+                        <div class="box">
+                            <img src="img/investments/header/time_left.png" alt="time" />
+                        </div>
+                        <div class="text">
+                            <p>ДО 60 МИНУТ</p>
+                            <span>С 11 до 22:30</span>
+                        </div>
+                    </div>
+                    <div class="registration">
+                        <a href="#" class="button logIn">Вход на сайт</a>
+                        <div class="UA">
+                            <span>ua</span>
+                        </div>
+                    </div>
+                    <div class="burger_menu">
+                    </div>
+                </div>
+            </div>
+            <div class="header_nav">
+                <div class="container">
+                    <nav class="nav">
+                        <ul class="menu">
+                            <li>
+                                <a href="/about_us.html">О нас</a>
+                            </li>
+                            <li>
+                                <a href="/menu.html">Меню</a>
+                            </li>
+                            <li>
+                                <a href="/delivery_area.html">Зона доставки</a>
+                            </li>
+                            <li>
+                                <a href="/restaurant.html">Рестораны</a>
+                            </li>
+                            <li>
+                                <a href="/career.html">Карьера</a>
+                            </li>
+                            <li>
+                                <a href="/cooperation.html">Сотрудничество</a>
+                            </li>
+                            <li>
+                                <a href="loyalty_program.html">Юджин баллы</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="basket" @mouseenter="open = true" @mouseleave="open = false">
+                        <a href="basket.html" class="button small main">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.1 487.1" fill="#fff"><path d="M342.3 137.978H385l-63.3-108.6c-5.1-8.8-16.4-11.8-25.2-6.6-8.8 5.1-11.8 16.4-6.6 25.2l52.4 90zM197.4 47.978c5.1-8.8 2.2-20.1-6.6-25.2s-20.1-2.2-25.2 6.6l-63.3 108.7H145l52.4-90.1zM455.7 171.278H31.3c-17.3 0-31.3 14-31.3 31.3v34.7c0 17.3 14 31.3 31.3 31.3h9.8l30.2 163.7c3.8 19.3 21.4 34.6 39.7 34.6h258.8c18.3 0 35.9-15.3 39.7-34.6l30.4-163.8h15.9c17.3 0 31.3-14 31.3-31.3v-34.7c-.1-17.2-14.1-31.2-31.4-31.2zm-282.9 163.6v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7 10.1 0 17.7 8.2 17.7 17.7v28.4zm56.8 0v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7s17.7 8.2 17.7 17.7v28.4zm57.1 41v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 8.2-17.7 17.7-17.7s17.7 7.6 17.7 17.7v69.4zm56.8 0v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 7.6-17.7 17.7-17.7 9.5 0 17.7 7.6 17.7 17.7v69.4z"/></svg>
+                            Корзина <span class="line"></span><span> {{ quantityAll }} </span>
+                        </a>
+                        <transition name="fade">
+                            <div class="item-holder" v-if="open">
+                                <div class="item empty">Корзина пуста</div>
+                                <div class="holderItem">
+                                    <div class="item" v-for="(item, index) in basket" v-if="item.quantity">
+                                        <div class="img">
+                                            <img :class="item.name === 'ВЕГАН БУРГЕР' || item.name === 'ТЕРМИНАТОР' ? 'small' : item.type === 'snack' ? 'middle' : ''" :src="item.url" alt="" />
+                                        </div>
+                                        <div class="text">
+                                            <div class="name">
+                                                <p>{{ item.name }}</p>
+                                                <button @click="basket.splice(index, 1)">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#000" d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z" class=""></path></svg>
+                                                </button>
+                                            </div>
+                                            <p class="description">{{ item.description }}
+                                                <span v-for="more in item.more">+ {{more.name}} </span></p>
+                                            <div class="footer">
+                                                <div class="quantity">
+                                                    <button class="minus" @click="item.quantity === 1 ? basket.splice(index, 1) : item.quantity -= 1"></button>
+                                                    <p>{{ item.quantity }}</p>
+                                                    <button class="plus" @click="item.quantity += 1"></button>
+                                                </div>
+                                                <p class="price">{{item.price * item.quantity}} грн</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div v-if="allPriceBasket" class="fullPrice"><span>Сумма заказа:</span> {{ allPriceBasket }} грн</div>
+                                <a href="basket.html" class="button link" v-if="allPriceBasket">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.1 487.1" fill="#fff"><path d="M342.3 137.978H385l-63.3-108.6c-5.1-8.8-16.4-11.8-25.2-6.6-8.8 5.1-11.8 16.4-6.6 25.2l52.4 90zM197.4 47.978c5.1-8.8 2.2-20.1-6.6-25.2s-20.1-2.2-25.2 6.6l-63.3 108.7H145l52.4-90.1zM455.7 171.278H31.3c-17.3 0-31.3 14-31.3 31.3v34.7c0 17.3 14 31.3 31.3 31.3h9.8l30.2 163.7c3.8 19.3 21.4 34.6 39.7 34.6h258.8c18.3 0 35.9-15.3 39.7-34.6l30.4-163.8h15.9c17.3 0 31.3-14 31.3-31.3v-34.7c-.1-17.2-14.1-31.2-31.4-31.2zm-282.9 163.6v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7 10.1 0 17.7 8.2 17.7 17.7v28.4zm56.8 0v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7s17.7 8.2 17.7 17.7v28.4zm57.1 41v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 8.2-17.7 17.7-17.7s17.7 7.6 17.7 17.7v69.4zm56.8 0v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 7.6-17.7 17.7-17.7 9.5 0 17.7 7.6 17.7 17.7v69.4z"/></svg>
+                                    В корзину
+                                </a>
+                            </div>
+                        </transition>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="mobile-menu">
+            <div class="container">
+                <div class="registration">
+                    <div class="UA language">
+                        <span>ua</span>
+                    </div>
+                    <a href="#" class="button logIn small">Вход | Регистрация</a>
+                    <div class="close"></div>
+                </div>
+                <nav class="nav">
+                    <ul class="menu">
+                        <li>
+                            <a href="/about_us.html">О нас</a>
+                        </li>
+                        <li>
+                            <a href="/menu.html">Меню</a>
+                        </li>
+                        <li>
+                            <a href="/delivery_area.html">Зона доставки</a>
+                        </li>
+                        <li>
+                            <a href="/restaurant.html">Рестораны</a>
+                        </li>
+                        <li>
+                            <a href="/career.html">Карьера</a>
+                        </li>
+                        <li>
+                            <a href="/cooperation.html">Сотрудничество</a>
+                        </li>
+                        <li>
+                            <a href="loyalty_program.html">Юджин баллы</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="footer_menu">
+                    <a href="tel: 0 800 330 500" class="phone">
+                        <div class="box">
+                            <img src="img/investments/header/phone_call.png" alt="phone" />
+                        </div>
+                        <div class="number">
+                            <div class="tel">0 800 330 500</div>
+                            <span>Звонок бесплатный</span>
+                        </div>
+                    </a>
+                    <div class="time">
+                        <div class="box">
+                            <img src="img/investments/header/time_left.png" alt="time" />
+                        </div>
+                        <div class="text">
+                            <p>ДО 60 МИНУТ</p>
+                            <span>С 11 до 22:30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main id="main">
+            <div class="about_us">
+                <div class="abs1" data-parallax='{"y": -40}'></div>
+                <div class="abs2" data-parallax='{"x": -40}'></div>
+                <div class="abs3" data-parallax='{"y": 40}'></div>
+                <div class="abs4" data-parallax='{"x": -40}'></div>
+                <div class="abs5" data-parallax='{"y": 40}'></div>
+                <div class="abs6" data-parallax='{"x": -40}'></div>
+                <div class="img_abs1" data-parallax='{"y": 40}'>
+                    <img src="img/about_us/big_burger.png" alt="big_burger" />
+                </div>
+                <div class="img_abs2">
+                    <img src="img/about_us/flag.png" alt="flag" />
+                </div>
+                <div class="container">
+                    <h1>О нас</h1>
+                    <p>Люди всегда любили и любят истории. Потому что большие
+                        проекты и талантливые люди всегда откликаются только когда
+                        есть история и какой-то глобальный смысл. Когда у компании есть
+                        настоящая и живая история, значит за этой компанией стоят
+                        живые люди и у нее есть смысл работы. Так что насчет истории
+                        Yudgin Burger? Сейчас вам вкратце ее и расскажем :)</p>
+                </div>
+            </div>
+            <div class="founder">
+                <div class="abs1" data-parallax='{"y": -40}'></div>
+                <div class="abs2" data-parallax='{"x": -40}'></div>
+                <div class="abs3" data-parallax='{"x": 40}'></div>
+                <div class="abs4" data-parallax='{"x": -40}'></div>
+                <div class="abs5" data-parallax='{"y": 40}'></div>
+                <div class="abs6" data-parallax='{"x": 40}'></div>
+                <div class="abs7" data-parallax='{"y": -40}'></div>
+                <div class="img_abs1">
+                    <img src="img/about_us/waiter.png" alt="founder" />
+                </div>
+                <div class="container">
+                    <div class="description">
+                        <p>Привет. Меня зовут Евгений Чернышенко. В 2019,
+                            я запустил первый ресторан сети Юджин Бургер.</p>
+                        <p>Эта история весьма странная и необычная, ее знают многие.
+                            Тогда более 2-х лет я развивал свое digital-агенство. Все было
+                            отлично, много клиентов, офис, команда. Но вот интерес и
+                            радость от того, чем я занимаюсь, падали с каждым днем. И я
+                            решил, что пора в жизни что-то менять.</p>
+                        <p>В какой-то момент я понял, что всю жизнь мечтал создать
+                            массовый продукт, который будет доступен для каждого,
+                            от детей до стариков. А не заниматься digital, работая со
+                            скучными крупными компаниями. И мне искренне хотелось
+                            создать нечто глобальное, что принесет пользу и радость
+                            всем потребителям. Но я еще не знал, что это будет.</p>
+                        <p>Тогда, уехав один путешествовать в Азию, я долго думал, что
+                            я люблю больше всего. И вот спустя какое-то время раздумий
+                            меня осенило, больше всего я люблю бургеры. Ведь на тот
+                            момент даже друзья знали меня как ярого любителя
+                            бургеров. Который знал про них все и ел везде.</p>
+                        <p>И я подумал - а почему бы и нет. И тут же загорелся идеей
+                            создать самые вкусные и популярные бургеры сначала в
+                            Киеве, а потом и по всей Украине и возможно когда-то за
+                            рубежом. Хотя конечно, поначалу мало кто верил в эту затею.
+                            Многие люди в шутку крутили пальцем у виска.</p>
+                        <p>Ведь влезть в сферу общепита и правда было безумием. Но
+                            благодаря сильной вере, качественному продукту и самое
+                            главное - надежной и крутой команде, на сегодняшний день
+                            Юджин Бургер уже довольно известная сеть заведений.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="first_meeting">
+                <div class="abs1" data-parallax='{"y": -40}'></div>
+                <div class="abs2" data-parallax='{"x": 40}'></div>
+                <div class="abs3" data-parallax='{"y": -40}'></div>
+                <div class="abs4" data-parallax='{"x": -40}'></div>
+                <div class="abs5" data-parallax='{"y": -40}'></div>
+                <div class="abs6" data-parallax='{"x": -40}'></div>
+                <div class="abs7" data-parallax='{"x": 40}'></div>
+                <div class="abs8" data-parallax='{"y": -40}'></div>
+                <div class="container">
+                    <div class="burger">
+                        <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                    </div>
+                    <h2>Первое знакомство</h2>
+                    <div class="wrapper">
+                        <div class="text">
+                            <p>Обычно у большинства первое знакомство с Юджин Бургер
+                                начинается одинаково. Кто-то из друзей выложил в инстаграме
+                                отметку с какой-то новой неизвестной бургерной: - вроде
+                                прикольные фотки, надо будет зайти попробовать. Или так:</p>
+                            <p>Вы спокойно идете по улице и никого не трогаете. Как тут из
+                                неоткуда появляется промоутер Юджин Бургер и вручает вам
+                                листовку на бесплатный бургер) - Бесплатный бургер? Разводняк
+                                наверно какой-то, может вообще списаный испорченный дадут...</p>
+                            <p>Ну ладно, зайду попробую, фотки вроде вкусные, интересно же.</p>
+                            <p>Конечно каждый бренд должен сначала заработать репутацию и
+                                доверие у своих гостей. Мы не исключение. Поэтому мы делаем
+                                это как первый шаг, чтобы познакомится с вами. А что дальше?</p>
+                            <p>А дальше бургеры делают все сами. Человеку в большинстве
+                                случаев достаточно попробовать наши бургеры один раз, чтобы
+                                сразу же стать постоянным посетителем. Или начать постоянно
+                                заказывать доставку себе домой. Люди видят, что еда вкусная,
+                                цены доступные, место уютное, и возвращаются снова и снова</p>
+                        </div>
+                        <div class="banner">
+                            <img src="img/about_us/first.png" alt="banner" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="institutions">
+                <div class="abs1" data-parallax='{"y": -40}'></div>
+                <div class="abs2" data-parallax='{"x": 40}'></div>
+                <div class="abs3" data-parallax='{"y": 40}'></div>
+                <div class="abs4" data-parallax='{"x": -40}'></div>
+                <div class="abs5" data-parallax='{"y": 40}'></div>
+                <div class="abs6" data-parallax='{"x": -40}'></div>
+                <div class="container">
+                    <div class="banner">
+                        <img src="img/about_us/banner.png" alt="banner" />
+                    </div>
+                    <div class="wrapper">
+                        <div class="burger">
+                            <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                        </div>
+                        <h2>Заведения, которые
+                            &nbsp притягивают гостей</h2>
+                        <p>С первого дня работы нашей сети, мы работали над тем, чтобы
+                            создать такой продукт, которым захочется поделится со всеми
+                            родственниками, друзьями и знакомыми. И кажется, нам это
+                            немного удалось )</p>
+                        <p>Каждый день десятки и сотни гостей наших ресторанов сами
+                            выкладывают фотки наших блюд и нашего и интерьера в своих
+                            соц. сетях. И конечно, каждая такая фотография привлекает 5-10-
+                            20-50 друзей гостя, который ее опубликовал.</p>
+                        <p>В итоге мы создали бесконечный вирусный эффект, который
+                            помогает нам увеличивать узнаваемость и популярность. И
+                            конечно всего это только благодаря тому, что людям искренне
+                            нравятся наши бургеры, наша атмосфера и они регулярно
+                            возвращаются снова. Этим мы невероятно горды и поэтому очень
+                            ценим каждого гостя, а постоянных многие из команды даже знают
+                            в лицо, спрашивают как у них дела и что нового)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="our_values">
+                <div class="abs1" data-parallax='{"x": -40}'></div>
+                <div class="abs2" data-parallax='{"y": 40}'></div>
+                <div class="abs3" data-parallax='{"x": -40}'></div>
+                <div class="abs4" data-parallax='{"y": 40}'></div>
+                <div class="abs5" data-parallax='{"x": -40}'></div>
+                <div class="abs6" data-parallax='{"y": -40}'></div>
+                <div class="abs7" data-parallax='{"y": 40}'></div>
+                <div class="abs8" data-parallax='{"x": -40}'></div>
+                <div class="container">
+                    <div class="burger">
+                        <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                    </div>
+                    <h2>Наши ценности</h2>
+                    <div class="content">
+                        <div class="text">
+                            <p>Ценности компании - это фундаментальные вещи, на
+                                которых базируется бизнес. В нашем случае это главные
+                                принципы, которые используются при взаимодействии с
+                                нашей командой, нашими партнерами и нашими гостями.</p>
+                            <p>Большинство ресторанов создаются просто для заработка
+                                денег, руководству часто без разницы на сотрудников,
+                                меню и т.д. делается на аутсорсе, в основном такие
+                                заведения живут 1-2 года и к сожалению теряют
+                                актуальность. Потому что нет уникальности и смысла.</p>
+                            <p>Поэтому каждый член нашей команды четко для себя
+                                понимает ответ на вопрос - Зачем? Зачем создался Юджин
+                                Бургер? Зачем мы здесь работаем? Зачем развиваемся и
+                                постоянно делаем улучшения?</p>
+                            <p>Для нас Yudgin Burger это не просто бургеры. Для нас это
+                                нечто глобальное, что заставляет всех каждое утро
+                                просыпаться и напролом сквозь трудности с интересом
+                                и вдохновением двигаться и развиваться дальше.</p>
+                        </div>
+                        <div class="wrapper">
+                            <img src="img/about_us/text.png" alt="text" />
+<!--                                <h3>Философия и принципы юджин бургер</h3>-->
+<!--                                <p><b><span>Наша миссия:</span></b> готовить для всех посетителей лучшие блюда из-->
+<!--                                    лучших ингредиентов по доступным ценам, быть открытыми и-->
+<!--                                    инновационными, дарить радость и приятные эмоции, всегда давать-->
+<!--                                    больше, чем ожидается и удовлетворять абсолютно каждого клиента-->
+<!--                                </p>-->
+<!--                                <p><b><span>Наши ценности:</span></b> всегда соблюдать стандарты качества и показывать-->
+<!--                                    на своем примере, что быстрая еда может быть полезной и здоровой-->
+<!--                                </p>-->
+<!--                                <p><b><span>Глобальное видение:</span></b> накормить по всему миру 1 миллиард-->
+<!--                                    людей юджин бургерами, сделав каждого радостней и счастливее-->
+<!--                                </p>-->
+<!--                                <p><b><span>Наша стратегия:</span></b> привлекать в компанию лучших сотрудников и-->
+<!--                                    партнеров, чтобы развивать самую сильную и сплоченную команду-->
+<!--                                    единомышленников и сделать Юджин Бургер узнаваемым во всем мире-->
+<!--                                </p>-->
+<!--                                <p><b><span>Наша миссия:</span></b> стать крупнейшей в Украине ресторанной компанией,-->
+<!--                                    открыв 200 заведений за 6 лет, после чего расти в других странах-->
+<!--                                </p>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="transparent_company">
+                <div class="container">
+                    <div class="burger">
+                        <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                    </div>
+                    <h2>Прозрачная и открытая компания</h2>
+                    <div class="wrapper">
+                        <div class="left_block">
+                            <p>Юджин Бургер необычная компания. Скорее всего вы не
+                                встретите нечто подобное на украинском рынке. С первого дня
+                                запуска проекта я решил полностью открыто вести бизнес и
+                                завел блог в Telegram, где рассказываю и делюсь с
+                                подписчиками о том, как мы растем, развиваемся, какие
+                                факапы и сложности случаются и как они преодолеваются.
+                                Блог не коммерческий, в нем нет никакой рекламы, поэтому
+                                люди с большим интересом подписываются и следят за нами.</p>
+                            <div class="bg">
+                                <img src="img/about_us/bg_border.png" alt="border" />
+                                <p>
+                                    Интересно то, что в блоге уже более
+                                    <span>5500 человек,</span>
+                                </p>
+                            </div>
+                            <p>которые активно следят за развитием нашего бренда. И
+                                количество подписчиков растет каждый день.
+                                Открытость позволяет нам всегда держать на уровне
+                                свою репутацию, а так же быстро привлекать
+                                сотрудников, инвесторов и партнеров, которые с
+                                энтузиазмом присоединяются к нашей компании. </p>
+                            <div class="button">
+                                <a href="#">Подписаться на блог</a>
+                            </div>
+                            <div class="abs_img">
+                                <img src="img/about_us/arrow_left.png" alt="arrow" />
+                            </div>
+                        </div>
+                        <div class="right_block">
+                            <img src="img/about_us/akk.png" alt="akk" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team">
+                <div class="abs1" data-parallax='{"y": 40}'></div>
+                <div class="abs2" data-parallax='{"y": -40}'></div>
+                <div class="abs3" data-parallax='{"x": -40}'></div>
+                <div class="abs4" data-parallax='{"x": 40}'></div>
+                <div class="abs5" data-parallax='{"y": -40}'></div>
+                <div class="abs6" data-parallax='{"x": 40}'></div>
+                <div class="container">
+                    <div class="banner">
+                        <img src="img/about_us/team.png" alt="banner" />
+                    </div>
+                    <div class="wrapper">
+                        <div class="burger">
+                            <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                        </div>
+                        <h2>ЗА ВСЕМ ЭТИМ
+                            КОНЕЧНО СТОИТ
+                            КОМАНДА</h2>
+                        <p>Ценности компании - это фундаментальные вещи, на которых
+                            базируется бизнес. В нашем случае это главные принципы,
+                            которые используются при взаимодействии с нашей командой,
+                            нашими партнерами и нашими гостями.</p>
+                        <p>Большинство ресторанов создаются просто для заработка денег,
+                            руководству часто без разницы на сотрудников, меню и т.д.
+                            делается на аутсорсе, в основном такие заведения живут 1-2 года
+                            и к сожалению теряют актуальность. Потому что нет
+                            уникальности и смысла.</p>
+                        <p>Поэтому каждый член нашей команды четко для себя
+                            понимает ответ на вопрос - Зачем? Зачем создался Юджин
+                            Бургер? Зачем мы здесь работаем? Зачем развиваемся и
+                            постоянно делаем улучшения?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="why_yudgin">
+                <div class="abs1" data-parallax='{"x": -40}'></div>
+                <div class="abs2" data-parallax='{"y": -40}'></div>
+                <div class="abs3" data-parallax='{"x": 40}'></div>
+                <div class="abs4" data-parallax='{"y": -40}'></div>
+                <div class="abs5" data-parallax='{"x": 40}'></div>
+                <div class="abs6" data-parallax='{"y": -40}'></div>
+                <div class="abs7" data-parallax='{"x": -40}'></div>
+                <div class="abs8" data-parallax='{"y": 40}'></div>
+                <div class="abs9" data-parallax='{"x": 40}'></div>
+                <div class="container">
+                    <div class="burger">
+                        <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                    </div>
+                    <h2>Так почему юджин?</h2>
+                    <div class="wrapper">
+                        <div class="item">
+                            <div class="text">
+                                <p>Наверное один из самых популярных вопросах в наших
+                                    ресторанах. Почему Юджин Бургер и что это за Юджин?)</p>
+                                <p>Когда я изучал разные названия, мне не хотелось назвать
+                                    ресторан банальным названием - Black Burger, Burger Bar и т.д.
+                                    таких названий по всей стране десятки и нет уникальности.</p>
+                                <p>Как вы уже возможно догадываетесь. Слово Юджин исходит из
+                                    имени Евгений. В Америке и Канаде слово Evgeniy - звучит как
+                                    Юджин. Я решил обыграть это и придумал свое слово которого
+                                    нигде не было Yudgin. Так и появилось наше название),
+                                </p>
+                            </div>
+                            <div class="banner">
+                                <img src="img/about_us/our_team.png" alt="our_team" />
+                                <p>Наша команда по стройке и дизайну перед началом
+                                    строительства 3 ресторана в Киеве</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="text">
+                                <p>Самое интересное, что многие не знают о том, что Юджин в Америке
+                                    это Евгений, и просто запоминают это слово как новое) А еще, если
+                                    вы смотрели в детстве мультик Спанч Боб, один из главных героев там
+                                    это Краб, и имя его в мультике - Юджин Крабс) Самое смешное, что
+                                    там он тоже открыл бургерную.</p>
+                                <p>Причем очень много людей задавало нашей команде и мне этот
+                                    вопрос, действительно ли мы взяли идею из мультика. Но суть в том,
+                                    что я в детстве даже не смотрел этот мультик и узнал об этом от
+                                    наших посетителей) Вот такая вот история совпадения)
+                                </p>
+                                <p>Теперь вы узнали нашу историю и стали ее частью :) Ждем вас
+                                    в гости в наши рестораны или с удовольствием сделаем вам доставку
+                                    наших сочных вкусных бургеров на дом, в офис и на учебу)
+                                </p>
+                            </div>
+                            <div class="banner">
+                                <img src="img/about_us/crabs.png" alt="our_team" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer id="footer">
+            <div class="footer_head">
+                <div class="container">
+                    <div class="logo">
+                        <div class="box">
+                            <img src="img/investments/header/burger.png" alt="burger" />
+                        </div>
+                        <div class="logo_p">
+                            <picture>
+                                <source srcset="img/mobi/investments/header/logo.png" media="(max-width: 575px)">
+                                <img src="img/investments/header/logo.png" alt="default_logo" />
+                            </picture>
+                            <p>Сеть бургерных ресторанов</p>
+                        </div>
+                    </div>
+                    <div class="registration">
+                        <a href="#" class="button logIn">Вход на сайт</a>
+                        <div class="UA">
+                            <span>ua</span>
+                        </div>
+                    </div>
+                    <div class="time">
+                        <div class="size">
+                            <img src="img/investments/header/time_left.png" alt="time" />
+                        </div>
+                        <div class="text">
+                            <p>ДО 60 МИНУТ</p>
+                            <span>С 11 до 22:30</span>
+                        </div>
+                    </div>
+                    <div class="phone">
+                        <div class="size">
+                            <img src="img/investments/header/phone_call.png" alt="phone" />
+                        </div>
+                        <div class="number">
+                            <a href="tel: 0 800 330 500" class="tel">0 800 330 500</a>
+                            <span>Звонок бесплатный</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_nav">
+                <div class="container">
+                    <nav class="nav">
+                        <ul class="menu">
+                            <li>
+                                <a href="/about_us.html">О нас</a>
+                            </li>
+                            <li>
+                                <a href="/menu.html">Меню</a>
+                            </li>
+                            <li>
+                                <a href="/delivery_area.html">Зона доставки</a>
+                            </li>
+                            <li>
+                                <a href="/restaurant.html">Рестораны</a>
+                            </li>
+                            <li>
+                                <a href="/career.html">Карьера</a>
+                            </li>
+                            <li>
+                                <a href="/cooperation.html">Сотрудничество</a>
+                            </li>
+                            <li>
+                                <a href="loyalty_program.html">Юджин баллы</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="yudgin_burger">
+                        <div class="vl"></div>
+                        <p>YUDGIN BURGER
+                            в социальных сетях</p>
+                        <div class="inst">
+                            <a target="_blank" href="https://www.instagram.com/yudginburger"><img src="img/svg/instagram.svg" alt="instagram" /></a>
+                        </div>
+                        <div class="fb">
+                            <a target="_blank" href="https://m.facebook.com/yudginburger/"><img src="img/svg/facebook.svg" alt="facebook" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <p>© Yudgin Burger. All right reserved  I Пользовательское соглашение</p>
+            </div>
+        </footer>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.fancybox.min.js"></script>
+        <script src="js/wow.js"></script>
+        <script src="js/jquery.parallax-scroll.js"></script>
+        <script src="js/main.js"></script>
+    </div>
+</body>
+</html>

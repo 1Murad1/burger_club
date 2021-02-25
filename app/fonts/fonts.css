@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'CirceRegular';
+    src: url('Circe-Regular.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CirceBold';
+    src: url('Circe-Bold.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CirceExtraBold';
+    src: url('Circe-ExtraBold.ttf');
+    font-style: normal;
+}
+

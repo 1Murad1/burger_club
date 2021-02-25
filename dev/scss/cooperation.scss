@@ -1,0 +1,143 @@
+@import "_all-page.scss";
+
+#main {
+    position: relative;
+    .abs1 {
+        background-color: rgba(241, 163, 28, .102);
+        width: $a39;
+        height: $a39;
+        top : $a90;
+        left : $a75;
+    }
+    .abs2 {
+        background-color: rgba(241, 163, 28, .102);
+        width: $a179;
+        height: $a179;
+        top : $a109;
+        left : $a94;
+    }
+    .abs3 {
+        background-color: rgba(0, 0, 0, .102);
+        width: $a75;
+        height: $a56;
+        top : 0;
+        right : $a228;
+    }
+    .abs4 {
+        background-color: rgba(0, 0, 0, .059);
+        width: $a37;
+        height: $a37;
+        top : $a33;
+        right : $a215;
+    }
+    .abs5 {
+        background-color: rgb(227, 158, 51);
+        width: $a12;
+        height: $a280;
+        right : $a227;
+        bottom : $a22;
+    }
+    .abs6 {
+        background-color: rgb(227, 158, 51);
+        width: $a12;
+        height: $a280;
+        left : $a430;
+        bottom : $a56;
+    }
+    .abs7 {
+        background-color: rgba(241, 163, 28, .102);
+        width: $a179;
+        height: $a179;
+        bottom : $a56;
+        right : $a340;
+    }
+    .abs8 {
+        background-color: rgba(0, 0, 0, .102);
+        width: $a110;
+        height: $a110;
+        left : $a726;
+        top : $a335;
+    }
+
+    .container {
+        padding-top : $a61;
+        padding-bottom : $a78;
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+        .link {
+            position: relative;
+            z-index : 1;
+            margin-bottom : $a30;
+            display: block;
+            transition: .5s all;
+            &:hover {
+                transform: scale(1.05);
+            }
+            .item {
+                display: flex;
+                align-items: center;
+                //position: relative;
+                width: $a570;
+                height: $a370;
+                background: #fff;
+                border-radius: $a6;
+                box-shadow: 0 $a21 $a87 0 rgba(0, 4, 2, 0.12);
+                img {
+                    width : $a234;
+                    margin-right : $a47;
+                }
+                h2 {
+                    font-size : $a44;
+                    line-height : $a50;
+                    font-family: 'CirceExtraBold';
+                }
+            }
+            .item1 {
+                img {
+                    width : $a254;
+                    margin-right : $a27;
+                }
+            }
+            .item2 {
+                img {
+                    width : $a335;
+                    margin-right : -$a40;
+                }
+            }
+            .item3 {
+                img {
+                    width : $a370;
+                    margin-right : -$a90;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1023px) {
+    #main {
+        .container {
+            flex-direction: column;
+            .link {
+                height : $m100;
+                margin-bottom : $m10;
+                .item {
+                    width : 100%;
+                    height : 100%;
+                    h2 {
+                        line-height : $m20;
+                        padding: 0 !important;
+                        margin-left: auto;
+                        width: 65%;
+                    }
+                    img {
+                        height: 100%;
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+}

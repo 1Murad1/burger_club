@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loyalty program</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/loyalty_program.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/fonts.css" />
+</head>
+<body>
+    <div id="holder">
+        <script src="js/vue.min.js"></script>
+        <header id="header">
+            <div class="header_head" :class="fixed ? 'fixed' : ''">
+                <div class="container">
+                    <a href="/" class="logo">
+                        <div class="box">
+                            <img src="img/investments/header/burger.png" alt="burger" />
+                        </div>
+                        <div class="logo_p">
+                            <picture>
+                                <source srcset="img/mobi/investments/header/logo.png" media="(max-width: 575px)">
+                                <img src="img/investments/header/logo.png" alt="default_logo" />
+                            </picture>
+                            <p>Сеть бургерных ресторанов</p>
+                        </div>
+                    </a>
+                    <a href="tel: 0 800 330 500" class="phone">
+                        <div class="box">
+                            <img src="img/investments/header/phone_call.png" alt="phone" />
+                        </div>
+                        <div class="number">
+                            <div class="tel">0 800 330 500</div>
+                            <span>Звонок бесплатный</span>
+                        </div>
+                    </a>
+                    <div class="time">
+                        <div class="box">
+                            <img src="img/investments/header/time_left.png" alt="time" />
+                        </div>
+                        <div class="text">
+                            <p>ДО 60 МИНУТ</p>
+                            <span>С 11 до 22:30</span>
+                        </div>
+                    </div>
+                    <div class="registration">
+                        <a href="#" class="button logIn">Вход на сайт</a>
+                        <div class="UA">
+                            <span>ua</span>
+                        </div>
+                    </div>
+                    <div class="burger_menu">
+                    </div>
+                </div>
+            </div>
+            <div class="header_nav">
+                <div class="container">
+                    <nav class="nav">
+                        <ul class="menu">
+                            <li>
+                                <a href="/about_us.html">О нас</a>
+                            </li>
+                            <li>
+                                <a href="/menu.html">Меню</a>
+                            </li>
+                            <li>
+                                <a href="/delivery_area.html">Зона доставки</a>
+                            </li>
+                            <li>
+                                <a href="/restaurant.html">Рестораны</a>
+                            </li>
+                            <li>
+                                <a href="/career.html">Карьера</a>
+                            </li>
+                            <li>
+                                <a href="/cooperation.html">Сотрудничество</a>
+                            </li>
+                            <li>
+                                <a href="loyalty_program.html">Юджин баллы</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="basket" @mouseenter="open = true" @mouseleave="open = false">
+                        <a href="basket.html" class="button small main">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.1 487.1" fill="#fff"><path d="M342.3 137.978H385l-63.3-108.6c-5.1-8.8-16.4-11.8-25.2-6.6-8.8 5.1-11.8 16.4-6.6 25.2l52.4 90zM197.4 47.978c5.1-8.8 2.2-20.1-6.6-25.2s-20.1-2.2-25.2 6.6l-63.3 108.7H145l52.4-90.1zM455.7 171.278H31.3c-17.3 0-31.3 14-31.3 31.3v34.7c0 17.3 14 31.3 31.3 31.3h9.8l30.2 163.7c3.8 19.3 21.4 34.6 39.7 34.6h258.8c18.3 0 35.9-15.3 39.7-34.6l30.4-163.8h15.9c17.3 0 31.3-14 31.3-31.3v-34.7c-.1-17.2-14.1-31.2-31.4-31.2zm-282.9 163.6v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7 10.1 0 17.7 8.2 17.7 17.7v28.4zm56.8 0v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7s17.7 8.2 17.7 17.7v28.4zm57.1 41v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 8.2-17.7 17.7-17.7s17.7 7.6 17.7 17.7v69.4zm56.8 0v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 7.6-17.7 17.7-17.7 9.5 0 17.7 7.6 17.7 17.7v69.4z"/></svg>
+                            Корзина <span class="line"></span><span> {{ quantityAll }} </span>
+                        </a>
+                        <transition name="fade">
+                            <div class="item-holder" v-if="open">
+                                <div class="item empty">Корзина пуста</div>
+                                <div class="holderItem">
+                                    <div class="item" v-for="(item, index) in basket" v-if="item.quantity">
+                                        <div class="img">
+                                            <img :class="item.name === 'ВЕГАН БУРГЕР' || item.name === 'ТЕРМИНАТОР' ? 'small' : item.type === 'snack' ? 'middle' : ''" :src="item.url" alt="" />
+                                        </div>
+                                        <div class="text">
+                                            <div class="name">
+                                                <p>{{ item.name }}</p>
+                                                <button @click="basket.splice(index, 1)">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#000" d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z" class=""></path></svg>
+                                                </button>
+                                            </div>
+                                            <p class="description">{{ item.description }}
+                                                <span v-for="more in item.more">+ {{more.name}} </span></p>
+                                            <div class="footer">
+                                                <div class="quantity">
+                                                    <button class="minus" @click="item.quantity === 1 ? basket.splice(index, 1) : item.quantity -= 1"></button>
+                                                    <p>{{ item.quantity }}</p>
+                                                    <button class="plus" @click="item.quantity += 1"></button>
+                                                </div>
+                                                <p class="price">{{item.price * item.quantity}} грн</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div v-if="allPriceBasket" class="fullPrice"><span>Сумма заказа:</span> {{ allPriceBasket }} грн</div>
+                                <a href="basket.html" class="button link" v-if="allPriceBasket">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.1 487.1" fill="#fff"><path d="M342.3 137.978H385l-63.3-108.6c-5.1-8.8-16.4-11.8-25.2-6.6-8.8 5.1-11.8 16.4-6.6 25.2l52.4 90zM197.4 47.978c5.1-8.8 2.2-20.1-6.6-25.2s-20.1-2.2-25.2 6.6l-63.3 108.7H145l52.4-90.1zM455.7 171.278H31.3c-17.3 0-31.3 14-31.3 31.3v34.7c0 17.3 14 31.3 31.3 31.3h9.8l30.2 163.7c3.8 19.3 21.4 34.6 39.7 34.6h258.8c18.3 0 35.9-15.3 39.7-34.6l30.4-163.8h15.9c17.3 0 31.3-14 31.3-31.3v-34.7c-.1-17.2-14.1-31.2-31.4-31.2zm-282.9 163.6v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7 10.1 0 17.7 8.2 17.7 17.7v28.4zm56.8 0v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7s17.7 8.2 17.7 17.7v28.4zm57.1 41v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 8.2-17.7 17.7-17.7s17.7 7.6 17.7 17.7v69.4zm56.8 0v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 7.6-17.7 17.7-17.7 9.5 0 17.7 7.6 17.7 17.7v69.4z"/></svg>
+                                    В корзину
+                                </a>
+                            </div>
+                        </transition>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="mobile-menu">
+            <div class="container">
+                <div class="registration">
+                    <div class="UA language">
+                        <span>ua</span>
+                    </div>
+                    <a href="#" class="button logIn small">Вход | Регистрация</a>
+                    <div class="close"></div>
+                </div>
+                <nav class="nav">
+                    <ul class="menu">
+                        <li>
+                            <a href="/about_us.html">О нас</a>
+                        </li>
+                        <li>
+                            <a href="/menu.html">Меню</a>
+                        </li>
+                        <li>
+                            <a href="/delivery_area.html">Зона доставки</a>
+                        </li>
+                        <li>
+                            <a href="/restaurant.html">Рестораны</a>
+                        </li>
+                        <li>
+                            <a href="/career.html">Карьера</a>
+                        </li>
+                        <li>
+                            <a href="/cooperation.html">Сотрудничество</a>
+                        </li>
+                        <li>
+                            <a href="loyalty_program.html">Юджин баллы</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="footer_menu">
+                    <a href="tel: 0 800 330 500" class="phone">
+                        <div class="box">
+                            <img src="img/investments/header/phone_call.png" alt="phone" />
+                        </div>
+                        <div class="number">
+                            <div class="tel">0 800 330 500</div>
+                            <span>Звонок бесплатный</span>
+                        </div>
+                    </a>
+                    <div class="time">
+                        <div class="box">
+                            <img src="img/investments/header/time_left.png" alt="time" />
+                        </div>
+                        <div class="text">
+                            <p>ДО 60 МИНУТ</p>
+                            <span>С 11 до 22:30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    <main id="main">
+        <div class="block_loyalty">
+            <div class="abs1" data-parallax='{"y": -40}'></div>
+            <div class="abs2" data-parallax='{"x": -40}'></div>
+            <div class="abs3" data-parallax='{"y": 40}'></div>
+            <div class="abs4" data-parallax='{"x": 40}'></div>
+            <div class="abs5" data-parallax='{"y": -40}'></div>
+            <div class="abs6" data-parallax='{"x": -40}'></div>
+            <div class="abs7" data-parallax='{"y": -40}'></div>
+            <div class="img_abs" data-parallax='{"y": 40}'>
+                <img src="img/loyalti/big_burger.png" alt="big_burger" />
+            </div>
+            <div class="container">
+                <div class="loyalti_program">
+                    <h2>Программа лояльности
+                        сети Юджин Бургер</h2>
+                    <div class="item">
+                        <span class="line"></span>
+                        <p>Возвращаем от 2% до 6% с каждого заказа</p>
+                    </div>
+                    <a class="button white" href="#">СКАЧАТЬ ПРИЛОЖЕНИЕ</a>
+                </div>
+                <div class="brd">
+                    <div class="banner wow bounceIn">
+                        <p class="fw">Юджин баллы - это наши бонусы для вас</p>
+                        <span>1 Юджин балл
+                            =
+                            1 гривна </span>
+                        <p>Все честно и просто</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="work_program">
+            <div class="abs1" data-parallax='{"y": -40}'></div>
+            <div class="abs2" data-parallax='{"y": 40}'></div>
+            <div class="abs3" data-parallax='{"x": -40}'></div>
+            <div class="container">
+                <div class="burger">
+                    <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                </div>
+                <h2>Как работает программа лояльности?</h2>
+                <div class="instructions">
+                    <div class="dotted">
+                        ---------------------------------------------------------------------------------------------
+                    </div>
+                    <div class="item wow zoomInUp" data-wow-delay="0ms">
+                        <div class="block_number">
+                            <span>01</span>
+                            <img src="img/loyalti/phone.png" alt="phone" />
+                        </div>
+                        <h3>Скачайте приложение и
+                            зарегистрируйтесь</h3>
+                        <p>Скачайте бесплатное мобильное
+                            приложение Yudgin Burger в Apple
+                            Store или Google Play и пройдите
+                            простую 30-секундную регистрацию</p>
+                    </div>
+                    <div class="item wow zoomInUp" data-wow-delay="100ms">
+                        <div class="block_number img_size">
+                            <span>02</span>
+                            <img src="img/loyalti/rotten_burger.png" alt="rotten burger" />
+                        </div>
+                        <h3>Выполняйте простые задания и
+                            повышайте свой процент кешбека</h3>
+                        <p>Наша программа имеет 3 ранга, выполняйте
+                            простые задания в приложении, отслеживайте
+                            процент выполнения и переходите на новые
+                            ранги, получая навсегда кешбек все больше</p>
+                    </div>
+                    <div class="item wow zoomInUp" data-wow-delay="200ms">
+                        <div class="block_number img_size1">
+                            <span>03</span>
+                            <img src="img/loyalti/bonus.png" alt="bonus" />
+                        </div>
+                        <h3>Накапливайте и
+                            используйте бонусы</h3>
+                        <p>Накапливайте и используйте баллы
+                            при следующих заказах доставки,
+                            самовывоза или прямо в ресторане через
+                            мобильное приложение Юджин Бургер</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="background">
+            <img src="img/loyalti/background.png" alt="background" />
+            <div class="container">
+                <div class="wrapper wow zoomIn">
+                    <p><b>1) Швидкий старт - <span class="color">2%</span></b> кешбек</p>
+                    <p><b>2) Юджин Бро - <span class="color">4%</span></b> кешбек</p>
+                    <p><b> 3) Персона VIP - <span class="color">6%</span></b> кешбек</p>
+                </div>
+                <div class="descr">
+                    <img src="img/svg/right-arrow.svg" alt="arrow" />
+                    <div class="text">
+                        <p>Чем выше ваш ранг - тем больше
+                            кешбек бонусных баллов ) </p>
+                        <p>Вы можете оплатить юджин-баллами
+                            как часть заказа, так и весь целиком </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="restorant_points">
+            <div class="abs1" data-parallax='{"y": 40}'></div>
+            <div class="abs2" data-parallax='{"y": -40}'></div>
+            <div class="abs3" data-parallax='{"x": 40}'></div>
+            <div class="container">
+                <div class="waste_of_points">
+                    <div class="burger">
+                        <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                    </div>
+                    <h2>Как начислить или
+                        потратить баллы
+                        в ресторане?</h2>
+                    <p>Чтобы начислить Юджин-баллы в любом нашем ресторане - перед
+                        заказом просто откройте наше мобильное приложение и покажите
+                        кассиру ваш личный QR-код. Он его отсканирует и бонусные баллы
+                        за заказ будут зачислены вам на счет, либо с помощью них вы можете
+                        рассчитаться за заказ</p>
+                    <a class="button" href="#">Начать получать кешбек бонусы</a>
+                </div>
+                <div class="image">
+                    <img src="img/loyalti/big_phone.png" alt="phone" />
+                    <span class="text">Покажите экран телефона
+                        нашему сторуднику</span>
+                </div>
+            </div>
+        </div>
+        <div class="advantages_mob">
+            <img src="img/loyalti/depth.png" alt="picture" class="left_block"/>
+            <div class="abs1"></div>
+            <div class="abs2"></div>
+            <div class="abs3"></div>
+            <div class="abs4"></div>
+            <div class="abs5"></div>
+            <div class="abs6"></div>
+            <div class="container">
+                <div class="right_block">
+                    <div class="burger">
+                        <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                    </div>
+                    <h2>Дополнительные
+                        преимущества моб.
+                        приложения Yudgin</h2>
+                    <ul>
+                        <li>Заказ бесплатной доставки в несколько кликов</li>
+                        <li>Просмотр и контроль истории всех ваших заказов</li>
+                        <li>Начисление кешбек бонусов за каждый заказ</li>
+                        <li>Возможность оставить отзыв и комментарий после
+                            каждого заказа для оперативной обратной связи</li>
+                        <li>Возможность повышения личного ранга и процента
+                            кешбека при выполнении заданий</li>
+                        <li>Возможность приглашать друзей и получать бонусы
+                            за их установку</li>
+                        <li>Возможность рассчитываться бонусами за заказ</li>
+                        <li>Актуальная карта всех ресторанов с адресами</li>
+                        <li>Раздел вопрос - ответ прямо в приложении</li>
+                    </ul>
+                    <a href="#" class="button">Скачайте приложение уже сейчас</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <div class="footer_head">
+            <div class="container">
+                <div class="logo">
+                    <div class="box">
+                        <img src="img/investments/header/burger.png" alt="burger" />
+                    </div>
+                    <div class="logo_p">
+                        <picture>
+                            <source srcset="img/mobi/investments/header/logo.png" media="(max-width: 575px)">
+                            <img src="img/investments/header/logo.png" alt="default_logo" />
+                        </picture>
+                        <p>Сеть бургерных ресторанов</p>
+                    </div>
+                </div>
+                <div class="registration">
+                    <a href="#" class="button logIn">Вход на сайт</a>
+                    <div class="UA">
+                        <span>ua</span>
+                    </div>
+                </div>
+                <div class="time">
+                    <div class="size">
+                        <img src="img/investments/header/time_left.png" alt="time" />
+                    </div>
+                    <div class="text">
+                        <p>ДО 60 МИНУТ</p>
+                        <span>С 11 до 22:30</span>
+                    </div>
+                </div>
+                <div class="phone">
+                    <div class="size">
+                        <img src="img/investments/header/phone_call.png" alt="phone" />
+                    </div>
+                    <div class="number">
+                        <a href="tel: 0 800 330 500" class="tel">0 800 330 500</a>
+                        <span>Звонок бесплатный</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_nav">
+            <div class="container">
+                <nav class="nav">
+                    <ul class="menu">
+                        <li>
+                            <a href="/about_us.html">О нас</a>
+                        </li>
+                        <li>
+                            <a href="/menu.html">Меню</a>
+                        </li>
+                        <li>
+                            <a href="/delivery_area.html">Зона доставки</a>
+                        </li>
+                        <li>
+                            <a href="/restaurant.html">Рестораны</a>
+                        </li>
+                        <li>
+                            <a href="/career.html">Карьера</a>
+                        </li>
+                        <li>
+                            <a href="/cooperation.html">Сотрудничество</a>
+                        </li>
+                        <li>
+                            <a href="loyalty_program.html">Юджин баллы</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="yudgin_burger">
+                    <div class="vl"></div>
+                    <p>YUDGIN BURGER
+                        в социальных сетях</p>
+                    <div class="inst">
+                        <a target="_blank" href="https://www.instagram.com/yudginburger"><img src="img/svg/instagram.svg" alt="instagram" /></a>
+                    </div>
+                    <div class="fb">
+                        <a target="_blank" href="https://m.facebook.com/yudginburger/"><img src="img/svg/facebook.svg" alt="facebook" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>© Yudgin Burger. All right reserved  I Пользовательское соглашение</p>
+        </div>
+    </footer>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/jquery.parallax-scroll.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

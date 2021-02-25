@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/career.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/fonts.css" />
+</head>
+<body>
+    <div id="holder">
+        <script src="js/vue.min.js"></script>
+        <header id="header">
+            <div class="header_head" :class="fixed ? 'fixed' : ''">
+                <div class="container">
+                    <a href="/" class="logo">
+                        <div class="box">
+                            <img src="img/investments/header/burger.png" alt="burger" />
+                        </div>
+                        <div class="logo_p">
+                            <picture>
+                                <source srcset="img/mobi/investments/header/logo.png" media="(max-width: 575px)">
+                                <img src="img/investments/header/logo.png" alt="default_logo" />
+                            </picture>
+                            <p>Сеть бургерных ресторанов</p>
+                        </div>
+                    </a>
+                    <a href="tel: 0 800 330 500" class="phone">
+                        <div class="box">
+                            <img src="img/investments/header/phone_call.png" alt="phone" />
+                        </div>
+                        <div class="number">
+                            <div class="tel">0 800 330 500</div>
+                            <span>Звонок бесплатный</span>
+                        </div>
+                    </a>
+                    <div class="time">
+                        <div class="box">
+                            <img src="img/investments/header/time_left.png" alt="time" />
+                        </div>
+                        <div class="text">
+                            <p>ДО 60 МИНУТ</p>
+                            <span>С 11 до 22:30</span>
+                        </div>
+                    </div>
+                    <div class="registration">
+                        <a href="#" class="button logIn">Вход на сайт</a>
+                        <div class="UA">
+                            <span>ua</span>
+                        </div>
+                    </div>
+                    <div class="burger_menu">
+                    </div>
+                </div>
+            </div>
+            <div class="header_nav">
+                <div class="container">
+                    <nav class="nav">
+                        <ul class="menu">
+                            <li>
+                                <a href="/about_us.html">О нас</a>
+                            </li>
+                            <li>
+                                <a href="/menu.html">Меню</a>
+                            </li>
+                            <li>
+                                <a href="/delivery_area.html">Зона доставки</a>
+                            </li>
+                            <li>
+                                <a href="/restaurant.html">Рестораны</a>
+                            </li>
+                            <li>
+                                <a href="/career.html">Карьера</a>
+                            </li>
+                            <li>
+                                <a href="/cooperation.html">Сотрудничество</a>
+                            </li>
+                            <li>
+                                <a href="loyalty_program.html">Юджин баллы</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="basket" @mouseenter="open = true" @mouseleave="open = false">
+                        <a href="basket.html" class="button small main">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.1 487.1" fill="#fff"><path d="M342.3 137.978H385l-63.3-108.6c-5.1-8.8-16.4-11.8-25.2-6.6-8.8 5.1-11.8 16.4-6.6 25.2l52.4 90zM197.4 47.978c5.1-8.8 2.2-20.1-6.6-25.2s-20.1-2.2-25.2 6.6l-63.3 108.7H145l52.4-90.1zM455.7 171.278H31.3c-17.3 0-31.3 14-31.3 31.3v34.7c0 17.3 14 31.3 31.3 31.3h9.8l30.2 163.7c3.8 19.3 21.4 34.6 39.7 34.6h258.8c18.3 0 35.9-15.3 39.7-34.6l30.4-163.8h15.9c17.3 0 31.3-14 31.3-31.3v-34.7c-.1-17.2-14.1-31.2-31.4-31.2zm-282.9 163.6v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7 10.1 0 17.7 8.2 17.7 17.7v28.4zm56.8 0v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7s17.7 8.2 17.7 17.7v28.4zm57.1 41v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 8.2-17.7 17.7-17.7s17.7 7.6 17.7 17.7v69.4zm56.8 0v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 7.6-17.7 17.7-17.7 9.5 0 17.7 7.6 17.7 17.7v69.4z"/></svg>
+                            Корзина <span class="line"></span><span> {{ quantityAll }} </span>
+                        </a>
+                        <transition name="fade">
+                            <div class="item-holder" v-if="open">
+                                <div class="item empty">Корзина пуста</div>
+                                <div class="holderItem">
+                                    <div class="item" v-for="(item, index) in basket" v-if="item.quantity">
+                                        <div class="img">
+                                            <img :class="item.name === 'ВЕГАН БУРГЕР' || item.name === 'ТЕРМИНАТОР' ? 'small' : item.type === 'snack' ? 'middle' : ''" :src="item.url" alt="" />
+                                        </div>
+                                        <div class="text">
+                                            <div class="name">
+                                                <p>{{ item.name }}</p>
+                                                <button @click="basket.splice(index, 1)">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#000" d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z" class=""></path></svg>
+                                                </button>
+                                            </div>
+                                            <p class="description">{{ item.description }}
+                                                <span v-for="more in item.more">+ {{more.name}} </span></p>
+                                            <div class="footer">
+                                                <div class="quantity">
+                                                    <button class="minus" @click="item.quantity === 1 ? basket.splice(index, 1) : item.quantity -= 1"></button>
+                                                    <p>{{ item.quantity }}</p>
+                                                    <button class="plus" @click="item.quantity += 1"></button>
+                                                </div>
+                                                <p class="price">{{item.price * item.quantity}} грн</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div v-if="allPriceBasket" class="fullPrice"><span>Сумма заказа:</span> {{ allPriceBasket }} грн</div>
+                                <a href="basket.html" class="button link" v-if="allPriceBasket">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.1 487.1" fill="#fff"><path d="M342.3 137.978H385l-63.3-108.6c-5.1-8.8-16.4-11.8-25.2-6.6-8.8 5.1-11.8 16.4-6.6 25.2l52.4 90zM197.4 47.978c5.1-8.8 2.2-20.1-6.6-25.2s-20.1-2.2-25.2 6.6l-63.3 108.7H145l52.4-90.1zM455.7 171.278H31.3c-17.3 0-31.3 14-31.3 31.3v34.7c0 17.3 14 31.3 31.3 31.3h9.8l30.2 163.7c3.8 19.3 21.4 34.6 39.7 34.6h258.8c18.3 0 35.9-15.3 39.7-34.6l30.4-163.8h15.9c17.3 0 31.3-14 31.3-31.3v-34.7c-.1-17.2-14.1-31.2-31.4-31.2zm-282.9 163.6v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7 10.1 0 17.7 8.2 17.7 17.7v28.4zm56.8 0v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7s17.7 8.2 17.7 17.7v28.4zm57.1 41v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 8.2-17.7 17.7-17.7s17.7 7.6 17.7 17.7v69.4zm56.8 0v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 7.6-17.7 17.7-17.7 9.5 0 17.7 7.6 17.7 17.7v69.4z"/></svg>
+                                    В корзину
+                                </a>
+                            </div>
+                        </transition>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="mobile-menu">
+            <div class="container">
+                <div class="registration">
+                    <div class="UA language">
+                        <span>ua</span>
+                    </div>
+                    <a href="#" class="button logIn small">Вход | Регистрация</a>
+                    <div class="close"></div>
+                </div>
+                <nav class="nav">
+                    <ul class="menu">
+                        <li>
+                            <a href="/about_us.html">О нас</a>
+                        </li>
+                        <li>
+                            <a href="/menu.html">Меню</a>
+                        </li>
+                        <li>
+                            <a href="/delivery_area.html">Зона доставки</a>
+                        </li>
+                        <li>
+                            <a href="/restaurant.html">Рестораны</a>
+                        </li>
+                        <li>
+                            <a href="/career.html">Карьера</a>
+                        </li>
+                        <li>
+                            <a href="/cooperation.html">Сотрудничество</a>
+                        </li>
+                        <li>
+                            <a href="loyalty_program.html">Юджин баллы</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="footer_menu">
+                    <a href="tel: 0 800 330 500" class="phone">
+                        <div class="box">
+                            <img src="img/investments/header/phone_call.png" alt="phone" />
+                        </div>
+                        <div class="number">
+                            <div class="tel">0 800 330 500</div>
+                            <span>Звонок бесплатный</span>
+                        </div>
+                    </a>
+                    <div class="time">
+                        <div class="box">
+                            <img src="img/investments/header/time_left.png" alt="time" />
+                        </div>
+                        <div class="text">
+                            <p>ДО 60 МИНУТ</p>
+                            <span>С 11 до 22:30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    <main id="main">
+        <div class="career">
+            <div class="abs1" data-parallax='{"y": -40}'></div>
+            <div class="abs2" data-parallax='{"x": -40}'></div>
+            <div class="abs3" data-parallax='{"x": 40}'></div>
+            <div class="abs4" data-parallax='{"y": 40}'></div>
+            <div class="abs5" data-parallax='{"x": 40}'></div>
+            <div class="abs6" data-parallax='{"y": -40}'></div>
+            <div class="img_abs" data-parallax='{"x": 40}'>
+                <img src="img/career/people.png" alt="people" />
+            </div>
+            <div class="img_abs1" data-parallax='{"y": 40}'>
+                <img src="img/career/big_burger.png" alt="people" />
+            </div>
+            <div class="container">
+                <div class="wrapper">
+                    <h1 class="wow fadeInUp" data-wow-delay="0ms">Карьера</h1>
+                    <h2 class="wow fadeInUp" data-wow-delay="200ms">В YUDGIN BURGER</h2>
+                    <p class="wow fadeInUp" data-wow-delay="400ms">Если вы считаете, что настало время что-то поменять в своей
+                        жизни, то пора это сделать уже сейчас. Выбирайте должность
+                        по душе и присоединяйтесь к нашему дружному коллективу,
+                        став частью быстрорастущей украинской сети Юджин Бургер. </p>
+                    <a class="button white" href="#">Заполнить анкету</a>
+                    <div class="border_wrap"></div>
+                </div>
+            </div>
+        </div>
+        <div class="advantages">
+            <div class="abs1" data-parallax='{"y": -40}'></div>
+            <div class="abs2" data-parallax='{"x": 40}'></div>
+            <div class="abs3" data-parallax='{"y": 40}'></div>
+            <div class="abs4" data-parallax='{"x": 40}'></div>
+            <div class="abs5" data-parallax='{"y": -40}'></div>
+            <div class="container">
+                <div class="burger">
+                    <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                </div>
+                <h2>Преимущества работы с намиИ</h2>
+                <div class="items">
+                    <div class="item wow fadeIn" data-wow-delay="0ms">
+                        <div class="bg">
+                            <img class="img1" src="img/career/document.png" alt="document" />
+                        </div>
+                        <p>Официальное
+                            трудоустройство</p>
+                    </div>
+                    <div class="item wow fadeIn" data-wow-delay="100ms">
+                        <div class="bg">
+                            <img class="img2" src="img/career/calendary.png" alt="document" />
+                        </div>
+                        <p>Удобный
+                            график</p>
+                    </div>
+                    <div class="item wow fadeIn" data-wow-delay="200ms">
+                        <div class="bg">
+                            <img class="img3" src="img/career/wallet.png" alt="document" />
+                        </div>
+                        <p>Зарплата 2 раза в
+                            месяц и вовремя</p>
+                    </div>
+                    <div class="item wow fadeIn" data-wow-delay="300ms">
+                        <div class="bg">
+                            <img class="img4" src="img/career/plate.png" alt="document" />
+                        </div>
+                        <p>2-х разовое бесплатное
+                            питание и униформа</p>
+                    </div>
+                    <div class="item wow fadeIn" data-wow-delay="400ms">
+                        <div class="bg">
+                            <img class="img5" src="img/career/seal.png" alt="document" />
+                        </div>
+                        <p>Отсутствие
+                            штрафов</p>
+                    </div>
+                    <div class="item item1 wow fadeIn" data-wow-delay="500ms">
+                        <div class="bg">
+                            <img class="img6" src="img/career/smile.png" alt="document" />
+                        </div>
+                        <p>Адекватное руководство
+                            и хороший коллектив</p>
+                    </div>
+                    <div class="item wow fadeIn" data-wow-delay="600ms">
+                        <div class="bg">
+                            <img class="img7" src="img/career/cap.png" alt="document" />
+                        </div>
+                        <p>Оплачиваемая
+                            стажировка</p>
+                    </div>
+                    <div class="item wow fadeIn" data-wow-delay="700ms">
+                        <div class="bg">
+                            <img class="img8" src="img/career/blackboard.png" alt="document" />
+                        </div>
+                        <p>Обучение и развитие
+                            внутри компании
+                        </p>
+                    </div>
+                    <div class="item wow fadeIn" data-wow-delay="800ms">
+                        <div class="bg">
+                            <img class="img9" src="img/career/bag.png" alt="document" />
+                        </div>
+                        <p>Возможность
+                            карьерного роста</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="vacancies">
+            <div class="abs1" data-parallax='{"x": -40}'></div>
+            <div class="abs2" data-parallax='{"y": -40}'></div>
+            <div class="abs3" data-parallax='{"x": 40}'></div>
+            <div class="container">
+                <div class="burger">
+                    <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                </div>
+                <h2>Вакансии в yudgin burger</h2>
+            </div>
+            <div class="bg">
+                <div class="banner">
+                    <span>Yudgin burger</span>
+                </div>
+                <div class="container">
+                    <div class="img_box1 wow fadeInLeftBig" data-wow-delay="100ms">
+                        <img src="img/career/1.png" alt="boy" />
+                    </div>
+                    <div class="img_box2 wow fadeInLeftBig">
+                        <img src="img/career/2.png" alt="boy" />
+                    </div>
+                    <div class="img_box3 wow fadeInRightBig">
+                        <img src="img/career/3.png" alt="boy" />
+                    </div>
+                    <div class="img_box4 wow fadeInRightBig" data-wow-delay="100ms">
+                        <img src="img/career/4.png" alt="boy" />
+                    </div>
+                    <div class="text wow fadeInLeftBig" data-wow-delay="100ms">
+                        <h3>Курьер</h3>
+                        <div class="dash"></div>
+                        <p>Быстро доставляет наши блюда
+                            для клиентов и дарит счастье.
+                            График 2/2. Фикс + бонусы за
+                            каждый выполненный заказ</p>
+                    </div>
+                    <div class="text wow fadeInLeftBig">
+                        <h3>Повар</h3>
+                        <div class="dash"></div>
+                        <p>Готовит бургеры и закуски,
+                            делает заготовки, поддерживает
+                            чистоту кухни, выдает заказы.
+                            График 4/2, 3/3. Бонусы за KPI </p>
+                    </div>
+                    <div class="text wow fadeInRightBig">
+                        <h3>Кассир-администратор</h3>
+                        <div class="dash"></div>
+                        <p>Принимает заказы,взаимодействует
+                            с гостями и дарит радость при
+                            заказе, контролирует кассовую
+                            отчетность. График 2/2, 3/3. </p>
+                    </div>
+                    <div class="text wow fadeInRightBig" data-wow-delay="100ms">
+                        <h3>Менеджер ресторана</h3>
+                        <div class="dash"></div>
+                        <p>Эффективно управляет сменой,
+                            помогает команде, работает с
+                            поставщиками и клиентами.
+                            График 2/2, 3/3. Бонусы за KPI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="career_increase">
+            <div class="banner_bg">
+                <div class="abs1" data-parallax='{"y": -40}'></div>
+                <div class="abs2" data-parallax='{"x": -40}'></div>
+                <div class="abs3" data-parallax='{"x": 40}'></div>
+                <div class="abs4" data-parallax='{"x": -40}'></div>
+                <div class="abs5" data-parallax='{"y": -40}'></div>
+                <div class="abs6" data-parallax='{"y": 40}'></div>
+                <div class="abs7" data-parallax='{"x": -40}'></div>
+                <div class="abs8" data-parallax='{"y": -40}'></div>
+                <div class="circle pos wow zoomIn" data-wow-delay="400ms">
+                    <div class="ellipse wow zoomIn" data-wow-delay="600ms">
+                        <div class="line1 wow heightIn" data-wow-delay="800ms"></div>
+                    </div>
+                </div>
+                <div class="circle pos1 wow zoomIn" data-wow-delay="300ms">
+                    <div class="ellipse wow zoomIn" data-wow-delay="500ms">
+                        <div class="line2 wow heightIn" data-wow-delay="700ms"></div>
+                    </div>
+                </div>
+                <div class="circle pos2 wow zoomIn" data-wow-delay="200ms">
+                    <div class="ellipse wow zoomIn" data-wow-delay="400ms">
+                        <div class="line3 wow heightIn" data-wow-delay="600ms"></div>
+                    </div>
+                </div>
+                <div class="circle pos3 wow zoomIn" data-wow-delay="100ms">
+                    <div class="ellipse wow zoomIn" data-wow-delay="300ms">
+                        <div class="line4 wow heightIn" data-wow-delay="500ms"></div>
+                    </div>
+                </div>
+                <div class="circle pos4 wow zoomIn">
+                    <div class="ellipse wow zoomIn" data-wow-delay="100ms">
+                        <div class="img wow fadeInUp" data-wow-delay="200ms">
+                            <img src="img/career/Base.png" alt="base" />
+                        </div>
+                    </div>
+                </div>
+                <div class="text wow fadeInUp" data-wow-delay="900ms">
+                    <h3>Стажер</h3>
+                    <div class="dish"></div>
+                    <p>Изучает стандарты компании,
+                        меню и все процессы по своей
+                        должности. Практика от 3
+                        до 5 смен</p>
+                </div>
+                <div class="text text1 wow fadeInUp" data-wow-delay="800ms">
+                    <h3>Кассир / повар /
+                        сотрудник зала</h3>
+                    <div class="dish"></div>
+                    <p>Готовит наши блюда или
+                        дарить радость клиентам
+                        при заказе</p>
+                </div>
+                <div class="text text2 wow fadeInUp" data-wow-delay="700ms">
+                    <h3>Менеджер ресторана</h3>
+                    <div class="dish"></div>
+                    <p>Эффективно управляет сменой и
+                        взаимодействует с командой,
+                        поставщиками и клиентами</p>
+                </div>
+                <div class="text text3 wow fadeInUp" data-wow-delay="600ms">
+                    <h3>Управляющий</h3>
+                    <div class="dish"></div>
+                    <p>Руководит всем рестораном. Находит
+                        сотрудников, делает работу команды
+                        комфортной и счастливой. Выполняет
+                        все показатели бургерной, постоянно
+                        развивает ресторан, его прибыльность
+                        и все процессы, ведет все отчетности </p>
+                </div>
+                <div class="text text4 wow fadeInUp" data-wow-delay="500ms">
+                    <h3>Региональный директор</h3>
+                    <div class="dish"></div>
+                    <p>Управляет от 3 до 10 ресторанами в одном
+                        городе / регионе. Взаимодействует с
+                        каждым управляющим, развивает свою
+                        сеть, контролирует отчеты по ключевым
+                        показателям, а так же контроль качества и
+                        соблюдения стандартов каждой точки </p>
+                </div>
+                <div class="container">
+                    <div class="wrapper">
+                        <p>Кстати о карьерном росте, это не пустые
+                            слова и вот кем вы можете стать, работая и
+                            развиваясь в нашей компании. Наша задача
+                            предоставить вам возможности, остальное
+                            уже зависит только от вас и вашей работы</p>
+                        <a class="button" href="#">Заполнить анкету</a>
+                        <div class="border_wrap"></div>
+                    </div>
+                    <div class="burger">
+                        <span><img src="img/svg/burger.svg" alt="burger" /></span>
+                    </div>
+                    <h2>Но и это еще не все</h2>
+                    <div class="items">
+                        <div class="item">
+                            <div class="boxs wow fadeInLeftBig">
+                                <img src="img/career/YB.jpg" alt="ydgin burger" />
+                            </div>
+                            <p class=" wow fadeInRightBig">С ноября 2019 существует управляющая компания
+                                Yudgin Burger, сердце всего нашего бизнеса, которая
+                                находится в Киеве и управляет всей сетью ресторанов.
+                                Каждый день мы развиваемся и растем, поэтому время
+                                от времени проводим набор крутых специалистов на
+                                должности в наш офис, а иногда приглашаем на эти
+                                должности лучших сотрудников из ресторана.
+                                И особенности нашей компании в том, что любой может
+                                стать любым, при настойчивости, правильном труде и
+                                лояльности к компании. И если в какой-то момент,
+                                например, оператор call-центра почувствует, что видит
+                                себя в сфере запуска и стройки ресторанов и хочет
+                                помогать команде в этом направлении - мы только за.</p>
+                        </div>
+                        <div class="item item1">
+                            <div class="boxs wow fadeInRightBig" data-wow-delay="100ms">
+                                <img src="img/career/rest.png" alt="ydgin burger" />
+                            </div>
+                            <p class=" wow fadeInLeftBig" data-wow-delay="100ms">Не говоря уже про то, что когда происходит запуск
+                                очередного ресторана, в это вовлечена практически вся
+                                команда не только ресторана, но и офиса.
+                                Поэтому пару бессонных ночей перед запуском никого
+                                уже не смущают и не пугают :) Вот как мы открывали наш
+                                второй ресторан на Шулявке и готовились к старту.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block_philosophy">
+            <div class="abs1" data-parallax='{"y": -40}'></div>
+            <div class="abs2" data-parallax='{"x": 40}'></div>
+            <div class="container">
+                <div class="wrapper wow flipInX">
+<!--                    <h3>Философия и принципы юджин бургер</h3>-->
+<!--                    <p><b><span>Наша миссия:</span></b> готовить для всех посетителей лучшие блюда из-->
+<!--                        лучших ингредиентов по доступным ценам, быть открытыми и-->
+<!--                        инновационными, дарить радость и приятные эмоции, всегда давать-->
+<!--                        больше, чем ожидается и удовлетворять абсолютно каждого клиента-->
+<!--                    </p>-->
+<!--                    <p><b><span>Наши ценности:</span></b> всегда соблюдать стандарты качества и показывать-->
+<!--                        на своем примере, что быстрая еда может быть полезной и здоровой-->
+<!--                    </p>-->
+<!--                    <p><b><span>Глобальное видение:</span></b> накормить по всему миру 1 миллиард-->
+<!--                        людей юджин бургерами, сделав каждого радостней и счастливее-->
+<!--                    </p>-->
+<!--                    <p><b><span>Наша стратегия:</span></b> привлекать в компанию лучших сотрудников и-->
+<!--                        партнеров, чтобы развивать самую сильную и сплоченную команду-->
+<!--                        единомышленников и сделать Юджин Бургер узнаваемым во всем мире-->
+<!--                    </p>-->
+<!--                    <p><b><span>Наша миссия:</span></b> стать крупнейшей в Украине ресторанной компанией,-->
+<!--                        открыв 200 заведений за 6 лет, после чего расти в других странах-->
+<!--                    </p>-->
+                    <img src="img/career/text.png" alt="text" />
+                </div>
+                <div class="text wow fadeInRight">
+                    <p>Мы не заставляем с нами работать и не набираем
+                        кого попало, мы не требуем высшего образования и
+                        считаем, что в жизни главное саморазвитие и при
+                        желании всему можно научится даже без опыта.
+                        Любая работа должна приносить удовольствие
+                        и ощущение, что являешься частью чего-то
+                        большого. Поэтому у нас есть принципы и
+                        философия компании, которые знает каждый. </p>
+                    <a class="button" href="#">Заполнить анкету</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <div class="footer_head">
+            <div class="container">
+                <div class="logo">
+                    <div class="box">
+                        <img src="img/investments/header/burger.png" alt="burger" />
+                    </div>
+                    <div class="logo_p">
+                        <picture>
+                            <source srcset="img/mobi/investments/header/logo.png" media="(max-width: 575px)">
+                            <img src="img/investments/header/logo.png" alt="default_logo" />
+                        </picture>
+                        <p>Сеть бургерных ресторанов</p>
+                    </div>
+                </div>
+                <div class="registration">
+                    <a href="#" class="button logIn">Вход на сайт</a>
+                    <div class="UA">
+                        <span>ua</span>
+                    </div>
+                </div>
+                <div class="time">
+                    <div class="size">
+                        <img src="img/investments/header/time_left.png" alt="time" />
+                    </div>
+                    <div class="text">
+                        <p>ДО 60 МИНУТ</p>
+                        <span>С 11 до 22:30</span>
+                    </div>
+                </div>
+                <div class="phone">
+                    <div class="size">
+                        <img src="img/investments/header/phone_call.png" alt="phone" />
+                    </div>
+                    <div class="number">
+                        <a href="tel: 0 800 330 500" class="tel">0 800 330 500</a>
+                        <span>Звонок бесплатный</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_nav">
+            <div class="container">
+                <nav class="nav">
+                    <ul class="menu">
+                        <li>
+                            <a href="/about_us.html">О нас</a>
+                        </li>
+                        <li>
+                            <a href="/menu.html">Меню</a>
+                        </li>
+                        <li>
+                            <a href="/delivery_area.html">Зона доставки</a>
+                        </li>
+                        <li>
+                            <a href="/restaurant.html">Рестораны</a>
+                        </li>
+                        <li>
+                            <a href="/career.html">Карьера</a>
+                        </li>
+                        <li>
+                            <a href="/cooperation.html">Сотрудничество</a>
+                        </li>
+                        <li>
+                            <a href="loyalty_program.html">Юджин баллы</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="yudgin_burger">
+                    <div class="vl"></div>
+                    <p>YUDGIN BURGER
+                        в социальных сетях</p>
+                    <div class="inst">
+                        <a target="_blank" href="https://www.instagram.com/yudginburger"><img src="img/svg/instagram.svg" alt="instagram" /></a>
+                    </div>
+                    <div class="fb">
+                        <a target="_blank" href="https://m.facebook.com/yudginburger/"><img src="img/svg/facebook.svg" alt="facebook" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>© Yudgin Burger. All right reserved  I Пользовательское соглашение</p>
+        </div>
+    </footer>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/jquery.parallax-scroll.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
