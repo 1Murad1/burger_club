@@ -94,6 +94,8 @@
         <main id="main">
             <div class="franchise">
                 <div class="container">
+                    <h1 class="mob_main_title">ФРАНШИЗА СЕТИ
+                        <span class="color">ЮДЖИН БУРГЕР</span></h1>
                     <div class="left_block">
                         <h1>ФРАНШИЗА СЕТИ
                             <span class="color">ЮДЖИН БУРГЕР</span></h1>
@@ -743,15 +745,16 @@
                                 крутых сотрудников, инвесторов и партнеров франчайзи, которые с
                                 энтузиазмом присоединяются к нашей компании и нашей истории.
                             </p>
-                            <button class="button">ПОДПИСАТЬСЯ НА БЛОГ</button>
+                            <a href="https://t.me/chernyshenko_blog" target="_blank" class="button">ПОДПИСАТЬСЯ НА БЛОГ</a>
                             <img src="img/franchise/arrow-left.svg" alt="arrow" />
                         </div>
-                        <img src="img/franchise/view_tl.png" alt="view" >
+                        <a href="https://t.me/chernyshenko_blog" target="_blank"><img src="img/franchise/view_tl.png" alt="view" ></a>
                     </div>
                 </div>
             </div>
             <div class="gallery">
                 <div class="container">
+                    <h2>СОЗДАЙТЕ ИСТОРИЮ ВМЕСТЕ С НАМИ</h2>
                     <div class="top">
                         <img src="/img/franchise/gallery/rectangle76.png" alt="" />
                         <img src="/img/franchise/gallery/rectangle77.png" alt="" />
@@ -870,7 +873,16 @@
             infinite: false,
             slidesToShow: 2,
             slidesToScroll: 1,
-            arrows: false
+            arrows: false,
+            responsive: [
+                {
+                    breakpoint: 1023,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    }
+                }
+            ]
         }).on('beforeChange', function(event, slick, currentSlide, nextSlide){
             console.log(nextSlide);
             if (nextSlide === document.querySelectorAll('.slider .slide').length - 2) {

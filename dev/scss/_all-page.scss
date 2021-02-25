@@ -771,11 +771,12 @@ button {
   h1 {
     font-size: $m30 !important;
     line-height: $m35 !important;
+    text-align: center !important;
     margin-bottom: $m15 !important;
   }
 
   h2 {
-    text-align: left !important;
+    text-align: center !important;
     line-height: $m25 !important;
     padding-left: $m5 !important;
     font-size: $m20 !important;
@@ -791,7 +792,7 @@ button {
   }
 
   h4 {
-    text-align: left !important;
+    text-align: center !important;
     line-height: $m25 !important;
     padding-left: $m5 !important;
     font-size: $m18 !important;
@@ -806,7 +807,7 @@ button {
     text-align: left !important;
     line-height: $m20 !important;
     hyphens: auto;
-    padding-right: $m30 !important;
+    padding-right: 0 !important;
   }
 
   .container {
