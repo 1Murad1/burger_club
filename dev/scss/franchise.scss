@@ -225,7 +225,7 @@
         font-family: 'CirceBold';
         font-size : vw(36);
         line-height : vw(36);
-
+        text-align: center;
         white-space: pre-line;
         color: black;
         text-transform : initial;
@@ -237,6 +237,7 @@
         font-size: vw(18);
         line-height: vw(24);
         color: #FFA400;
+        text-align: center;
     }
 }
 
@@ -250,6 +251,17 @@
             justify-content: space-between;
             align-items: center;
             padding: vw(99) 0;
+            h1 {
+                font-size: vw(60);
+                line-height: vw(65);
+                white-space: pre-line;
+                color: #fff;
+                font-family: 'CirceExtraBold';
+                margin-bottom: vw(24);
+            }
+            .mob_main_title {
+                display: none;
+            }
             .left_block  {
                 position: relative;
                 .transform_arrow {
@@ -1075,14 +1087,18 @@
                         width: vw(78);
                     }
                 }
-                img {
-                    width: vw(354);
+                a {
+                    img {
+                        width: vw(354);
+                    }
                 }
+
             }
         }
     }
     .gallery {
         .container {
+            padding-top: vw(60);
             img {
                 width: 100%;
             }
@@ -1207,9 +1223,79 @@
         }
     }
     #main {
+        .block_slider {
+            .wrapper_slider {
+                width: 100%;
+                .container {
+                    margin: 0 auto;
+                    .nav_slider {
+                        justify-content: space-between;
+                        margin-bottom: vwM(15);
+                        button {
+                            width: vwM(30);
+                            height: vwM(30);
+                            background: #AEAEAE;
+                            border-radius: 50%;
+                            border: none;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            &.active {
+                                background: $osn-col;
+                            }
+                            &.prev {
+                                transform: rotate(180deg);
+                            }
+                            img {
+                                width: 50%;
+                            }
+                        }
+                        .num {
+                            display: flex;
+                            align-items: center;
+                            font-family: "CirceBold";
+                            font-size: vwM(18);
+                            div {
+                                color: #AEAEAE;
+                                &.active {
+                                    color: #000;
+                                }
+                            }
+                            span {
+                                display: flex;
+                                width: vwM(25);
+                                border-bottom: 1px solid #AEAEAE;
+                                margin: 0 vwM(8);
+                            }
+                        }
+                    }
+                    .slick-list {
+                        overflow: hidden;
+                    }
+                    .slide {
+
+                        h3 {
+                            margin-top: vwM(5);
+                            padding-bottom: 0 !important;
+                            margin-bottom: vwM(10) !important;
+                        }
+
+                    }
+                }
+            }
+        }
+
+
+
+
+
         .franchise {
             .container {
                 flex-direction: column-reverse;
+                .mob_main_title {
+                    display: block;
+                    order: 1;
+                }
                 .right_block {
                     .video {
                         margin-bottom: vwM(15);
@@ -1227,6 +1313,9 @@
 
                 }
                 .left_block {
+                    h1 {
+                        display: none;
+                    }
                     .button {
                         font-size: vwM(12);
                     }
@@ -1256,7 +1345,7 @@
                 width: 100%;
                 .container {
                     .wrapper-items {
-                        flex-direction: column-reverse;
+                        flex-direction: column;
                         .grid_s {
                             display: none;
                         }
@@ -1264,6 +1353,7 @@
                             position: relative;
                             left: auto;
                             top: auto;
+                            order: -1;
                             margin: 0 auto;
                             width: vwM(80);
                             height: vwM(80);
@@ -1281,6 +1371,30 @@
                                     margin-right: vwM(15);
                                     margin-left: 0;
                                 }
+                            }
+                            &:nth-child(1) {
+                                order: 0;
+                            }
+                            &:nth-child(2) {
+                                order: 4;
+                            }
+                            &:nth-child(3) {
+                                order: 1;
+                            }
+                            &:nth-child(4) {
+                                order: 5;
+                            }
+                            &:nth-child(5) {
+                                order: 2;
+                            }
+                            &:nth-child(6) {
+                                order: 6;
+                            }
+                            &:nth-child(7) {
+                                order: 3;
+                            }
+                            &:nth-child(8) {
+                                order: 7;
                             }
                             .bg_item {
                                 width: vwM(40);
@@ -1306,17 +1420,23 @@
                     margin-bottom: vwM(15);
                     width: 100%;
                 }
+                .block_description {
+                    p {
+                        margin-bottom: vwM(15);
+                    }
+                }
             }
         }
         .block_five {
             .wrapper_block {
                 width: 100%;
+                background-image: initial;
                 .container {
                     margin: 0 auto;
                     flex-direction: column;
                     .left_block {
-                        flex-direction: column;
                         width: 100%;
+                        justify-content: space-between;
                         .picture_one, .picture_two {
                             position: relative;
                             top: auto;
@@ -1324,7 +1444,12 @@
                             right: auto;
                             bottom: auto;
                             margin-bottom: vwM(15);
-                            width: 100%;
+                            width: 49%;
+                        }
+                    }
+                    .right_block {
+                        p {
+                            margin-bottom: vwM(15);
                         }
                     }
                 }
@@ -1334,10 +1459,16 @@
             .container {
                 flex-direction: column-reverse;
                 .block_right {
-                    flex-direction: column;
+                    justify-content: space-between;
+                    //flex-direction: column;
                     img {
-                        width: 100%;
+                        width: 49%;
                         margin-left: 0 !important;
+                        margin-bottom: vwM(15);
+                    }
+                }
+                .block_text {
+                    p {
                         margin-bottom: vwM(15);
                     }
                 }
@@ -1351,15 +1482,20 @@
                         flex-direction: column;
                         .left_block {
                             width: 100%;
-                            flex-direction: column;
+                            justify-content: space-between;
                             .picture_two, .picture_one {
                                 position: relative;
                                 top: auto;
-                                width: 100%;
+                                width: 49%;
                                 margin-bottom: vwM(15);
                                 left: auto;
                                 bottom: auto;
                                 right: auto;
+                            }
+                        }
+                        .right_block {
+                            p {
+                                margin-bottom: vwM(15);
                             }
                         }
                     }
@@ -1374,15 +1510,26 @@
                 .wrapper_page {
                     flex-direction: column;
                     .item {
+                        align-items: center;
                         width: 100%;
-                        margin-bottom: vwM(15);
+                        margin-bottom: vwM(10);
                         img {
                             margin-right: vwM(10);
                             width: vwM(30);
                         }
                         .right_wrapper {
                             h3 {
-                                padding-bottom: vwM(5) !important;
+                                text-align: left !important;
+                                padding-bottom: vwM(0) !important;
+                                font-size : vwM(16) !important;
+                                line-height : vwM(18) !important;
+                            }
+                            p {
+                                display: initial;
+                                font-size: vwM(13) !important;
+                            }
+                            .gray_text {
+                                margin-left: vwM(5);
                             }
                         }
                     }
@@ -1430,12 +1577,7 @@
                         display: none;
                     }
                     .bg_burger {
-                        width: vwM(80);
-                        height: vwM(80);
-                        border-radius: vwM(6);
-                        img {
-                            width: vwM(40);
-                        }
+                        display: none;
                     }
                     .item {
                         width: 100%;
@@ -1444,30 +1586,30 @@
                         flex-direction: column-reverse !important;
                         .border_one {
                             margin: 0 auto;
-                            width: vwM(40);
+                            width: vwM(70);
                             display: flex;
                             justify-content: center;
                             align-items: center;
                             padding: 0;
-                            height: vwM(40);
+                            height: vwM(70);
                             .border_two {
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
-                                width: vwM(34);
+                                width: vwM(60);
                                 padding: 0;
-                                height: vwM(34);
+                                height: vwM(60);
                                 .border_three {
                                     display: flex;
                                     justify-content: center;
                                     align-items: center;
-                                    width: vwM(28);
+                                    width: vwM(50);
                                     padding: 0;
-                                    height: vwM(28);
+                                    height: vwM(50);
                                     .bg_number {
-                                        width: vwM(22);
-                                        height: vwM(22);
-                                        font-size: vwM(14);
+                                        width: vwM(40);
+                                        height: vwM(40);
+                                        font-size: vwM(24);
                                     }
                                 }
                             }
@@ -1491,9 +1633,11 @@
                 .wrapper_video {
                     flex-direction: column;
                     .item {
+                        margin-bottom: vwM(20);
                         .video {
                             .video_banner {
                                 width: 100%;
+                                margin-bottom: 0;
                             }
                             .play {
                                 width: vwM(40);
@@ -1528,11 +1672,12 @@
                     flex-direction: column;
                     .item {
                         width: 100%;
-                        flex-direction: column;
+                        align-items: center;
+                        margin-bottom: vwM(20);
                         .bg_icon {
                             margin: 0 auto;
-                            margin-bottom: vwM(10);
-                            width: vwM(40);
+                            margin-right: vwM(10);
+                            min-width: vwM(40);
                             height: vwM(40);
                             img {
                                 width: 80%;
@@ -1546,10 +1691,15 @@
             .container {
                 .wrapper_block {
                     flex-direction: column-reverse;
-                    img {
-                        width: 100%;
-                        margin-bottom: vwM(15);
+                    a {
+                        display: flex;
+                        justify-content: center;
+                        img {
+                            width: 60%;
+                            margin-bottom: vwM(15);
+                        }
                     }
+
                     .left_block {
                         .button {
                             font-size: vwM(12);;

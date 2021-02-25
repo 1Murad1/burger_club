@@ -4,6 +4,7 @@
 @function vwM($px) {
   @return $px / 3.2 + vw
 }
+@import "pxTOvw";
 @import "animate";
 @import "jquery.fancybox.min";
 
@@ -64,7 +65,7 @@ html {
 p {
   line-height: 100%;
   white-space: pre-line;
-  font-size: vw(22);
+  font-size: $a22;
 }
 
 a:focus, a:hover {
@@ -80,7 +81,7 @@ a {
   text-decoration: none;
   color: #000;
   cursor: pointer;
-  font-size: vw(18);
+  font-size: $a18;
 
 }
 
@@ -108,32 +109,32 @@ a {
     justify-content : space-between;
     display: flex;
     align-items: center;
-    padding: vw(20) 0 vw(20);
+    padding: $a20 0 $a20;
     .logo {
       align-items: center;
       display: flex;
       .box {
         box-shadow: none;
-        width: vw(59);
-        height: vw(58);
-        border-radius: vw(6);
+        width: $a59;
+        height: $a58;
+        border-radius: $a6;
         background-color: rgb(241, 163, 28);
         display: flex;
         justify-content : center;
         align-items: center;
-        margin-right : vw(15);
+        margin-right : $a15;
         img {
-          width : vw(28);
+          width : $a28;
         }
       }
       .logo_p {
         picture {
           img {
-            width : vw(242);
+            width : $a242;
           }
         }
         p {
-          font-size : vw(18);
+          font-size : $a18;
           font-family: "CirceRegular";
         }
       }
@@ -144,13 +145,13 @@ a {
       .number {
         display: flex;
         flex-direction: column;
-        line-height: vw(26);
+        line-height: $a26;
         .tel {
-          font-size : vw(26);
+          font-size : $a26;
           font-family: 'CirceExtraBold';
         }
         span {
-          font-size : vw(18);
+          font-size : $a18;
           font-family: 'CirceRegular';
           color: #a1a1a1;
         }
@@ -160,13 +161,13 @@ a {
       display: flex;
       align-items: center;
       .text {
-        line-height: vw(26);
+        line-height: $a26;
         p {
-          font-size : vw(26);
+          font-size : $a26;
           font-family: 'CirceExtraBold';
         }
         span {
-          font-size : vw(18);
+          font-size : $a18;
           font-family: 'CirceRegular';
           color: #a1a1a1;
         }
@@ -175,20 +176,20 @@ a {
     .registration {
       display: flex;
       .button {
-        margin-right : vw(15);
-        height: vw(45);
+        margin-right : $a15;
+        height: $a45;
       }
       .UA {
         display: flex;
         justify-content : center;
         align-items: center;
-        width: vw(45);
-        height: vw(45);
-        border-radius: vw(6);
+        width: $a45;
+        height: $a45;
+        border-radius: $a6;
         background-color: rgb(220, 220, 220);
         span {
           font-family: 'CirceRegular';
-          font-size : vw(16);
+          font-size : $a16;
           text-transform : uppercase;
         }
       }
@@ -215,7 +216,7 @@ a {
             font-family: 'CirceBold';
             color: #fff;
             display: flex;
-            padding: vw(15) vw(25);
+            padding: $a15 $a25;
             cursor: pointer;
             transition: all 0.5s;
             &:hover {
@@ -246,10 +247,10 @@ a {
           justify-content: center;
         }
         .line {
-          height: vw(12);
+          height: $a12;
           width: 1px;
           background: #fff;
-          margin: 0 vw(5);
+          margin: 0 $a5;
           display: flex;
         }
         &:hover {
@@ -266,13 +267,13 @@ a {
       }
       .item-holder {
         position: absolute;
-        top: calc(100% + #{vw(15)});
+        top: calc(100% + #{$a15});
         right: 0;
-        width: vw(400);
+        width: $a400;
         background: #fff;
-        border-radius: vw(10);
-        min-height: vw(60);
-        box-shadow: rgba(0, 0, 0, 0.12) 0 vw(3) vw(25);
+        border-radius: $a10;
+        min-height: $a60;
+        box-shadow: rgba(0, 0, 0, 0.12) 0 $a3 $a25;
         z-index: 1;
         display: flex;
         flex-direction: column;
@@ -280,9 +281,9 @@ a {
         &:before {
           content: '';
           position: absolute;
-          right: vw(20);
+          right: $a20;
           bottom: 100%;
-          border: vw(10) solid transparent;
+          border: $a10 solid transparent;
           border-top-width: 0;
           border-bottom-color: #fff;
           transition: opacity 0.5s;
@@ -293,7 +294,7 @@ a {
           bottom: 100%;
           width: 100%;
           right: 0;
-          height: vw(15);
+          height: $a15;
         }
         .holderItem {
           max-height: 60vh;
@@ -304,10 +305,10 @@ a {
           display: flex;
           align-items: stretch;
           justify-content: center;
-          padding: vw(20) 0;
+          padding: $a20 0;
           color: #000;
           background: #fff;
-          border-radius: vw(10);
+          border-radius: $a10;
           z-index: -1;
           width: 100%;
           &.empty {
@@ -327,7 +328,7 @@ a {
             position: relative;
             &.moreActive {
               img {
-                transform: translateY(-vw(40));
+                transform: translateY(-$a40);
               }
             }
             img {
@@ -370,16 +371,16 @@ a {
             flex-direction: column;
             .name {
               font-family: 'CirceBold';
-              font-size: vw(18);
+              font-size: $a18;
               color: #000;
               margin-bottom: 20px;
               text-transform: uppercase;
               display: flex;
               justify-content: space-between;
-              padding-right: vw(20);
+              padding-right: $a20;
               width: 100%;
               svg {
-                height: vw(15);
+                height: $a15;
                 margin-right: 0;
               }
               button {
@@ -400,11 +401,11 @@ a {
               }
             }
             .description {
-              font-size: vw(14);
-              line-height: vw(20);
+              font-size: $a14;
+              line-height: $a20;
               color: #7a7a7a;
               text-transform: none;
-              padding-right: vw(10);
+              padding-right: $a10;
               span {
                 font-weight: bold;
               }
@@ -413,30 +414,30 @@ a {
               display: flex;
               justify-content: space-between;
               align-items: center;
-              padding-right: vw(20);
-              padding-top: vw(20);
+              padding-right: $a20;
+              padding-top: $a20;
               margin-top: auto;
               .quantity {
                 display: flex;
                 align-items: center;
                 .plus, .minus {
-                  width: vw(25);
-                  height: vw(25);
-                  border-radius: vw(5);
+                  width: $a25;
+                  height: $a25;
+                  border-radius: $a5;
                   border: 1px solid $osn-col;
                   background: #fff;
                   color: $osn-col;
                 }
                 .minus {
-                  background: linear-gradient(0deg, $osn-col, $osn-col) no-repeat center center / 40% vw(2);
+                  background: linear-gradient(0deg, $osn-col, $osn-col) no-repeat center center / 40% $a2;
                 }
                 .plus {
-                  background: linear-gradient(0deg, $osn-col, $osn-col) no-repeat center center / 40% vw(2), linear-gradient(0deg, $osn-col, $osn-col) no-repeat center center / vw(2) 40%;
+                  background: linear-gradient(0deg, $osn-col, $osn-col) no-repeat center center / 40% $a2, linear-gradient(0deg, $osn-col, $osn-col) no-repeat center center / $a2 40%;
                 }
                 p {
-                  padding: 0 vw(10);
+                  padding: 0 $a10;
                   line-height: 0;
-                  width: vw(40);
+                  width: $a40;
                   text-align: center;
                 }
               }
@@ -449,14 +450,14 @@ a {
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        padding: vw(20);
-        font-size: vw(25);
+        padding: $a20;
+        font-size: $a25;
         border-top: 1px solid rgba(0,0,0,.1);
       }
       .button.link {
         width: 100%;
-        height: vw(45);
-        border-radius: 0 0 vw(10) vw(10);
+        height: $a45;
+        border-radius: 0 0 $a10 $a10;
         &:hover {
           svg {
             fill: $osn-col;
@@ -464,14 +465,14 @@ a {
         }
         svg {
           height: auto;
-          width: vw(25);
-          margin-right: vw(15);
+          width: $a25;
+          margin-right: $a15;
         }
       }
       &:hover {
         &:before {
           opacity: 1;
-          border: vw(10) solid transparent;
+          border: $a10 solid transparent;
           border-top-width: 0;
           border-bottom-color: #fff;
           transition: opacity 0.5s;
@@ -482,16 +483,16 @@ a {
       }
       &.scroll {
         position: fixed;
-        bottom: vw(20);
-        right: vw(50);
+        bottom: $a20;
+        right: $a50;
         z-index: 100;
-        box-shadow: vw(5) vw(5) vw(10) rgba(0,0,0,.3);
+        box-shadow: $a5 $a5 $a10 rgba(0,0,0,.3);
         border-radius: 50%;
         .button.main {
           background: $osn-col;
           font-size: 0;
-          width: vw(60);
-          height: vw(60);
+          width: $a60;
+          height: $a60;
           border-radius: 50%;
           svg {
             position: absolute;
@@ -507,12 +508,12 @@ a {
             display: none;
           }
           span {
-            font-size: vw(12);
+            font-size: $a12;
             position: absolute;
             top: 0;
             right: 0;
-            width: vw(20);
-            height: vw(20);
+            width: $a20;
+            height: $a20;
             border-radius: 50%;
             background: red;
             display: flex;
@@ -522,19 +523,19 @@ a {
           }
         }
         .item-holder {
-          bottom: calc(100% + #{vw(15)});
+          bottom: calc(100% + #{$a15});
           top: auto;
           &:before {
             top: 100%;
             bottom: auto;
             border-bottom-width: 0;
-            border-top-width: vw(10);
+            border-top-width: $a10;
             border-top-color: #fff;
           }
           &:after {
             top: 100%;
             bottom: auto;
-            height: vw(20);
+            height: $a20;
           }
         }
       }
@@ -617,10 +618,10 @@ a {
   width : 100%;
 
   .size {
-    margin-top : vw(2);
-    margin-right : vw(8);
+    margin-top : $a2;
+    margin-right : $a8;
     img {
-      width : vw(20);
+      width : $a20;
     }
   }
 
@@ -636,24 +637,24 @@ a {
       align-items: center;
       display: flex;
       .vl {
-        margin-right : vw(12);
+        margin-right : $a12;
         border-left: 1px solid #5b4026;
-        height : vw(34);
+        height : $a34;
       }
       .inst, .fb {
-        margin-left : vw(5);
+        margin-left : $a5;
         img {
-          width : vw(30);
+          width : $a30;
           display: block;
         }
       }
       .inst {
-        margin-left : vw(10);
+        margin-left : $a10;
       }
       p {
-        margin-top : vw(2);
-        font-size : vw(14);
-        line-height : vw(15);
+        margin-top : $a2;
+        font-size : $a14;
+        line-height : $a15;
         color: #fff;
         font-family: 'CirceRegular';
       }
@@ -665,9 +666,9 @@ a {
     background: $osn-col;
     p {
       font-family: 'CirceRegular';
-      font-size : vw(14);
+      font-size : $a14;
       color: #fff;
-      line-height : vw(36);
+      line-height : $a36;
     }
   }
 }
@@ -679,7 +680,7 @@ body {
   padding: 0;
   color: #000000;
   background: #fff;
-  font-size: vw(18);
+  font-size: $a18;
   font-family: 'CirceRegular';
   .off {
     overflow: hidden;
@@ -687,48 +688,48 @@ body {
 }
 
 .container {
-  width : vw(1170);
+  width : $a1170;
   margin: 0 auto;
   .burger {
-    margin-bottom: vw(20);
+    margin-bottom: $a20;
     position: relative;
     display: flex;
     justify-content: center;
     span {
       display: flex;
       img {
-        width: vw(37);
+        width: $a37;
       }
       &:after {
         display: block;
-        width: vw(24);
+        width: $a24;
         content: '';
         border-bottom: 1px solid #e5a441;
-        margin: 0 0 vw(20) vw(20);
+        margin: 0 0 $a20 $a20;
       }
       &:before {
         display: block;
-        width: vw(24);
+        width: $a24;
         content: '';
         border-bottom: 1px solid #e5a441;
-        margin: 0 vw(20) vw(20) 0;
+        margin: 0 $a20 $a20 0;
       }
     }
   }
 }
 
 .box {
-  margin-right : vw(15);
+  margin-right : $a15;
   display: flex;
   justify-content : center;
   align-items: center;
-  width: vw(45);
-  height: vw(45);
-  border-radius: vw(6);
+  width: $a45;
+  height: $a45;
+  border-radius: $a6;
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 vw(4) vw(21) 0 rgba(0, 4, 2, 0.2);
+  box-shadow: 0 $a4 $a21 0 rgba(0, 4, 2, 0.2);
   img {
-    width : vw(29);
+    width : $a29;
   }
 }
 
@@ -768,44 +769,45 @@ button {
 
 
   h1 {
-    font-size: vwM(30) !important;
-    line-height: vwM(35) !important;
-    margin-bottom: vwM(15) !important;
+    font-size: $m30 !important;
+    line-height: $m35 !important;
+    text-align: center !important;
+    margin-bottom: $m15 !important;
   }
 
   h2 {
-    text-align: left !important;
-    line-height: vwM(25) !important;
-    padding-left: vwM(5) !important;
-    font-size: vwM(20) !important;
+    text-align: center !important;
+    line-height: $m25 !important;
+    padding-left: $m5 !important;
+    font-size: $m20 !important;
     white-space: normal !important;
-    margin: vwM(10) auto !important;
+    margin: $m10 auto !important;
     width: fit-content;
   }
 
   h3 {
-    font-size: vwM(20) !important;
-    padding-bottom: vwM(18) !important;
-    line-height: vwM(22) !important;
+    font-size: $m20 !important;
+    padding-bottom: $m18 !important;
+    line-height: $m22 !important;
   }
 
   h4 {
-    text-align: left !important;
-    line-height: vwM(25) !important;
-    padding-left: vwM(5) !important;
-    font-size: vwM(18) !important;
+    text-align: center !important;
+    line-height: $m25 !important;
+    padding-left: $m5 !important;
+    font-size: $m18 !important;
     white-space: normal !important;
-    margin: vwM(10) auto !important;
+    margin: $m10 auto !important;
     width: fit-content;
   }
 
   p {
-    font-size: vwM(12) !important;
+    font-size: $m12 !important;
     white-space: normal !important;
     text-align: left !important;
-    line-height: vwM(20) !important;
+    line-height: $m20 !important;
     hyphens: auto;
-    padding-right: vwM(30) !important;
+    padding-right: 0 !important;
   }
 
   .container {
@@ -815,43 +817,43 @@ button {
     display: none;
   }
   #header {
-    height: vwM(80);
+    height: $m80;
   }
   .header_head {
     position: fixed;
-    top: vwM(30);
+    top: $m30;
     left: 0;
     width: 100%;
     z-index: 100;
     background: #fff;
     &.fixed {
       .container {
-        padding: vwM(5) vwM(10);
+        padding: $m5 $m10;
         width: 100% !important;
         .logo {
           .box {
-            width: vwM(25);
-            height: vwM(25);
+            width: $m25;
+            height: $m25;
           }
           .logo_p {
             transform: translateY(-200%);
           }
         }
         .burger_menu {
-          width: vwM(25);
-          height: vwM(15);
-          background: linear-gradient(0deg, #000, #000) no-repeat 0 0 / 100% vwM(1), linear-gradient(0deg, #000, #000) no-repeat 0 center / 100% vwM(1), linear-gradient(0deg, #000, #000) no-repeat 0 100% / 100% vwM(1);
+          width: $m25;
+          height: $m15;
+          background: linear-gradient(0deg, #000, #000) no-repeat 0 0 / 100% $m1, linear-gradient(0deg, #000, #000) no-repeat 0 center / 100% $m1, linear-gradient(0deg, #000, #000) no-repeat 0 100% / 100% $m1;
         }
       }
     }
     .container {
-      padding: vwM(10) 0;
+      padding: $m10 0;
       .logo {
         .box {
-          width: vwM(30);
-          height: vwM(30);
-          border-radius: vwM(3);
-          margin-right: vwM(5);
+          width: $m30;
+          height: $m30;
+          border-radius: $m3;
+          margin-right: $m5;
           transition: all 0.5s;
           img {
             width: 50%;
@@ -861,11 +863,11 @@ button {
           transition: all 0.5s;
           picture {
             img {
-              width: vwM(100);
+              width: $m100;
             }
           }
           p {
-            font-size: vwM(15)/2 !important;
+            font-size: $m15/2 !important;
             line-height: initial !important;
           }
         }
@@ -875,8 +877,8 @@ button {
         bottom: 90%;
         width: 50%;
         background: #fff;
-        padding: vwM(5) vwM(10);
-        height: vwM(37);
+        padding: $m5 $m10;
+        height: $m37;
         box-sizing: border-box;
       }
       .phone {
@@ -886,23 +888,23 @@ button {
         left: 0;
         z-index: 1;
         .box {
-          width: vwM(25);
-          height: vwM(25);
-          border-radius: vwM(3);
-          margin-right: vwM(10);
+          width: $m25;
+          height: $m25;
+          border-radius: $m3;
+          margin-right: $m10;
           img {
             width: 60%;
           }
         }
         .number {
-          font-size: vwM(12);
+          font-size: $m12;
           line-height: inherit;
           .tel {
-            font-size: vwM(14);
+            font-size: $m14;
           }
           span {
-            font-size: vwM(8);
-            margin-top: -vwM(5);
+            font-size: $m8;
+            margin-top: -$m5;
           }
         }
       }
@@ -912,10 +914,10 @@ button {
         align-items: center;
         right: 0;
         .box {
-          width: vwM(25);
-          height: vwM(25);
-          border-radius: vwM(3);
-          margin-right: vwM(10);
+          width: $m25;
+          height: $m25;
+          border-radius: $m3;
+          margin-right: $m10;
           img {
             width: 60%;
           }
@@ -925,7 +927,7 @@ button {
             padding-right: 0 !important;
           }
           span {
-            font-size: vwM(8);
+            font-size: $m8;
           }
         }
       }
@@ -934,9 +936,9 @@ button {
       }
       .burger_menu {
         display: block;
-        width: vwM(30);
-        height: vwM(20);
-        background: linear-gradient(0deg, #000, #000) no-repeat 0 0 / 100% vwM(2), linear-gradient(0deg, #000, #000) no-repeat 0 center / 100% vwM(2), linear-gradient(0deg, #000, #000) no-repeat 0 100% / 100% vwM(2);
+        width: $m30;
+        height: $m20;
+        background: linear-gradient(0deg, #000, #000) no-repeat 0 0 / 100% $m2, linear-gradient(0deg, #000, #000) no-repeat 0 center / 100% $m2, linear-gradient(0deg, #000, #000) no-repeat 0 100% / 100% $m2;
       }
     }
   }
@@ -946,7 +948,7 @@ button {
         display: none;
       }
       .yudgin_burger {
-        padding: vwM(10) 0;
+        padding: $m10 0;
         width: 100%;
         justify-content: space-between;
         .vl {
@@ -958,11 +960,11 @@ button {
         }
         .inst, .fb {
           img {
-            width : vwM(30) !important;
+            width : $m30 !important;
           }
         }
         .inst {
-          margin-right: vwM(10);
+          margin-right: $m10;
           margin-left: auto !important;
         }
       }
@@ -975,21 +977,21 @@ button {
         .menu {
           li {
             a {
-              padding: vwM(5) vwM(10);
-              font-size: vwM(10);
+              padding: $m5 $m10;
+              font-size: $m10;
             }
           }
         }
       }
       .basket {
         position: fixed;
-        bottom: vwM(10);
-        right: vwM(10);
+        bottom: $m10;
+        right: $m10;
         .button.main {
           font-size: 0;
           padding: 0;
-          width: vwM(40);
-          height: vwM(40);
+          width: $m40;
+          height: $m40;
           border-radius: 50%;
           background: $osn-col !important;
           svg {
@@ -1008,9 +1010,9 @@ button {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: vwM(10);
-            width: vwM(15);
-            height: vwM(15);
+            font-size: $m10;
+            width: $m15;
+            height: $m15;
             font-weight: bold;
             color: #fff;
           }
@@ -1027,9 +1029,9 @@ button {
       align-items: center;
       justify-content: center;
       p {
-        font-size: vwM(10) !important;
+        font-size: $m10 !important;
         padding-right: 0 !important;
-        height: vwM(30);
+        height: $m30;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1055,32 +1057,32 @@ button {
       display: flex;
       flex-direction: column;
       width: 90% !important;
-      padding-top: vwM(15);
+      padding-top: $m15;
       height: 100%;
-      padding-bottom: vwM(20);
+      padding-bottom: $m20;
       box-sizing: border-box;
       .registration {
         display: flex;
-        margin-bottom: vwM(20);
+        margin-bottom: $m20;
         justify-content: flex-start;
         width: 100%;
         .language {
-          width: vwM(30);
-          height: vwM(30);
-          border-radius: vwM(3);
+          width: $m30;
+          height: $m30;
+          border-radius: $m3;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: vwM(12);
+          font-size: $m12;
           text-transform: uppercase;
           background-color: #dcdcdc;
-          margin-right: vwM(10);
+          margin-right: $m10;
         }
         .close {
           margin-left: auto;
-          width: vwM(30);
-          height: vwM(30);
-          background: linear-gradient(0deg, #fff, #fff) no-repeat center center / 100% vwM(2), linear-gradient(0deg, #fff, #fff) no-repeat center center / vwM(2) 100%;
+          width: $m30;
+          height: $m30;
+          background: linear-gradient(0deg, #fff, #fff) no-repeat center center / 100% $m2, linear-gradient(0deg, #fff, #fff) no-repeat center center / $m2 100%;
           transform: rotate(45deg);
         }
       }
@@ -1088,9 +1090,9 @@ button {
         width: 100%;
         .menu {
           li {
-            margin-bottom: vwM(10);
+            margin-bottom: $m10;
             a {
-              font-size: vwM(30);
+              font-size: $m30;
               font-family: 'CirceExtraBold';
               color: #fff;
             }
@@ -1106,16 +1108,16 @@ button {
           display: flex;
           align-items: center;
           .box {
-            width: vwM(25);
-            height: vwM(25);
-            border-radius: vwM(3);
-            margin-right: vwM(10);
+            width: $m25;
+            height: $m25;
+            border-radius: $m3;
+            margin-right: $m10;
             img {
               width: 60%;
             }
           }
           .number {
-            font-size: vwM(12);
+            font-size: $m12;
             color: #fff;
           }
         }
@@ -1124,10 +1126,10 @@ button {
           display: flex;
           align-items: center;
           .box {
-            width: vwM(25);
-            height: vwM(25);
-            border-radius: vwM(3);
-            margin-right: vwM(10);
+            width: $m25;
+            height: $m25;
+            border-radius: $m3;
+            margin-right: $m10;
             img {
               width: 60%;
             }
@@ -1138,7 +1140,7 @@ button {
               color: #fff;
             }
             span {
-              font-size: vwM(8);
+              font-size: $m8;
               color: #fff;
             }
           }
@@ -1174,19 +1176,19 @@ button {
           display: flex;
           align-items: center;
           img {
-            width : vwM(20);
+            width : $m20;
           }
           &:after {
-            width : vwM(30);
+            width : $m30;
             margin-bottom: 0;
-            margin-left: vwM(5);
-            margin-top: vwM(5);
+            margin-left: $m5;
+            margin-top: $m5;
           }
           &:before {
-            width : vwM(30);
+            width : $m30;
             margin-bottom: 0;
-            margin-right: vwM(5);
-            margin-top: vwM(5);
+            margin-right: $m5;
+            margin-top: $m5;
           }
         }
       }

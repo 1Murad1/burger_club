@@ -42,8 +42,12 @@
       padding-top: vw(60);
       display: flex;
       justify-content: space-between;
+      .mob_main_title_thanks {
+        display: none;
+      }
       .left_block {
         position: relative;
+
         img {
           width: vw(562);
         }
@@ -100,12 +104,20 @@
       display: flex;
       align-items: center;
       width: vw(1330);
+
       .container {
         display: flex;
         align-items: center;
         left: vw(372);
         justify-content: space-between;
         position: absolute;
+
+        .arrow_right {
+          position: absolute;
+          width: vw(99);
+          left: vw(420);
+          top: vw(270);
+        }
         p {
           font-size: vw(24);
           line-height: vw(36);
@@ -139,6 +151,29 @@
       }
     }
   }
+  .gallery {
+    .container {
+      padding-top: vw(60);
+      img {
+        width: 100%;
+      }
+      .top {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: vw(195);
+        grid-gap: vw(30);
+      }
+      .bottom {
+        margin-top: vw(20);
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: vw(5);
+      }
+      .button {
+        margin: vw(40) auto vw(47) auto;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 1023px) {
@@ -146,7 +181,11 @@
     .block_congratulations {
       .container {
         flex-direction: column;
+        .mob_main_title_thanks {
+          display: block;
+        }
         .left_block {
+          margin-bottom: vwM(15);
           img {
             width: 100%;
           }
@@ -162,11 +201,18 @@
               line-height: vwM(25);
             }
             p {
+
               padding-right: 0 !important;
             }
           }
         }
         .right_block {
+          h4 {
+            display: none;
+          }
+          p {
+            padding-bottom: vwM(10);
+          }
           .button {
             font-size: vwM(14);
             margin: vwM(15) auto;
@@ -185,6 +231,9 @@
           padding-bottom: vwM(15);
           left: auto;
           flex-direction: column-reverse;
+          .arrow_right {
+            display: none;
+          }
           .video {
             margin-bottom: vwM(15);
             .video_banner {
