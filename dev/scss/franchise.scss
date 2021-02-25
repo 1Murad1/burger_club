@@ -468,9 +468,20 @@ $onePercentScreenSizeMobile: 3.2;
         }
     }
     .block_slider {
-        height: vw(500);
         display: flex;
-        align-items: center;
+        justify-content: flex-start;
+        .wrapper_slider {
+            width: vw(1625);
+            background: #F2F2F2;
+            .container {
+                padding-top: vw(122);
+                margin: 0 vw(80) 0 auto;
+                h2 {
+                    margin-bottom: vw(12);
+                }
+
+            }
+        }
     }
     .seven_steps_to_discover {
         background-size: 100%;
