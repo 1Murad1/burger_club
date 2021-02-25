@@ -1,6 +1,13 @@
-@import "_pxTOvw.scss";
+@function vw($px) {
+  @return $px / 19.2 + vw
+}
+@function vwM($px) {
+  @return $px / 3.2 + vw
+}
+@import "pxTOvw";
 @import "animate";
 @import "jquery.fancybox.min";
+
 
 $osn-col: #f1a31c;
 
@@ -541,45 +548,68 @@ a {
 }
 
 .button {
-  border-radius: $a6;
-  padding: 0 $a24;
-  height: $a70;
+  border-radius: vw(6);
+  padding: 0 vw(24);
+  height: vw(70);
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   background: $osn-col;
-  font-size: $a18;
-  border: 1px solid $osn-col;
+  font-size: vw(18);
   white-space: nowrap;
   cursor: pointer;
   transition: all 0.5s;
   width: fit-content;
+  position: relative;
+  z-index: 1;
+  border: none;
+  overflow : hidden;
+  svg.loading {
+    width: vw(40);
+    height : vw(40);
+    circle {
+      fill: none;
+      stroke-width: vw(5);
+      stroke: rgba(0,0,0,.7);
+    }
+  }
+  &:before {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    content: '';
+    position: absolute;
+    right : 100%;
+    top: 0;
+    transition: all .5s;
+    z-index: -1;
+    border-radius: vw(6);
+  }
   &:hover {
-    background-color: transparent;
-    color: #000;
+    &:before {
+      right : 0;
+    }
   }
   &.small {
-    padding: 0 $a10;
-    height: $a36;
-    font-size: $a14;
+    padding: 0 vw(10);
+    height: vw(36);
+    font-size: vw(14);
     img , svg{
-      height: $a16;
-      margin-right: $a6;
+      height: vw(16);
+      margin-right: vw(6);
       transition: all 0.5s;
-    }
-    &:hover {
-      color: #000;
-      img, svg {
-        filter: invert(1);
-      }
     }
   }
   &.white {
-    border-color: #fff;
+    border: 1px solid #fff;
     background: transparent;
+    &:before {
+      display: none;
+    }
     &:hover {
       background: #fff;
+      color: #000;
     }
   }
 }
@@ -1119,14 +1149,22 @@ button {
   }
 
   .button {
-    font-size: $m16;
-    height: $m40;
-    padding: 0 $m20;
-    border-radius: $m3;
+    font-size: vwM(14);
+    height: vwM(40);
+    padding: 0 vwM(20);
+    border-radius: vwM(3);
+    width: 100%;
+    svg.loading {
+      width: vwM(40);
+      height : vwM(40);
+      circle {
+        stroke-width: vwM(5);
+      }
+    }
     &.small {
-      font-size: $m14;
-      height: $m30;
-      padding: 0 $m10;
+      font-size: vwM(14);
+      height: vwM(30);
+      padding: 0 vwM(10);
     }
   }
 

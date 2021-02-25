@@ -524,7 +524,8 @@ var vue = new Vue({
         popup: false,
         open: false,
         step: 1,
-        surrender: false
+        surrender: false,
+        popupForm: false
     },
     computed: {
         quantityAll() {

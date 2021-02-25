@@ -1,15 +1,5 @@
 @import "_all-page.scss";
 
-$onePercentScreenSize: 19.2;
-$onePercentScreenSizeMobile: 3.2;
-
-@function vw ($px) {
-  @return $px / $onePercentScreenSize + vw
-}
-
-@function vw_m ($px) {
-  @return $px / $onePercentScreenSizeMobile + vw
-}
 .color {
   color: #FFA400;
 }
@@ -163,13 +153,13 @@ $onePercentScreenSizeMobile: 3.2;
           .description_banner {
             width: 100%;
             height: auto;
-            padding: vw_m(10) 0;
+            padding: vwM(10) 0;
             left: auto;
             bottom: 0;
             position: relative;
             h3 {
-              padding-bottom: vw_m(5) !important;
-              line-height: vw_m(25);
+              padding-bottom: vwM(5) !important;
+              line-height: vwM(25);
             }
             p {
               padding-right: 0 !important;
@@ -178,8 +168,8 @@ $onePercentScreenSizeMobile: 3.2;
         }
         .right_block {
           .button {
-            font-size: vw_m(14);
-            margin: vw_m(15) auto;
+            font-size: vwM(14);
+            margin: vwM(15) auto;
 
           }
         }
@@ -191,20 +181,20 @@ $onePercentScreenSizeMobile: 3.2;
         height: auto;
         .container {
           position: relative;
-          padding-top: vw_m(15);
-          padding-bottom: vw_m(15);
+          padding-top: vwM(15);
+          padding-bottom: vwM(15);
           left: auto;
           flex-direction: column-reverse;
           .video {
-            margin-bottom: vw_m(15);
+            margin-bottom: vwM(15);
             .video_banner {
               width: 100%;
             }
             .play {
-              width: vw_m(40);
-              height: vw_m(40);
+              width: vwM(40);
+              height: vwM(40);
               .arrow_play {
-                width: vw_m(12);
+                width: vwM(12);
               }
             }
           }

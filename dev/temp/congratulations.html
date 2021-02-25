@@ -12,7 +12,84 @@
 </head>
 <body>
 <div id="holder">
-    //= include/header.html
+    <header style="display: none;" id="header">
+        <div class="header_head" :class="fixed ? 'fixed' : ''">
+            <div class="container">
+                <a href="/" class="logo">
+                    <div class="box">
+                        <img src="img/investments/header/burger.png" alt="burger" />
+                    </div>
+                    <div class="logo_p">
+                        <picture>
+                            <source srcset="img/mobi/investments/header/logo.png" media="(max-width: 575px)">
+                            <img src="img/investments/header/logo.png" alt="default_logo" />
+                        </picture>
+                        <p>Сеть бургерных ресторанов</p>
+                    </div>
+                </a>
+                <a href="tel: 0 800 330 500" class="phone">
+                    <div class="box">
+                        <img src="img/investments/header/phone_call.png" alt="phone" />
+                    </div>
+                    <div class="number">
+                        <div class="tel">0 800 330 500</div>
+                        <span>Звонок бесплатный</span>
+                    </div>
+                </a>
+                <div class="time">
+                    <div class="box">
+                        <img src="img/investments/header/time_left.png" alt="time" />
+                    </div>
+                    <div class="text">
+                        <p>ДО 60 МИНУТ</p>
+                        <span>С 11 до 22:30</span>
+                    </div>
+                </div>
+                <div class="registration">
+                    <a href="#" class="button logIn">Вход на сайт</a>
+                    <div class="UA">
+                        <span>ua</span>
+                    </div>
+                </div>
+                <div class="burger_menu">
+                </div>
+            </div>
+        </div>
+        <div class="header_nav">
+        </div>
+    </header>
+
+    <div style="display: none;" class="mobile-menu">
+        <div class="container">
+            <div class="registration">
+                <div class="UA language">
+                    <span>ua</span>
+                </div>
+                <a href="#" class="button logIn small">Вход | Регистрация</a>
+                <div class="close"></div>
+            </div>
+            <div class="footer_menu">
+                <a href="tel: 0 800 330 500" class="phone">
+                    <div class="box">
+                        <img src="img/investments/header/phone_call.png" alt="phone" />
+                    </div>
+                    <div class="number">
+                        <div class="tel">0 800 330 500</div>
+                        <span>Звонок бесплатный</span>
+                    </div>
+                </a>
+                <div class="time">
+                    <div class="box">
+                        <img src="img/investments/header/time_left.png" alt="time" />
+                    </div>
+                    <div class="text">
+                        <p>ДО 60 МИНУТ</p>
+                        <span>С 11 до 22:30</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <main id="main">
         <div class="block_congratulations">
             <div class="container">
@@ -60,7 +137,6 @@
             </div>
         </div>
     </main>
-    //= include/footer.html
 </div>
 </body>
 </html>
