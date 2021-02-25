@@ -836,24 +836,53 @@
 
                         }
                     }
+                    $animationDuration: 5s;
+                    @for $i from 2 through 8 {
+                        &:nth-of-type(#{$i}) {
+                            .border_one {
+                                animation-delay: (.3 + $i/5) + s;
+                                .border_two {
+                                    animation-delay: (.2 + $i/5) + s;
+                                    .border_three {
+                                        animation-delay: (.1 + $i/5) + s;
+                                        .bg_number {
+                                            animation-delay: $i/5 + s;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                     .border_one {
                         width: vw(120);
                         height: vw(120);
                         border: 1px solid rgba(255, 255, 255, 0.07);
                         border-radius: vw(8);
                         padding: vw(10);
+                        animation-name: pulse;
+                        animation-duration: $animationDuration;
+                        animation-timing-function: cubic-bezier(.68, -.55, .265, 1.55);
+                        animation-iteration-count: infinite;
                         .border_two {
                             width: vw(100);
                             height: vw(100);
                             border: 1px solid rgba(255, 255, 255, 0.25);
                             border-radius: vw(8);
                             padding: vw(9);
+                            animation-name: pulse;
+                            animation-duration: $animationDuration;
+                            animation-timing-function: cubic-bezier(.68, -.55, .265, 1.55);
+                            animation-iteration-count: infinite;
                             .border_three {
                                 width: vw(80);
                                 height: vw(80);
                                 padding: vw(8);
                                 border: 1px solid rgba(255, 255, 255, 0.5);
                                 border-radius: vw(8);
+                                animation-name: pulse;
+                                animation-duration: $animationDuration;
+                                animation-timing-function: cubic-bezier(.68, -.55, .265, 1.55);
+                                animation-iteration-count: infinite;
                                 .bg_number {
                                     display: flex;
                                     align-items: center;
@@ -867,6 +896,10 @@
                                     width: 100%;
                                     line-height: vw(36);
                                     color: #FFA400;
+                                    animation-name: pulse;
+                                    animation-duration: $animationDuration;
+                                    animation-timing-function: cubic-bezier(.68, -.55, .265, 1.55);
+                                    animation-iteration-count: infinite;
                                 }
                             }
                         }

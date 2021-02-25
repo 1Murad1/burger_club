@@ -19,7 +19,8 @@ var gulp         = require('gulp'),
     rename       = require("gulp-rename");
 
 gulp.task('html', function () {
-    return gulp.src(['dev/temp/**/*.html', 'dev/temp/**/.htaccess', '!dev/temp/include/**/*.html'])
+    return gulp.src(['dev/temp/**/*.html', '!dev/temp/include/**/*.html'])
+    .pipe(newer('dev/temp'))
     .pipe(plumber())
     .pipe(rigger())
     .pipe(gulp.dest('app/', function (file) {
@@ -31,6 +32,7 @@ gulp.task('html', function () {
 sass.compiler = require('node-sass');
 gulp.task('sass', function () {
     return gulp.src('dev/scss/**/*.scss')
+    .pipe(newer('dev/scss'))
     .pipe(plumber())
     .pipe(cached('scss'))
     .pipe(dependents())
