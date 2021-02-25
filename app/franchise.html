@@ -9,11 +9,11 @@
     <link rel="stylesheet" type="text/css" href="font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="css/franchise.css" />
     <link rel="stylesheet" type="text/css" href="fonts/fonts.css" />
+    <script src="js/vue.min.js"></script>
 </head>
 <body>
     <div id="holder">
-        <script src="js/vue.min.js"></script>
-        <header id="header">
+        <header style="display: none;" id="header">
             <div class="header_head" :class="fixed ? 'fixed' : ''">
                 <div class="container">
                     <a href="/" class="logo">
@@ -57,78 +57,10 @@
                 </div>
             </div>
             <div class="header_nav">
-                <div class="container">
-                    <nav class="nav">
-                        <ul class="menu">
-                            <li>
-                                <a href="/about_us.html">О нас</a>
-                            </li>
-                            <li>
-                                <a href="/menu.html">Меню</a>
-                            </li>
-                            <li>
-                                <a href="/delivery_area.html">Зона доставки</a>
-                            </li>
-                            <li>
-                                <a href="/restaurant.html">Рестораны</a>
-                            </li>
-                            <li>
-                                <a href="/career.html">Карьера</a>
-                            </li>
-                            <li>
-                                <a href="/cooperation.html">Сотрудничество</a>
-                            </li>
-                            <li>
-                                <a href="loyalty_program.html">Юджин баллы</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="basket" @mouseenter="open = true" @mouseleave="open = false">
-                        <a href="basket.html" class="button small main">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.1 487.1" fill="#fff"><path d="M342.3 137.978H385l-63.3-108.6c-5.1-8.8-16.4-11.8-25.2-6.6-8.8 5.1-11.8 16.4-6.6 25.2l52.4 90zM197.4 47.978c5.1-8.8 2.2-20.1-6.6-25.2s-20.1-2.2-25.2 6.6l-63.3 108.7H145l52.4-90.1zM455.7 171.278H31.3c-17.3 0-31.3 14-31.3 31.3v34.7c0 17.3 14 31.3 31.3 31.3h9.8l30.2 163.7c3.8 19.3 21.4 34.6 39.7 34.6h258.8c18.3 0 35.9-15.3 39.7-34.6l30.4-163.8h15.9c17.3 0 31.3-14 31.3-31.3v-34.7c-.1-17.2-14.1-31.2-31.4-31.2zm-282.9 163.6v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7 10.1 0 17.7 8.2 17.7 17.7v28.4zm56.8 0v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7s17.7 8.2 17.7 17.7v28.4zm57.1 41v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 8.2-17.7 17.7-17.7s17.7 7.6 17.7 17.7v69.4zm56.8 0v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 7.6-17.7 17.7-17.7 9.5 0 17.7 7.6 17.7 17.7v69.4z"/></svg>
-                            Корзина <span class="line"></span><span> {{ quantityAll }} </span>
-                        </a>
-                        <transition name="fade">
-                            <div class="item-holder" v-if="open">
-                                <div class="item empty">Корзина пуста</div>
-                                <div class="holderItem">
-                                    <div class="item" v-for="(item, index) in basket" v-if="item.quantity">
-                                        <div class="img">
-                                            <img :class="item.name === 'ВЕГАН БУРГЕР' || item.name === 'ТЕРМИНАТОР' ? 'small' : item.type === 'snack' ? 'middle' : ''" :src="item.url" alt="" />
-                                        </div>
-                                        <div class="text">
-                                            <div class="name">
-                                                <p>{{ item.name }}</p>
-                                                <button @click="basket.splice(index, 1)">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#000" d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z" class=""></path></svg>
-                                                </button>
-                                            </div>
-                                            <p class="description">{{ item.description }}
-                                                <span v-for="more in item.more">+ {{more.name}} </span></p>
-                                            <div class="footer">
-                                                <div class="quantity">
-                                                    <button class="minus" @click="item.quantity === 1 ? basket.splice(index, 1) : item.quantity -= 1"></button>
-                                                    <p>{{ item.quantity }}</p>
-                                                    <button class="plus" @click="item.quantity += 1"></button>
-                                                </div>
-                                                <p class="price">{{item.price * item.quantity}} грн</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div v-if="allPriceBasket" class="fullPrice"><span>Сумма заказа:</span> {{ allPriceBasket }} грн</div>
-                                <a href="basket.html" class="button link" v-if="allPriceBasket">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.1 487.1" fill="#fff"><path d="M342.3 137.978H385l-63.3-108.6c-5.1-8.8-16.4-11.8-25.2-6.6-8.8 5.1-11.8 16.4-6.6 25.2l52.4 90zM197.4 47.978c5.1-8.8 2.2-20.1-6.6-25.2s-20.1-2.2-25.2 6.6l-63.3 108.7H145l52.4-90.1zM455.7 171.278H31.3c-17.3 0-31.3 14-31.3 31.3v34.7c0 17.3 14 31.3 31.3 31.3h9.8l30.2 163.7c3.8 19.3 21.4 34.6 39.7 34.6h258.8c18.3 0 35.9-15.3 39.7-34.6l30.4-163.8h15.9c17.3 0 31.3-14 31.3-31.3v-34.7c-.1-17.2-14.1-31.2-31.4-31.2zm-282.9 163.6v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7 10.1 0 17.7 8.2 17.7 17.7v28.4zm56.8 0v70.6c0 10.1-8.2 17.7-17.7 17.7-10.1 0-17.7-8.2-17.7-17.7v-99c0-10.1 8.2-17.7 17.7-17.7s17.7 8.2 17.7 17.7v28.4zm57.1 41v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 8.2-17.7 17.7-17.7s17.7 7.6 17.7 17.7v69.4zm56.8 0v29.6c0 9.5-7.6 17.7-17.7 17.7-9.5 0-17.7-7.6-17.7-17.7v-99c0-9.5 7.6-17.7 17.7-17.7 9.5 0 17.7 7.6 17.7 17.7v69.4z"/></svg>
-                                    В корзину
-                                </a>
-                            </div>
-                        </transition>
-                    </div>
-                </div>
             </div>
         </header>
-        
-        <div class="mobile-menu">
+
+        <div style="display: none;" class="mobile-menu">
             <div class="container">
                 <div class="registration">
                     <div class="UA language">
@@ -137,31 +69,6 @@
                     <a href="#" class="button logIn small">Вход | Регистрация</a>
                     <div class="close"></div>
                 </div>
-                <nav class="nav">
-                    <ul class="menu">
-                        <li>
-                            <a href="/about_us.html">О нас</a>
-                        </li>
-                        <li>
-                            <a href="/menu.html">Меню</a>
-                        </li>
-                        <li>
-                            <a href="/delivery_area.html">Зона доставки</a>
-                        </li>
-                        <li>
-                            <a href="/restaurant.html">Рестораны</a>
-                        </li>
-                        <li>
-                            <a href="/career.html">Карьера</a>
-                        </li>
-                        <li>
-                            <a href="/cooperation.html">Сотрудничество</a>
-                        </li>
-                        <li>
-                            <a href="loyalty_program.html">Юджин баллы</a>
-                        </li>
-                    </ul>
-                </nav>
                 <div class="footer_menu">
                     <a href="tel: 0 800 330 500" class="phone">
                         <div class="box">
@@ -506,9 +413,18 @@
                 <div class="wrapper_slider">
                     <div class="container">
                         <h2>ФОРМАТЫ РЕСТОРАНОВ</h2>
+                        <div class="nav_slider">
+                            <button class="prev active" onclick="prev()"><img src="/img/franchise/icons/arrow.svg" alt="" /></button>
+                            <div class="num">
+                                <div class="active">01</div>
+                                <span></span>
+                                <div>0{{ document.querySelectorAll('.slider .slide').length }}</div>
+                            </div>
+                            <button class="next" onclick="next()"><img src="/img/franchise/icons/arrow.svg" alt="" /></button>
+                        </div>
                         <div class="slider">
                             <div class="slide">
-                                <img src="img/franchise/slide_one.png" alt="slide_one" />
+                                <img src="img/franchise/slide_one.png" alt="slide 1" />
                                 <h3>На фудкорте в ТРЦ</h3>
                                 <p class="strong">Площадь 40-60 кв. метров
                                     Инвестиции от 40 000 $
@@ -519,7 +435,7 @@
                                     заведениями в зале с общей посадкой от ТРЦ</p>
                             </div>
                             <div class="slide">
-                                <img src="img/franchise/slide_two.png" alt="slide_one" />
+                                <img src="img/franchise/slide_two.png" alt="slide 2" />
                                 <h3>Фасадный ресторан</h3>
                                 <p class="strong">Площадь 120-200 кв. метров
                                     Инвестиции от 80 000 $
@@ -529,7 +445,19 @@
                                     располагаться на 1 этаже в любом здании либо
                                     быть на фасаде ТРЦ или супермаркета.</p>
                             </div>
+                            <div class="slide">
+                                <img src="img/franchise/3.png" alt="slide 3" />
+                                <h3>Юджин драйв</h3>
+                                <p class="strong">Площадь 120-200 кв. метров
+                                    Инвестиции от 80 000 $
+                                    + Паушальный взнос</p>
+                                <p>Фасадный ресторан отличается от фудкорта
+                                    собственным залом со своей посадкой. Может
+                                    располагаться на 1 этаже в любом здании либо
+                                    быть на фасаде ТРЦ или супермаркета.</p>
+                            </div>
                         </div>
+                        <button class="button" @click="popupForm = true">ОТПРАВИТЬ ЗАЯВКУ НА ФРАНШИЗУ</button>
                     </div>
                 </div>
 
@@ -822,97 +750,149 @@
                     </div>
                 </div>
             </div>
+            <div class="gallery">
+                <div class="container">
+                    <div class="top">
+                        <img src="/img/franchise/gallery/rectangle76.png" alt="" />
+                        <img src="/img/franchise/gallery/rectangle77.png" alt="" />
+                        <img src="/img/franchise/gallery/rectangle78.png" alt="" />
+                        <img src="/img/franchise/gallery/rectangle81.png" alt="" />
+                        <img src="/img/franchise/gallery/rectangle79.png" alt="" />
+                        <img src="/img/franchise/gallery/rectangle80.png" alt="" />
+                        <img src="/img/franchise/gallery/rectangle82.png" alt="" />
+                        <div></div>
+                        <img src="/img/franchise/gallery/rectangle88.png" alt="" />
+                        <img src="/img/franchise/gallery/rectangle83.png" alt="" />
+                        <div></div>
+                        <img src="/img/franchise/gallery/rectangle87.png" alt="" />
+                        <img src="/img/franchise/gallery/rectangle89.png" alt="" />
+                        <img src="/img/franchise/gallery/rectangle84.png" alt="" />
+                        <img src="/img/franchise/gallery/rectangle85.png" alt="" />
+                        <img src="/img/franchise/gallery/rectangle86.png" alt="" />
+                    </div>
+                    <div class="bottom">
+                        <img src="/img/franchise/gallery/image2.png" alt="" />
+                        <img src="/img/franchise/gallery/image3.png" alt="" />
+                        <img src="/img/franchise/gallery/image4.png" alt="" />
+                        <img src="/img/franchise/gallery/image5.png" alt="" />
+                        <img src="/img/franchise/gallery/image6.png" alt="" />
+                        <img src="/img/franchise/gallery/image7.png" alt="" />
+                        <img src="/img/franchise/gallery/image8.png" alt="" />
+                        <img src="/img/franchise/gallery/image9.png" alt="" />
+                        <img src="/img/franchise/gallery/image10.png" alt="" />
+                        <img src="/img/franchise/gallery/image11.png" alt="" />
+                        <img src="/img/franchise/gallery/image12.png" alt="" />
+                        <img src="/img/franchise/gallery/image13.png" alt="" />
+                        <img src="/img/franchise/gallery/image14.png" alt="" />
+                        <img src="/img/franchise/gallery/image15.png" alt="" />
+                        <img src="/img/franchise/gallery/image16.png" alt="" />
+                        <img src="/img/franchise/gallery/image17.png" alt="" />
+                        <img src="/img/franchise/gallery/image18.png" alt="" />
+                        <img src="/img/franchise/gallery/image19.png" alt="" />
+                        <img src="/img/franchise/gallery/image20.png" alt="" />
+                        <img src="/img/franchise/gallery/image21.png" alt="" />
+                        <img src="/img/franchise/gallery/image22.png" alt="" />
+                        <img src="/img/franchise/gallery/image23.png" alt="" />
+                        <img src="/img/franchise/gallery/image24.png" alt="" />
+                        <img src="/img/franchise/gallery/image25.png" alt="" />
+                        <img src="/img/franchise/gallery/image26.png" alt="" />
+                    </div>
+                    <button class="button" @click="popupForm = true">ОТПРАВИТЬ ЗАЯВКУ НА ФРАНШИЗУ</button>
+                </div>
+            </div>
         </main>
-        <footer id="footer">
-            <div class="footer_head">
-                <div class="container">
+        <transition name="fade">
+            <div class="popup_form" @click.self="popupForm = false" :class="popupForm ? 'visible' : ''">
+                <div @click.stop="" class="wrapper">
+                    <div class="close" @click="popupForm = false"></div>
                     <div class="logo">
-                        <div class="box">
-                            <img src="img/investments/header/burger.png" alt="burger" />
-                        </div>
-                        <div class="logo_p">
-                            <picture>
-                                <source srcset="img/mobi/investments/header/logo.png" media="(max-width: 575px)">
-                                <img src="img/investments/header/logo.png" alt="default_logo" />
-                            </picture>
-                            <p>Сеть бургерных ресторанов</p>
-                        </div>
+                        <img src="img/investments/popup/logo.png" alt="logo" />
                     </div>
-                    <div class="registration">
-                        <a href="#" class="button logIn">Вход на сайт</a>
-                        <div class="UA">
-                            <span>ua</span>
+                    <form class="form">
+                        <label>
+                            <span>Ваше имя и фамилия</span>
+                            <input required minlength="5" id="name_surname" name="name" type="text" placeholder="Ваше имя и фамилия">
+                            <div class="check"></div>
+                        </label>
+                        <label for="field_of_activity">
+                            <span>Сфера деятельности</span>
+                            <input required minlength="5" id="field_of_activity" name="field_of_activity" type="text" placeholder="Сфера деятельности">
+                            <div class="check"></div>
+                        </label>
+                        <label>
+                            <span>Контактный номер</span>
+                            <input required pattern="[+380]\d{12}" name="tel" type="tel" placeholder="Контактный номер" value="+380">
+                            <div class="check"></div>
+                        </label>
+                        <label>
+                            <span>Город/города, в которых
+                            хотите открыть ресторан</span>
+                            <input required minlength="5" name="city" type="text" placeholder="Город/города, в которых хотите открыть ресторан">
+                            <div class="check"></div>
+                        </label>
+                        <label for="mail">
+                            <span>Ваша email для связи</span>
+                            <input required minlength="5" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="mail" name="mail" type="email" placeholder="Ваша email для связи">
+                            <div class="check"></div>
+                        </label>
+                        <label for="fb_ins">
+								<span>Ссылка на профиль на
+									Facebook / Instagram</span>
+                            <input required minlength="5" id="fb_ins" name="fb_ins" type="text" placeholder="Ссылка на профиль на Facebook / Instagram">
+                            <div class="check"></div>
+                        </label>
+                        <label class="textarea">
+                            <span>Напишите, почему нам должно быть интересно партнерство с вами</span>
+                            <textarea name="comment" placeholder="Ваш комментарий к заявке"></textarea>
+                        </label>
+                        <div class="buttonText">
+                            <button class="button" type="submit">Отправить заявку</button>
+                            <p>Ваша 100% конфиденциальность.
+                                Мы не передаем данные 3-м лицам</p>
                         </div>
-                    </div>
-                    <div class="time">
-                        <div class="size">
-                            <img src="img/investments/header/time_left.png" alt="time" />
-                        </div>
-                        <div class="text">
-                            <p>ДО 60 МИНУТ</p>
-                            <span>С 11 до 22:30</span>
-                        </div>
-                    </div>
-                    <div class="phone">
-                        <div class="size">
-                            <img src="img/investments/header/phone_call.png" alt="phone" />
-                        </div>
-                        <div class="number">
-                            <a href="tel: 0 800 330 500" class="tel">0 800 330 500</a>
-                            <span>Звонок бесплатный</span>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-            <div class="footer_nav">
-                <div class="container">
-                    <nav class="nav">
-                        <ul class="menu">
-                            <li>
-                                <a href="/about_us.html">О нас</a>
-                            </li>
-                            <li>
-                                <a href="/menu.html">Меню</a>
-                            </li>
-                            <li>
-                                <a href="/delivery_area.html">Зона доставки</a>
-                            </li>
-                            <li>
-                                <a href="/restaurant.html">Рестораны</a>
-                            </li>
-                            <li>
-                                <a href="/career.html">Карьера</a>
-                            </li>
-                            <li>
-                                <a href="/cooperation.html">Сотрудничество</a>
-                            </li>
-                            <li>
-                                <a href="loyalty_program.html">Юджин баллы</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="yudgin_burger">
-                        <div class="vl"></div>
-                        <p>YUDGIN BURGER
-                            в социальных сетях</p>
-                        <div class="inst">
-                            <a target="_blank" href="https://www.instagram.com/yudginburger"><img src="img/svg/instagram.svg" alt="instagram" /></a>
-                        </div>
-                        <div class="fb">
-                            <a target="_blank" href="https://m.facebook.com/yudginburger/"><img src="img/svg/facebook.svg" alt="facebook" /></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer_bottom">
-                <p>© Yudgin Burger. All right reserved  I Пользовательское соглашение</p>
-            </div>
-        </footer>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.fancybox.min.js"></script>
-        <script src="js/wow.js"></script>
-        <script src="js/jquery.parallax-scroll.js"></script>
-        <script src="js/main.js"></script>
+        </transition>
     </div>
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/jquery.parallax-scroll.js"></script>
+    <script src="js/main.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script type="text/javascript">
+        let slider = $('.slider')
+        slider.slick({
+            infinite: false,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            arrows: false
+        }).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+            console.log(nextSlide);
+            if (nextSlide === document.querySelectorAll('.slider .slide').length - 2) {
+                $('.nav_slider button:first-of-type').removeClass('active')
+                $('.nav_slider button:last-of-type').addClass('active')
+                $('.nav_slider .num div:first-of-type').removeClass('active')
+                $('.nav_slider .num div:last-of-type').addClass('active')
+            }
+            if (nextSlide === 0) {
+                $('.nav_slider button:last-of-type').removeClass('active')
+                $('.nav_slider button:first-of-type').addClass('active')
+                $('.nav_slider .num div:last-of-type').removeClass('active')
+                $('.nav_slider .num div:first-of-type').addClass('active')
+            }
+        });
+        function next() {
+            slider.slick('slickNext')
+        }
+        function prev() {
+            slider.slick("slickPrev")
+        }
+
+    </script>
 </body>
 </html>
