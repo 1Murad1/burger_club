@@ -181,6 +181,7 @@
             .button {
                 width: vw(300) !important;
                 margin: 0 auto vw(10) auto;
+                text-transform: uppercase;
             }
         }
         .text {
@@ -1372,6 +1373,7 @@
                     .left_block {
                         width: 100%;
                         justify-content: space-between;
+                        align-items: center;
                         .picture_one, .picture_two {
                             position: relative;
                             top: auto;
@@ -1395,6 +1397,7 @@
                 flex-direction: column-reverse;
                 .block_right {
                     justify-content: space-between;
+                    align-items: center;
                     //flex-direction: column;
                     img {
                         width: 49%;
@@ -1687,6 +1690,7 @@
                     a {
                         display: flex;
                         justify-content: center;
+                        align-items: center;
                         img {
                             width: 60%;
                             margin-bottom: vwM(15);
