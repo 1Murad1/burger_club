@@ -1,4 +1,5 @@
 @import "_all-page.scss";
+@import "jquery.fancybox.min";
 
 .color {
   color: #FFA400;
@@ -247,6 +248,21 @@
               }
             }
           }
+        }
+      }
+    }
+    .gallery {
+      .container {
+        .top {
+          grid-gap: vwM(10);
+          grid-auto-rows: vwM(50);
+        }
+        .bottom {
+          margin-top: vwM(10);
+          grid-gap: vwM(5);
+        }
+        .button {
+          margin: vwM(10) 0;
         }
       }
     }

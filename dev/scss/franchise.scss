@@ -1,6 +1,7 @@
 @import "_all-page.scss";
 @import "slick";
 @import "slick-theme";
+@import "jquery.fancybox.min";
 
 .popup_form {
     width : 100%;
@@ -852,13 +853,13 @@
                     @for $i from 2 through 8 {
                         &:nth-of-type(#{$i}) {
                             .border_one {
-                                animation-delay: (.3 + $i/5) + s;
+                                animation-delay: (.3 + $i/2) + s;
                                 .border_two {
-                                    animation-delay: (.2 + $i/5) + s;
+                                    animation-delay: (.2 + $i/2) + s;
                                     .border_three {
-                                        animation-delay: (.1 + $i/5) + s;
+                                        animation-delay: (.1 + $i/2) + s;
                                         .bg_number {
-                                            animation-delay: $i/5 + s;
+                                            animation-delay: $i/2 + s;
                                         }
                                     }
                                 }
@@ -1223,72 +1224,6 @@
         }
     }
     #main {
-        .block_slider {
-            .wrapper_slider {
-                width: 100%;
-                .container {
-                    margin: 0 auto;
-                    .nav_slider {
-                        justify-content: space-between;
-                        margin-bottom: vwM(15);
-                        button {
-                            width: vwM(30);
-                            height: vwM(30);
-                            background: #AEAEAE;
-                            border-radius: 50%;
-                            border: none;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            &.active {
-                                background: $osn-col;
-                            }
-                            &.prev {
-                                transform: rotate(180deg);
-                            }
-                            img {
-                                width: 50%;
-                            }
-                        }
-                        .num {
-                            display: flex;
-                            align-items: center;
-                            font-family: "CirceBold";
-                            font-size: vwM(18);
-                            div {
-                                color: #AEAEAE;
-                                &.active {
-                                    color: #000;
-                                }
-                            }
-                            span {
-                                display: flex;
-                                width: vwM(25);
-                                border-bottom: 1px solid #AEAEAE;
-                                margin: 0 vwM(8);
-                            }
-                        }
-                    }
-                    .slick-list {
-                        overflow: hidden;
-                    }
-                    .slide {
-
-                        h3 {
-                            margin-top: vwM(5);
-                            padding-bottom: 0 !important;
-                            margin-bottom: vwM(10) !important;
-                        }
-
-                    }
-                }
-            }
-        }
-
-
-
-
-
         .franchise {
             .container {
                 flex-direction: column-reverse;
@@ -1568,7 +1503,65 @@
             }
         }
         .block_slider {
+            .wrapper_slider {
+                width: 100%;
+                .container {
+                    margin: 0 auto;
+                    .nav_slider {
+                        justify-content: space-between;
+                        margin-bottom: vwM(15);
+                        button {
+                            width: vwM(30);
+                            height: vwM(30);
+                            background: #AEAEAE;
+                            border-radius: 50%;
+                            border: none;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            &.active {
+                                background: $osn-col;
+                            }
+                            &.prev {
+                                transform: rotate(180deg);
+                            }
+                            img {
+                                width: 50%;
+                            }
+                        }
+                        .num {
+                            display: flex;
+                            align-items: center;
+                            font-family: "CirceBold";
+                            font-size: vwM(18);
+                            div {
+                                color: #AEAEAE;
+                                &.active {
+                                    color: #000;
+                                }
+                            }
+                            span {
+                                display: flex;
+                                width: vwM(25);
+                                border-bottom: 1px solid #AEAEAE;
+                                margin: 0 vwM(8);
+                            }
+                        }
+                    }
+                    .slick-list {
+                        overflow: hidden;
+                    }
+                    .slide {
 
+                        h3 {
+                            margin-top: vwM(5);
+                            padding-bottom: 0 !important;
+                            margin-bottom: vwM(10) !important;
+                        }
+
+                    }
+                }
+            }
         }
         .seven_steps_to_discover {
             .container {
@@ -1708,6 +1701,21 @@
                             display: none;
                         }
                     }
+                }
+            }
+        }
+        .gallery {
+            .container {
+                .top {
+                    grid-gap: vwM(10);
+                    grid-auto-rows: vwM(50);
+                }
+                .bottom {
+                    margin-top: vwM(10);
+                    grid-gap: vwM(5);
+                }
+                .button {
+                    margin: vwM(10) 0;
                 }
             }
         }
