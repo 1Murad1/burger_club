@@ -703,8 +703,12 @@
                         align-items: center;
                         justify-content: center;
                         margin: 0 vw(25);
+                        pointer-events: none;
+                        cursor: auto;
                         &.active {
                             background: $osn-col;
+                            pointer-events: auto;
+                            cursor: pointer;
                         }
                         &.prev {
                             transform: rotate(180deg);
@@ -734,9 +738,6 @@
                 }
                 .button {
                     margin: 0 auto;
-                }
-                .slick-list {
-                    overflow: visible;
                 }
                 .slide {
                     display: flex;
@@ -1124,6 +1125,11 @@
 }
 
 @media screen and (max-width:  1023px) {
+    .fancybox-content {
+        width: 95% !important;
+        height: calc(100% - #{vwM(20)}) !important;
+        margin: 0 !important;
+    }
     .popup_form, .popup_form.login {
         z-index : 105;
         padding-top: vwM(7);
@@ -1251,6 +1257,9 @@
                 .left_block {
                     h1 {
                         display: none;
+                    }
+                    p {
+                        font-size: vwM(15) !important;
                     }
                     .button {
                         font-size: vwM(12);
@@ -1560,6 +1569,11 @@
                             margin-top: vwM(5);
                             padding-bottom: 0 !important;
                             margin-bottom: vwM(10) !important;
+                        }
+
+                        p.strong {
+                            white-space: pre-line !important;
+                            text-align: center !important;
                         }
 
                     }
