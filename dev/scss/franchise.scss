@@ -292,10 +292,6 @@
                 }
                 .button {
                     font-family: 'CirceRegular';
-                    color: #000 !important;
-                    &:hover {
-                        color: #fff !important;
-                    }
                 }
             }
             .right_block {
@@ -571,10 +567,6 @@
                     margin: 0 auto;
                     margin-top: vw(40);
                     font-family: 'CirceRegular';
-                    color: #000 !important;
-                    &:hover {
-                        color: #000 !important;
-                    }
                 }
             }
         }
@@ -1003,11 +995,7 @@
                     text-transform: initial;
                 }
                 .button {
-                    color: #000;
                     margin: 0 auto;
-                    &:hover {
-                        color: #000 !important;
-                    }
                 }
                 .arrow_down {
                     position: absolute;
@@ -1078,10 +1066,6 @@
                     }
                     .button {
                         font-family: 'CirceRegular';
-                        color: #000 !important;
-                        &:hover {
-                            color: #fff !important;
-                        }
                     }
                     img {
                         position: absolute;
