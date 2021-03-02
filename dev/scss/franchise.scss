@@ -103,6 +103,7 @@
                 display: flex;
                 flex-direction: column;
                 position: relative;
+                margin-bottom : vw(10);
                 &.textarea {
                     width: 100%;
                 }
@@ -130,7 +131,6 @@
                     border-radius: vw(6);
                     background-color: rgb(255, 255, 255);
                     width: vw(300);
-                    margin-bottom : vw(10);
                     font-size : vw(18);
                     overflow: auto;
                     white-space: normal;
@@ -165,7 +165,7 @@
             }
             .buttonText {
                 position: relative;
-                margin: 0 auto;
+                margin-bottom : vw(10);
                 p {
                     position: absolute;
                     width: 100%;
@@ -180,7 +180,6 @@
             }
             .button {
                 width: vw(300) !important;
-                margin: 0 auto vw(10) auto;
                 text-transform: uppercase;
             }
         }
@@ -771,11 +770,7 @@
                 margin-bottom: vw(60);
             }
             .button {
-                color: #000;
                 margin: 0 auto;
-                &:hover {
-                    color: #fff !important;
-                }
             }
             .wrapper_columns {
                 display: flex;
