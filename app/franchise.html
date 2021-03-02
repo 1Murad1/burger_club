@@ -13,82 +13,56 @@
 </head>
 <body>
     <div id="holder">
-        <header style="display: none;" id="header">
-            <div class="header_head" :class="fixed ? 'fixed' : ''">
+        <header  id="header">
+            <div class="header_nav">
                 <div class="container">
-                    <a href="/" class="logo">
-                        <div class="box">
-                            <img src="img/investments/header/burger.png" alt="burger" />
-                        </div>
-                        <div class="logo_p">
-                            <picture>
-                                <source srcset="img/mobi/investments/header/logo.png" media="(max-width: 575px)">
-                                <img src="img/investments/header/logo.png" alt="default_logo" />
-                            </picture>
-                            <p>Сеть бургерных ресторанов</p>
-                        </div>
-                    </a>
-                    <a href="tel: 0 800 330 500" class="phone">
-                        <div class="box">
-                            <img src="img/investments/header/phone_call.png" alt="phone" />
-                        </div>
-                        <div class="number">
-                            <div class="tel">0 800 330 500</div>
-                            <span>Звонок бесплатный</span>
-                        </div>
-                    </a>
-                    <div class="time">
-                        <div class="box">
-                            <img src="img/investments/header/time_left.png" alt="time" />
-                        </div>
-                        <div class="text">
-                            <p>ДО 60 МИНУТ</p>
-                            <span>С 11 до 22:30</span>
-                        </div>
-                    </div>
-                    <div class="registration">
-                        <a href="#" class="button logIn">Вход на сайт</a>
-                        <div class="UA">
-                            <span>ua</span>
-                        </div>
-                    </div>
-                    <div class="burger_menu">
-                    </div>
+                    <nav class="nav">
+                        <ul class="menu">
+                            <li>
+                                <a href="#about_the_network">О сети</a>
+                            </li>
+                            <li>
+                                <a href="#conditions">Условия</a>
+                            </li>
+                            <li>
+                                <a href="#formats">Форматы</a>
+                            </li>
+                            <li>
+                                <a href="#seven_steps">7 Шагов к открытию </a>
+                            </li>
+                            <li>
+                                <a href="#privilege_parthners">Привилегии партнерам</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="burger_menu"></div>
                 </div>
             </div>
-            <div class="header_nav">
-            </div>
+
         </header>
 
-        <div style="display: none;" class="mobile-menu">
+        <div  class="mobile-menu">
             <div class="container">
-                <div class="registration">
-                    <div class="UA language">
-                        <span>ua</span>
-                    </div>
-                    <a href="#" class="button logIn small">Вход | Регистрация</a>
-                    <div class="close"></div>
-                </div>
-                <div class="footer_menu">
-                    <a href="tel: 0 800 330 500" class="phone">
-                        <div class="box">
-                            <img src="img/investments/header/phone_call.png" alt="phone" />
-                        </div>
-                        <div class="number">
-                            <div class="tel">0 800 330 500</div>
-                            <span>Звонок бесплатный</span>
-                        </div>
-                    </a>
-                    <div class="time">
-                        <div class="box">
-                            <img src="img/investments/header/time_left.png" alt="time" />
-                        </div>
-                        <div class="text">
-                            <p>ДО 60 МИНУТ</p>
-                            <span>С 11 до 22:30</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="close_burger"></div>
+                <nav class="nav">
+                    <ul class="menu">
+                        <li>
+                            <a href="#about_the_network">О сети</a>
+                        </li>
+                        <li>
+                            <a href="#conditions">Условия</a>
+                        </li>
+                        <li>
+                            <a href="#formats">Форматы</a>
+                        </li>
+                        <li>
+                            <a href="#seven_steps">7 Шагов к открытию </a>
+                        </li>
+                        <li>
+                            <a href="#privilege_parthners">Привилегии партнерам</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
         <main id="main">
@@ -135,7 +109,7 @@
                     </div>
                 </div>
             </div>
-            <div class="burger_today">
+            <div class="burger_today" id="about_the_network">
                 <div class="wrapper_block">
                     <div class="container">
                         <h2>ЮДЖИН БУРГЕР СЕГОДНЯ</h2>
@@ -302,7 +276,7 @@
                     </div>
                 </div>
             </div>
-            <div class="fair_term">
+            <div class="fair_term" id="conditions">
                 <div class="container">
                     <h2>СПРАВЕДЛИВЫЕ УСЛОВИЯ</h2>
                     <div class="wrapper_page">
@@ -410,7 +384,7 @@
                     </div>
                 </div>
             </div>
-            <div class="block_slider">
+            <div class="block_slider" id="formats">
                 <div class="wrapper_slider">
                     <div class="container">
                         <h2>ФОРМАТЫ РЕСТОРАНОВ</h2>
@@ -449,13 +423,9 @@
                             <div class="slide">
                                 <img src="img/franchise/3.png" alt="slide 3" />
                                 <h3>Юджин драйв</h3>
-                                <p class="strong">Площадь 120-200 кв. метров
-                                    Инвестиции от 80 000 $
-                                    + Паушальный взнос</p>
-                                <p>Фасадный ресторан отличается от фудкорта
-                                    собственным залом со своей посадкой. Может
-                                    располагаться на 1 этаже в любом здании либо
-                                    быть на фасаде ТРЦ или супермаркета.</p>
+                                <p>Новый, экспериментальный но очень перспективный формат, который мы хотим в будущем внедрить в нашу сеть. Пока на наших собственных ресторанах такого формата еще нет и мы его не протестировали - франшизу с ним особо не афишируем.
+
+                                    Но если у вас потенциально есть помещение как отдельно стоящее здание вблизи дороги и автомобильного трафика - мы готовы на выгодных условиях протестировать вместе с вами наш новый формат: Ресторан + Юджин Драйв</p>
                             </div>
                         </div>
                         <button class="button" @click="popupForm = true">ОТПРАВИТЬ ЗАЯВКУ НА ФРАНШИЗУ</button>
@@ -463,7 +433,7 @@
                 </div>
 
             </div>
-            <div class="seven_steps_to_discover">
+            <div class="seven_steps_to_discover" id="seven_steps">
                 <div class="container">
                     <h2>7 ШАГОВ К ОТКРЫТИЮ ВАШЕГО ЮДЖИНА</h2>
                     <div class="wrapper_columns">
@@ -617,9 +587,8 @@
                             </span>
                                 <img class="video_banner" src="//img.youtube.com/vi/6UBRFq8akdM/sddefault.jpg" alt="banner video">
                             </a>
-                            <p>Официальное открытие 1-й
-                                франшизы Юджин Бургер и 7-го
-                                по счету ресторана сети</p>
+                            <p>Официальное открытие 1-й франшизы
+                                Юджин Бургер и 7-го по счету ресторана сети</p>
                         </div>
                         <div class="item wow fadeInRight">
                             <a data-fancybox href="https://www.youtube.com/watch?v=hHoa2Q7vBwA&feature=youtu.be" class="video">
@@ -628,9 +597,8 @@
                             </span>
                                 <img class="video_banner" src="//img.youtube.com/vi/hHoa2Q7vBwA/sddefault.jpg" alt="banner video">
                             </a>
-                            <p>Официальное открытие 1-го
-                                ресторана сети Юджин Бургер
-                                на Вокзальной в Киеве</p>
+                            <p>Официальное открытие 1-го ресторана сети
+                                Юджин Бургер на Вокзальной в Киеве</p>
                         </div>
                     </div>
                 </div>
@@ -644,7 +612,7 @@
                     </div>
                 </div>
             </div>
-            <div class="exclusive_parthner">
+            <div class="exclusive_parthner" id="privilege_parthners">
                 <div class="container">
                     <h2>СТАВ НАШИМ ПАРТНЕРОМ,
                         ВЫ ЭКСКЛЮЗИВНО ПОЛУЧАЕТЕ
@@ -803,6 +771,32 @@
                 </div>
             </div>
         </main>
+        <footer  id="footer">
+            <div class="footer_nav">
+                <div class="container">
+                    <nav class="nav">
+                        <ul class="menu">
+                            <li>
+                                <a href="#about_the_network">О сети</a>
+                            </li>
+                            <li>
+                                <a href="#conditions">Условия</a>
+                            </li>
+                            <li>
+                                <a href="#formats">Форматы</a>
+                            </li>
+                            <li>
+                                <a href="#seven_steps">7 Шагов к открытию </a>
+                            </li>
+                            <li>
+                                <a href="#privilege_parthners">Привилегии партнерам</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </footer>
         <transition name="fade">
             <div class="popup_form" @click.self="popupForm = false" :class="popupForm ? 'visible' : ''">
                 <div @click.stop="" class="wrapper">
@@ -816,11 +810,11 @@
                             <input required minlength="5" id="name_surname" name="name" type="text" placeholder="Ваше имя и фамилия">
                             <div class="check"></div>
                         </label>
-                        <label for="field_of_activity">
+<!--                        <label for="field_of_activity">
                             <span>Сфера деятельности</span>
                             <input required minlength="5" id="field_of_activity" name="field_of_activity" type="text" placeholder="Сфера деятельности">
                             <div class="check"></div>
-                        </label>
+                        </label>-->
                         <label>
                             <span>Контактный номер</span>
                             <input required pattern="[+380]\d{12}" name="tel" type="tel" placeholder="Контактный номер" value="+380">
@@ -843,10 +837,10 @@
                             <input required minlength="5" id="fb_ins" name="fb_ins" type="text" placeholder="Ссылка на профиль на Facebook / Instagram">
                             <div class="check"></div>
                         </label>
-                        <label class="textarea">
+<!--                        <label class="textarea">
                             <span>Напишите, почему нам должно быть интересно партнерство с вами</span>
                             <textarea name="comment" placeholder="Ваш комментарий к заявке"></textarea>
-                        </label>
+                        </label>-->
                         <div class="buttonText">
                             <button class="button" type="submit">Отправить заявку</button>
                             <p>Ваша 100% конфиденциальность.
@@ -867,6 +861,23 @@
     <script src="js/main.js"></script>
     <script src="/js/slick.min.js"></script>
     <script type="text/javascript">
+        let $page = $('html, body');
+        $('a[href*="#"]').click(function() {
+            $('.mobile-menu').removeClass('active')
+            $page.animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 400);
+            return false;
+        });
+        $('header .burger_menu').click(function () {
+            $('.mobile-menu').addClass('active')
+        });
+
+        $('.mobile-menu .close_burger').click(function () {
+            $('.mobile-menu').removeClass('active')
+        })
+
+
         let slider = $('.slider')
         slider.slick({
             infinite: false,
