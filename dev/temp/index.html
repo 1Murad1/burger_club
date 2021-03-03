@@ -12,16 +12,46 @@
     <script src="js/vue.min.js"></script>
 </head>
 <body>
-    <div id="holder">
-        <header  id="header">
-            <div class="header_nav">
-                <div class="container">
-                    //= include/header_footer_nav.html
-                    <div class="burger_menu"></div>
-                </div>
+    <header  id="header">
+        <div class="header_nav">
+            <div class="container">
+                <a href="/" class="logo">
+                    <div class="box">
+                        <img src="img/investments/header/burger.png" alt="burger" />
+                    </div>
+                    <div class="logo_p">
+                        <picture>
+                            <source srcset="img/mobi/investments/header/logo.png" media="(max-width: 575px)">
+                            <img src="img/investments/header/logo.png" alt="default_logo" />
+                        </picture>
+                        <p>Сеть бургерных ресторанов</p>
+                    </div>
+                </a>
+                <nav class="nav">
+                    <ul class="menu">
+                        <li>
+                            <a href="#about_the_network">О сети</a>
+                        </li>
+                        <li>
+                            <a href="#conditions">Условия</a>
+                        </li>
+                        <li>
+                            <a href="#formats">Форматы</a>
+                        </li>
+                        <li>
+                            <a href="#seven_steps">7 Шагов к открытию </a>
+                        </li>
+                        <li>
+                            <a href="#privilege_parthners">Привилегии партнерам</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="burger_menu"></div>
             </div>
+        </div>
 
-        </header>
+    </header>
+    <div id="holder">
 
         <div  class="mobile-menu">
             <div class="container">
@@ -230,8 +260,8 @@
                                     отдаем франчайзи, чего не делает никто на рынке. Потому что
                                     мы зарабатываем на успехе наших партнеров. В том числе
                                     поэтому у нас никогда не было и не будет цели лишь бы
-                                    напродавать нашу франшизу и забить, потому что тогда мы
-                                    убьем свой бренд. Мы не ищем просто людей с деньгами, мы
+                                    напродавать нашу франшизу и забить, потому что нам
+                                    важна репутация. Мы не ищем просто людей с деньгами, мы
                                     приглашаем к сотрудничеству единомышленников, партнеров,
                                     с кем мы сможем совместно построить успешный бизнес.</p>
                             </div>
@@ -750,10 +780,10 @@
                     <div class="logo">
                         <img src="img/investments/popup/logo.png" alt="logo" />
                     </div>
-                    <form class="form">
+                    <form class="form" @submit.prevent="formSubmit" id="form">
                         <label>
                             <span>Ваше имя и фамилия</span>
-                            <input required minlength="5" id="name_surname" name="name" type="text" placeholder="Ваше имя и фамилия">
+                            <input v-model="form.name" required minlength="5" id="name_surname" name="name" type="text" placeholder="Ваше имя и фамилия">
                             <div class="check"></div>
                         </label>
 <!--                        <label for="field_of_activity">
@@ -763,24 +793,24 @@
                         </label>-->
                         <label>
                             <span>Контактный номер</span>
-                            <input required pattern="[+380]\d{12}" name="tel" type="tel" placeholder="Контактный номер" value="+380">
+                            <input v-model="form.tel" required pattern="[+380]\d{12}" name="tel" type="tel" placeholder="Контактный номер" value="+380">
                             <div class="check"></div>
                         </label>
                         <label>
                             <span>Город/города, в которых
                             хотите открыть ресторан</span>
-                            <input required minlength="5" name="city" type="text" placeholder="Город/города, в которых хотите открыть ресторан">
+                            <input v-model="form.city" required minlength="5" name="city" type="text" placeholder="Город/города, в которых хотите открыть ресторан">
                             <div class="check"></div>
                         </label>
                         <label for="mail">
                             <span>Ваша email для связи</span>
-                            <input required minlength="5" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="mail" name="mail" type="email" placeholder="Ваша email для связи">
+                            <input v-model="form.email" required minlength="5" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="mail" name="email" type="email" placeholder="Ваша email для связи">
                             <div class="check"></div>
                         </label>
                         <label for="fb_ins">
 								<span>Ссылка на профиль на
 									Facebook / Instagram</span>
-                            <input required minlength="5" id="fb_ins" name="fb_ins" type="text" placeholder="Ссылка на профиль на Facebook / Instagram">
+                            <input v-model="form.link" required minlength="5" id="fb_ins" name="fb_ins" type="text" placeholder="Ссылка на профиль на Facebook / Instagram">
                             <div class="check"></div>
                         </label>
 <!--                        <label class="textarea">
@@ -801,9 +831,13 @@
 
 
     <script src="js/jquery.min.js"></script>
+    <script src="js/ajax.min.js"></script>
+    <script src="js/ajax-jquery.min.js"></script>
     <script src="js/jquery.fancybox.min.js"></script>
     <script src="js/wow.js"></script>
     <script src="js/jquery.parallax-scroll.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
     <script src="js/main.js"></script>
     <script src="/js/slick.min.js"></script>
     <script type="text/javascript">
@@ -811,7 +845,7 @@
         $('a[href*="#"]').click(function() {
             $('.mobile-menu').removeClass('active')
             $page.animate({
-                scrollTop: $($.attr(this, 'href')).offset().top
+                scrollTop: $($.attr(this, 'href')).offset().top - $('#header').height()
             }, 400);
             return false;
         });
@@ -846,12 +880,16 @@
                 $('.nav_slider button:first-of-type').addClass('active')
                 $('.nav_slider .num div:last-of-type').removeClass('active')
                 $('.nav_slider .num div:first-of-type').addClass('active')
-            }
-            if (nextSlide === 0) {
+            } else if (nextSlide === 0) {
                 $('.nav_slider button:first-of-type').removeClass('active')
                 $('.nav_slider button:last-of-type').addClass('active')
                 $('.nav_slider .num div:first-of-type').removeClass('active')
                 $('.nav_slider .num div:last-of-type').addClass('active')
+            } else {
+                $('.nav_slider button:last-of-type').addClass('active')
+                $('.nav_slider .num div:last-of-type').addClass('active')
+                $('.nav_slider button:first-of-type').addClass('active')
+                $('.nav_slider .num div:first-of-type').addClass('active')
             }
         });
         function next() {
